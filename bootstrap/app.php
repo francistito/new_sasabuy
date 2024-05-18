@@ -11,7 +11,7 @@
 |
 */
 
-use App\Exceptions\Handler\Handler;
+use Illuminate\Foundation\Exceptions\Handler;
 
 $app = new Illuminate\Foundation\Application(
     $_ENV['APP_BASE_PATH'] ?? dirname(__DIR__)
