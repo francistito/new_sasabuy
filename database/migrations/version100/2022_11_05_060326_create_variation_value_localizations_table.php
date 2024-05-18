@@ -14,7 +14,7 @@ class CreateVariationValueLocalizationsTable extends Migration
     public function up()
     {
         Schema::create('variation_value_localizations', function (Blueprint $table) {
-            $table->id(); 
+                        $table->smallInteger('id');
             $table->integer('variation_value_id');
             $table->string('name');
             $table->text('image')->nullable();

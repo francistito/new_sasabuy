@@ -14,13 +14,13 @@ class CreateBlogsTable extends Migration
     public function up()
     {
         Schema::create('blogs', function (Blueprint $table) {
-            $table->id();
+                        $table->smallInteger('id');
             $table->text('title');
             $table->text('slug');
             $table->integer('blog_category_id');
             $table->longText('short_description')->nullable();
             $table->longText('description')->nullable();
-            $table->text('thumbnail_image')->nullable(); 
+            $table->text('thumbnail_image')->nullable();
             $table->longText('banner')->nullable();
             $table->string('video_provider')->default('youtube')->comment('youtube / vimeo / ...');
             $table->text('video_link')->nullable();

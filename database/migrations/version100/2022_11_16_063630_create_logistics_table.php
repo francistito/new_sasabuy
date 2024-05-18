@@ -14,10 +14,10 @@ class CreateLogisticsTable extends Migration
     public function up()
     {
         Schema::create('logistics', function (Blueprint $table) {
-            $table->id();
+                        $table->smallInteger('id');
             $table->string('name');
             $table->string('slug');
-            $table->text('thumbnail_image')->nullable(); 
+            $table->text('thumbnail_image')->nullable();
             $table->tinyInteger('is_published')->default(0);
             $table->timestamps();
             $table->softDeletes();

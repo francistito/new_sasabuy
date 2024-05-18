@@ -14,9 +14,9 @@ class CreateLogisticZonesTable extends Migration
     public function up()
     {
         Schema::create('logistic_zones', function (Blueprint $table) {
-            $table->id();
-            $table->string('name')->nullable(); 
-            $table->integer('logistic_id'); 
+                        $table->smallInteger('id');
+            $table->string('name')->nullable();
+            $table->integer('logistic_id');
             $table->double('standard_delivery_charge')->default(0.00);
             $table->double('express_delivery_charge')->default(0.00);
             $table->string('standard_delivery_time')->nullable()->comment('1 - 3 days');

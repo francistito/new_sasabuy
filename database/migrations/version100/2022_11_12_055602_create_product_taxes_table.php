@@ -14,13 +14,13 @@ class CreateProductTaxesTable extends Migration
     public function up()
     {
         Schema::create('product_taxes', function (Blueprint $table) {
-            $table->id();
+                        $table->smallInteger('id');
             $table->integer('product_id');
             $table->integer('tax_id');
             $table->double('tax_value')->default(0.00);
             $table->string('tax_type')->default('amount')->comment('flat / percent');
             $table->timestamps();
-            $table->softDeletes(); 
+            $table->softDeletes();
         });
     }
 

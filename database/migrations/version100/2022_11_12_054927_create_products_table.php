@@ -14,7 +14,7 @@ class CreateProductsTable extends Migration
     public function up()
     {
         Schema::create('products', function (Blueprint $table) {
-            $table->id();
+                        $table->smallInteger('id');
             $table->integer('shop_id');
             $table->string('added_by')->default('admin');
             $table->string('name');
@@ -32,7 +32,7 @@ class CreateProductsTable extends Migration
             $table->string('discount_type')->nullable();
             $table->integer('discount_start_date')->nullable();
             $table->integer('discount_end_date')->nullable();
-            $table->integer('sell_target')->nullable(); 
+            $table->integer('sell_target')->nullable();
             $table->integer('stock_qty')->default(0);
             $table->tinyInteger('is_published')->default(0);
             $table->tinyInteger('is_featured')->default(0);
@@ -43,7 +43,7 @@ class CreateProductsTable extends Migration
             $table->double('total_sale_count')->default(0.00);
             $table->integer('standard_delivery_hours')->default(24);
             $table->integer('express_delivery_hours')->default(24);
-            $table->text('size_guide')->nullable(); 
+            $table->text('size_guide')->nullable();
             $table->mediumText('meta_title')->nullable();
             $table->longText('meta_description')->nullable();
             $table->string('meta_img')->nullable();

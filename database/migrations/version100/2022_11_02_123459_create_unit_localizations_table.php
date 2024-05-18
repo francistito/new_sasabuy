@@ -14,10 +14,10 @@ class CreateUnitLocalizationsTable extends Migration
     public function up()
     {
         Schema::create('unit_localizations', function (Blueprint $table) {
-            $table->id();
+                        $table->smallInteger('id');
             $table->integer('unit_id');
-            $table->string('lang_key'); 
-            $table->string('name'); 
+            $table->string('lang_key');
+            $table->string('name');
             $table->timestamps();
             $table->softDeletes();
         });

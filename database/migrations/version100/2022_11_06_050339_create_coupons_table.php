@@ -14,7 +14,7 @@ class CreateCouponsTable extends Migration
     public function up()
     {
         Schema::create('coupons', function (Blueprint $table) {
-            $table->id(); 
+                        $table->smallInteger('id');
             $table->integer('shop_id');
             $table->text('banner')->nullable();
             $table->string('code');
@@ -32,7 +32,7 @@ class CreateCouponsTable extends Migration
             $table->longText('category_ids')->nullable()->comment('Coupon will be applicable only for   categories selected');
             $table->timestamps();
             $table->softDeletes();
-        }); 
+        });
     }
 
     /**

@@ -14,7 +14,7 @@ class CreateContactUsMessagesTable extends Migration
     public function up()
     {
         Schema::create('contact_us_messages', function (Blueprint $table) {
-            $table->id();
+                        $table->smallInteger('id');
             $table->string('name');
             $table->string('email');
             $table->string('phone');

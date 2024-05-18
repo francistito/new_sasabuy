@@ -14,7 +14,7 @@ class CreateVariationValuesTable extends Migration
     public function up()
     {
         Schema::create('variation_values', function (Blueprint $table) {
-            $table->id();
+                        $table->smallInteger('id');
             $table->integer('variation_id');
             $table->string('name');
             $table->tinyInteger('is_active')->default(1);

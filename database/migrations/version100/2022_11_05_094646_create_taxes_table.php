@@ -14,9 +14,9 @@ class CreateTaxesTable extends Migration
     public function up()
     {
         Schema::create('taxes', function (Blueprint $table) {
-            $table->id();
-            $table->string('name'); 
-            $table->tinyInteger('is_active')->default(0); 
+                        $table->smallInteger('id');
+            $table->string('name');
+            $table->tinyInteger('is_active')->default(0);
             $table->timestamps();
         });
     }

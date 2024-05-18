@@ -14,11 +14,11 @@ class CreateCategoryLocalizationsTable extends Migration
     public function up()
     {
         Schema::create('category_localizations', function (Blueprint $table) {
-            $table->id();
+                        $table->smallInteger('id');
             $table->integer('category_id');
-            $table->string('lang_key'); 
+            $table->string('lang_key');
             $table->string('name');
-            $table->text('thumbnail_image')->nullable(); 
+            $table->text('thumbnail_image')->nullable();
             $table->string('meta_title')->nullable();
             $table->text('meta_image')->nullable();
             $table->longText('meta_description')->nullable();

@@ -14,7 +14,7 @@ class CreateCategoryBrandsTable extends Migration
     public function up()
     {
         Schema::create('category_brands', function (Blueprint $table) {
-            $table->id();
+                        $table->smallInteger('id');
             $table->integer('category_id');
             $table->integer('brand_id');
             $table->timestamps();

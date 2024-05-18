@@ -14,7 +14,7 @@ class CreatePageLocalizationsTable extends Migration
     public function up()
     {
         Schema::create('page_localizations', function (Blueprint $table) {
-            $table->id();
+                        $table->smallInteger('id');
             $table->integer('page_id');
             $table->string('title');
             $table->longText('content')->nullable();

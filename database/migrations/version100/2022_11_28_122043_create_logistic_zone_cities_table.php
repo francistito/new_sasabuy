@@ -14,7 +14,7 @@ class CreateLogisticZoneCitiesTable extends Migration
     public function up()
     {
         Schema::create('logistic_zone_cities', function (Blueprint $table) {
-            $table->id();
+                        $table->smallInteger('id');
             $table->integer('logistic_id');
             $table->integer('logistic_zone_id');
             $table->integer('city_id');

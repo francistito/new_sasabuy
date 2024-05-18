@@ -14,7 +14,7 @@ class CreateOrderItemsTable extends Migration
     public function up()
     {
         Schema::create('order_items', function (Blueprint $table) {
-            $table->id();
+                        $table->smallInteger('id');
             $table->integer('order_id');
             $table->integer('product_variation_id');
             $table->integer('qty')->default(1);
