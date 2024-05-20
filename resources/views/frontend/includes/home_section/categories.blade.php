@@ -10,7 +10,7 @@
                 <!-- Links -->
                 <div class="d-flex">
                     <a class="text-blue fs-10 fs-md-12 fw-700 hov-text-primary animate-underline-primary"
-                       href="https://demo.activeitzone.com/ecommerce/categories">View All Categories</a>
+                       href="{{url('/')}}">View All Categories</a>
                 </div>
             </div>
         </div>
@@ -30,7 +30,7 @@
                             <div class="px-2 px-lg-4">
                                 <h6 class="text-dark mb-0 text-truncate-2">
                                     <a class="text-reset fw-700 fs-14 hov-text-primary"
-                                       href="https://demo.activeitzone.com/ecommerce/category/women-clothing-fashion"
+                                       href="{{url('/')}}"
                                        title="Women Clothing &amp; Fashion">
                                         {{$category->name}}
                                     </a>
@@ -38,7 +38,7 @@
                                 @foreach(\App\Models\Category::where('parent_id',$category->id)->get() as $child)
 
                                     <p class="mb-0 mt-3">
-                                        <a href="https://demo.activeitzone.com/ecommerce/category/Hot-Categories" class="fs-13 fw-300 text-reset hov-text-primary animate-underline-primary">
+                                        <a href="{{url('/')}}" class="fs-13 fw-300 text-reset hov-text-primary animate-underline-primary">
                                             {{$child->name}}
                                         </a>
                                     </p>
