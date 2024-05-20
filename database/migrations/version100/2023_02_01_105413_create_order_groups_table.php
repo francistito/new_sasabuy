@@ -14,7 +14,8 @@ class CreateOrderGroupsTable extends Migration
     public function up()
     {
         Schema::create('order_groups', function (Blueprint $table) {
-                        $table->smallInteger('id');
+                                    $table->smallIncrements('id');
+
             $table->integer('user_id')->nullable();
             $table->integer('guest_user_id')->nullable();
             $table->bigInteger('order_code');

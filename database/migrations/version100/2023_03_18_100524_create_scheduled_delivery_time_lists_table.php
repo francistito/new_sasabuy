@@ -14,7 +14,8 @@ class CreateScheduledDeliveryTimeListsTable extends Migration
     public function up()
     {
         Schema::create('scheduled_delivery_time_lists', function (Blueprint $table) {
-                        $table->smallInteger('id');
+                                    $table->smallIncrements('id');
+
             $table->text('timeline');
             $table->integer('sorting_order')->default(0);
             $table->timestamps();

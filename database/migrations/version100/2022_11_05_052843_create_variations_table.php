@@ -14,7 +14,8 @@ class CreateVariationsTable extends Migration
     public function up()
     {
         Schema::create('variations', function (Blueprint $table) {
-                        $table->smallInteger('id');
+                                    $table->smallIncrements('id');
+
             $table->string('name');
             $table->tinyInteger('is_active')->default(1);
             $table->timestamps();

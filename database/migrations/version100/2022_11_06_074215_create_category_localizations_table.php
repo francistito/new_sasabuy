@@ -14,7 +14,8 @@ class CreateCategoryLocalizationsTable extends Migration
     public function up()
     {
         Schema::create('category_localizations', function (Blueprint $table) {
-                        $table->smallInteger('id');
+                                    $table->smallIncrements('id');
+
             $table->integer('category_id');
             $table->string('lang_key');
             $table->string('name');

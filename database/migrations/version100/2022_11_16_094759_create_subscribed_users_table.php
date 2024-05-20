@@ -14,7 +14,8 @@ class CreateSubscribedUsersTable extends Migration
     public function up()
     {
         Schema::create('subscribed_users', function (Blueprint $table) {
-                        $table->smallInteger('id');
+                                    $table->smallIncrements('id');
+
             $table->string('email');
             $table->timestamps();
             $table->softDeletes();

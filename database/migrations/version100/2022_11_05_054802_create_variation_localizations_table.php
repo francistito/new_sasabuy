@@ -14,7 +14,8 @@ class CreateVariationLocalizationsTable extends Migration
     public function up()
     {
         Schema::create('variation_localizations', function (Blueprint $table) {
-                        $table->smallInteger('id');
+                                    $table->smallIncrements('id');
+
             $table->integer('variation_id');
             $table->string('name');
             $table->string('lang_key');

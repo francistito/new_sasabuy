@@ -14,7 +14,8 @@ class CreateShopsTable extends Migration
     public function up()
     {
         Schema::create('shops', function (Blueprint $table) {
-                        $table->smallInteger('id');
+                                    $table->smallIncrements('id');
+
             $table->integer('user_id');
             $table->tinyInteger('is_approved')->default(0);
             $table->tinyInteger('is_verified_by_admin')->default(0);

@@ -14,7 +14,8 @@ class CreateProductTaxesTable extends Migration
     public function up()
     {
         Schema::create('product_taxes', function (Blueprint $table) {
-                        $table->smallInteger('id');
+                                    $table->smallIncrements('id');
+
             $table->integer('product_id');
             $table->integer('tax_id');
             $table->double('tax_value')->default(0.00);

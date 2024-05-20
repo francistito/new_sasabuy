@@ -14,7 +14,8 @@ class CreateBrandLocalizationsTable extends Migration
     public function up()
     {
         Schema::create('brand_localizations', function (Blueprint $table) {
-                        $table->smallInteger('id');
+                                    $table->smallIncrements('id');
+
             $table->integer('brand_id');
             $table->string('lang_key');
             $table->string('name');

@@ -14,7 +14,8 @@ class CreateProductLocalizationsTable extends Migration
     public function up()
     {
         Schema::create('product_localizations', function (Blueprint $table) {
-                        $table->smallInteger('id');
+                                    $table->smallIncrements('id');
+
             $table->integer('product_id');
             $table->string('name')->nullable();
             $table->text('short_description')->nullable();

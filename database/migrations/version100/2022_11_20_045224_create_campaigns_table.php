@@ -14,7 +14,8 @@ class CreateCampaignsTable extends Migration
     public function up()
     {
         Schema::create('campaigns', function (Blueprint $table) {
-                        $table->smallInteger('id');
+                                    $table->smallIncrements('id');
+
             $table->string('title');
             $table->string('slug')->nullable();
             $table->text('banner')->nullable();

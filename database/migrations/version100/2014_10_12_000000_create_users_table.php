@@ -14,7 +14,8 @@ class CreateUsersTable extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->smallInteger('id');
+                        $table->smallIncrements('id');
+
             $table->integer('role_id')->nullable();
             $table->string('user_type')->default('customer');
             $table->string('name');
@@ -26,11 +27,11 @@ class CreateUsersTable extends Migration
             $table->string('password')->nullable();
             $table->string('remember_token')->nullable();
             $table->string('provider_id')->nullable();
-            $table->string('avatar')->nullable(); 
+            $table->string('avatar')->nullable();
             $table->string('postal_code')->nullable();
             $table->double('user_balance')->default('0');
             $table->tinyInteger('is_banned')->default(0);
-            $table->integer('shop_id')->nullable(); 
+            $table->integer('shop_id')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->timestamps();
             $table->softDeletes();

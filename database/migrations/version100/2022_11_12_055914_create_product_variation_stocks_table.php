@@ -14,7 +14,8 @@ class CreateProductVariationStocksTable extends Migration
     public function up()
     {
         Schema::create('product_variation_stocks', function (Blueprint $table) {
-                        $table->smallInteger('id');
+                                    $table->smallIncrements('id');
+
             $table->integer('product_variation_id');
             $table->integer('location_id')->nullable()->comment('warehouse/location');
             $table->integer('stock_qty');

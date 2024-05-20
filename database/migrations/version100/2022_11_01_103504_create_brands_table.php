@@ -14,7 +14,8 @@ class CreateBrandsTable extends Migration
     public function up()
     {
         Schema::create('brands', function (Blueprint $table) {
-                        $table->smallInteger('id');
+                                    $table->smallIncrements('id');
+
             $table->string('name');
             $table->string('slug');
             $table->text('brand_image')->nullable();

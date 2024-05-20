@@ -14,7 +14,8 @@ class CreateCampaignProductsTable extends Migration
     public function up()
     {
         Schema::create('campaign_products', function (Blueprint $table) {
-                        $table->smallInteger('id');
+                                    $table->smallIncrements('id');
+
             $table->integer('campaign_id');
             $table->integer('product_id');
             $table->timestamps();

@@ -14,7 +14,8 @@ class CreateBlogLocalizationsTable extends Migration
     public function up()
     {
         Schema::create('blog_localizations', function (Blueprint $table) {
-                        $table->smallInteger('id');
+                                    $table->smallIncrements('id');
+
             $table->integer('blog_id');
             $table->text('title');
             $table->longText('short_description')->nullable();

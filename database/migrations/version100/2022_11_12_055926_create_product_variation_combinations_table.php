@@ -14,7 +14,8 @@ class CreateProductVariationCombinationsTable extends Migration
     public function up()
     {
         Schema::create('product_variation_combinations', function (Blueprint $table) {
-                        $table->smallInteger('id');
+                                    $table->smallIncrements('id');
+
             $table->integer('product_id');
             $table->integer('product_variation_id');
             $table->integer('variation_id');

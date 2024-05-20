@@ -14,7 +14,8 @@ class CreateLogisticsTable extends Migration
     public function up()
     {
         Schema::create('logistics', function (Blueprint $table) {
-                        $table->smallInteger('id');
+                                    $table->smallIncrements('id');
+
             $table->string('name');
             $table->string('slug');
             $table->text('thumbnail_image')->nullable();

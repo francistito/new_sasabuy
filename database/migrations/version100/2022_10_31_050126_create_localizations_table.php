@@ -14,7 +14,8 @@ class CreateLocalizationsTable extends Migration
     public function up()
     {
         Schema::create('localizations', function (Blueprint $table) {
-                        $table->smallInteger('id');
+                                    $table->smallIncrements('id');
+
             $table->string('lang_key');
             $table->longText('t_key');
             $table->longText('t_value');

@@ -14,7 +14,8 @@ class CreateOrderUpdatesTable extends Migration
     public function up()
     {
         Schema::create('order_updates', function (Blueprint $table) {
-                        $table->smallInteger('id');
+                                    $table->smallIncrements('id');
+
             $table->integer('order_id');
             $table->integer('user_id');
             $table->text('note');

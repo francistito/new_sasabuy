@@ -14,7 +14,8 @@ class CreateSystemSettingsTable extends Migration
     public function up()
     {
         Schema::create('system_settings', function (Blueprint $table) {
-                        $table->smallInteger('id');
+                                    $table->smallIncrements('id');
+
             $table->string('entity');
             $table->longText('value')->nullable();
             $table->timestamps();
