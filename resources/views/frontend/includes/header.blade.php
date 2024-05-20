@@ -21,7 +21,7 @@
                 <div class="col-auto pl-0 pr-3 d-flex align-items-center">
                     <a class="d-block py-20px mr-3 ml-0" href="{{url('/')}}">
                         <img
-                            src="https://demo.activeitzone.com/ecommerce/public/uploads/all/9HqWWq2GdVeMm2UKONxeNB4Yyffn7r8MuMoe37RR.svg"
+                            src="{{asset('assets/img/sasab.png')}}"
                             alt="Active eCommerce CMS"
                             class="mw-100 h-30px h-md-40px" height="40">
                     </a>
