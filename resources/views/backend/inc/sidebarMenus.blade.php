@@ -30,8 +30,7 @@
                     <li
                         class="{{ areActiveRoutes(
                                 ['variations.index', 'variations.edit', 'variationValues.index', 'variationValues.edit'],
-                                'tt-menu-item-active',
-                            ) }}">
+                                'tt-menu-item-active'  ) }}">
                         <a href="{{ route('variations.index') }}"
                            class="{{ areActiveRoutes([
                                     'variations.index',
@@ -356,7 +355,7 @@
                         <li
                             class="{{ areActiveRoutes(
                                 ['languages.index', 'languages.edit', 'languages.localizations'],
-                                'tt-menu-item-active',
+                                'tt-menu-item-active'
                             ) }}">
                             <a href="{{ route('languages.index') }}"
                                 class="{{ areActiveRoutes(['languages.index', 'languages.edit', 'languages.localizations']) }}">{{  ('Multilingual Settings') }}</a>
@@ -367,7 +366,7 @@
                         <li
                             class="{{ areActiveRoutes(
                                 ['currencies.index', 'currencies.edit', 'currencies.localizations'],
-                                'tt-menu-item-active',
+                                'tt-menu-item-active'
                             ) }}">
                             <a href="{{ route('currencies.index') }}"
                                 class="{{ areActiveRoutes(['currencies.index', 'currencies.edit', 'currencies.localizations']) }}">{{  ('Multi Currency Settings') }}</a>
