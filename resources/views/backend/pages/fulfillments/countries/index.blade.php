@@ -1,7 +1,7 @@
 @extends('backend.layouts.master')
 
 @section('title')
-    {{ localize('Shipping Countries') }} {{ getSetting('title_separator') }} {{ getSetting('system_title') }}
+    {{  ('Shipping Countries') }} {{ getSetting('title_separator') }} {{ getSetting('system_title') }}
 @endsection
 
 @section('contents')
@@ -14,7 +14,7 @@
                             <div class="row justify-content-between align-items-center g-3">
                                 <div class="col-auto flex-grow-1">
                                     <div class="tt-page-title">
-                                        <h2 class="h5 mb-0">{{ localize('Shipping Countries') }}</h2>
+                                        <h2 class="h5 mb-0">{{  ('Shipping Countries') }}</h2>
                                     </div>
                                 </div>
                                 <div class="col-auto">
@@ -38,7 +38,7 @@
                                                 <span class="position-absolute top-50 start-0 translate-middle-y ms-2">
                                                     <i data-feather="search"></i></span>
                                                 <input class="form-control rounded-start w-100" type="text"
-                                                    id="search" name="search" placeholder="{{ localize('Search') }}"
+                                                    id="search" name="search" placeholder="{{  ('Search') }}"
                                                     @isset($searchKey)
                         value="{{ $searchKey }}"
                     @endisset>
@@ -49,7 +49,7 @@
                                     <div class="col-auto">
                                         <button type="submit" class="btn btn-secondary">
                                             <i data-feather="search" width="18"></i>
-                                            {{ localize('Search') }}
+                                            {{  ('Search') }}
                                         </button>
                                     </div>
                                 </div>
@@ -59,10 +59,10 @@
                         <table class="table tt-footable border-top" data-use-parent-width="true">
                             <thead>
                                 <tr>
-                                    <th class="text-center">{{ localize('S/L') }}</th>
-                                    <th>{{ localize('Name') }}</th>
-                                    <th>{{ localize('Code') }}</th>
-                                    <th data-breakpoints="xs sm" class="text-end">{{ localize('Active') }}</th>
+                                    <th class="text-center">{{  ('S/L') }}</th>
+                                    <th>{{  ('Name') }}</th>
+                                    <th>{{  ('Code') }}</th>
+                                    <th data-breakpoints="xs sm" class="text-end">{{  ('Active') }}</th>
 
                                 </tr>
                             </thead>
@@ -97,10 +97,10 @@
                         </table>
                         <!--pagination start-->
                         <div class="d-flex align-items-center justify-content-between px-4 pb-4">
-                            <span>{{ localize('Showing') }}
+                            <span>{{  ('Showing') }}
                                 {{ $countries->firstItem() }}-{{ $countries->lastItem() }}
-                                {{ localize('of') }}
-                                {{ $countries->total() }} {{ localize('results') }}</span>
+                                {{  ('of') }}
+                                {{ $countries->total() }} {{  ('results') }}</span>
                             <nav>
                                 {{ $countries->appends(request()->input())->links() }}
                             </nav>
@@ -133,7 +133,7 @@
                     if (data == 1) {
                         location.reload();
                     } else {
-                        notifyMe('danger', '{{ localize('Something went wrong') }}');
+                        notifyMe('danger', '{{  ('Something went wrong') }}');
                     }
                 });
         }

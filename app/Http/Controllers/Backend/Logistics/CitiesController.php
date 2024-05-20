@@ -53,7 +53,7 @@ class CitiesController extends Controller
         $city->state_id    = $request->state_id;
         $city->is_active   = 1;
         $city->save();
-        flash(localize('City has been inserted successfully'))->success();
+        flash( ('City has been inserted successfully'))->success();
         return redirect()->route('admin.cities.index');
     }
 
@@ -65,24 +65,24 @@ class CitiesController extends Controller
         return view('backend.pages.fulfillments.cities.edit', compact('states', 'city'));
     }
 
-    # update State  
+    # update State
     public function update(Request $request)
     {
         $city = City::findOrFail((int) $request->id);
         $city->name        = $request->name;
         $city->state_id    = $request->state_id;
         $city->save();
-        flash(localize('City has been updated successfully'))->success();
+        flash( ('City has been updated successfully'))->success();
         return back();
     }
 
-    # update status 
+    # update status
     public function updateStatus(Request $request)
     {
         $city = City::findOrFail($request->id);
         $city->is_active = $request->is_active;
         $city->save();
-        flash(localize('Status updated successfully'))->success();
+        flash( ('Status updated successfully'))->success();
         return 1;
     }
 }

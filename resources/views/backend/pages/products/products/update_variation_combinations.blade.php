@@ -3,20 +3,20 @@
         <thead>
             <tr>
                 <th>
-                    <label for="" class="control-label">{{ localize('Variation') }}</label>
+                    <label for="" class="control-label">{{  ('Variation') }}</label>
                 </th>
                 <th data-breakpoints="xs sm">
-                    <label for="" class="control-label">{{ localize('Price') }}</label>
+                    <label for="" class="control-label">{{  ('Price') }}</label>
                 </th>
                 <th data-breakpoints="xs sm">
-                    <label for="" class="control-label">{{ localize('Stock') }} <small
-                            class="text-warning">({{ localize('Default Location') }})</small></label>
+                    <label for="" class="control-label">{{  ('Stock') }} <small
+                            class="text-warning">({{  ('Default Location') }})</small></label>
                 </th>
                 <th data-breakpoints="xs sm">
-                    <label for="" class="control-label">{{ localize('SKU') }}</label>
+                    <label for="" class="control-label">{{  ('SKU') }}</label>
                 </th>
                 <th data-breakpoints="xs sm">
-                    <label for="" class="control-label">{{ localize('Code') }}</label>
+                    <label for="" class="control-label">{{  ('Code') }}</label>
                 </th>
             </tr>
         </thead>
@@ -27,15 +27,15 @@
                     $name = '';
                     $code_array = array_filter(explode('/', $variation->variation_key));
                     $lstKey = array_key_last($code_array);
-                    
+
                     foreach ($code_array as $key2 => $comb) {
                         $comb = explode(':', $comb);
-                    
+
                         $option_name = \App\Models\Variation::find($comb[0])->collectLocalization('name');
                         $choice_name = \App\Models\VariationValue::find($comb[1])->collectLocalization('name');
-                    
+
                         $name .= $choice_name;
-                    
+
                         if ($lstKey != $key2) {
                             $name .= '-';
                         }

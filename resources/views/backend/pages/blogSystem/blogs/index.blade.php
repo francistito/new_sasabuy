@@ -1,7 +1,7 @@
 @extends('backend.layouts.master')
 
 @section('title')
-    {{ localize('Blogs') }} {{ getSetting('title_separator') }} {{ getSetting('system_title') }}
+    {{  ('Blogs') }} {{ getSetting('title_separator') }} {{ getSetting('system_title') }}
 @endsection
 
 @section('contents')
@@ -12,12 +12,12 @@
                     <div class="card tt-page-header">
                         <div class="card-body d-lg-flex align-items-center justify-content-lg-between">
                             <div class="tt-page-title">
-                                <h2 class="h5 mb-lg-0">{{ localize('Blogs') }}</h2>
+                                <h2 class="h5 mb-lg-0">{{  ('Blogs') }}</h2>
                             </div>
                             <div class="tt-action">
                                 @can('add_blogs')
                                     <a href="{{ route('admin.blogs.create') }}" class="btn btn-primary"><i
-                                            data-feather="plus"></i> {{ localize('Add Blog') }}</a>
+                                            data-feather="plus"></i> {{  ('Add Blog') }}</a>
                                 @endcan
                             </div>
                         </div>
@@ -37,7 +37,7 @@
                                                 <span class="position-absolute top-50 start-0 translate-middle-y ms-2"> <i
                                                         data-feather="search"></i></span>
                                                 <input class="form-control rounded-start w-100" type="text"
-                                                    id="search" name="search" placeholder="{{ localize('Search') }}"
+                                                    id="search" name="search" placeholder="{{  ('Search') }}"
                                                     @isset($searchKey)
                                                 value="{{ $searchKey }}"
                                             @endisset>
@@ -48,24 +48,24 @@
                                         <div class="input-group">
                                             <select class="form-select select2" name="is_published"
                                                 data-minimum-results-for-search="Infinity">
-                                                <option value="">{{ localize('Select status') }}</option>
+                                                <option value="">{{  ('Select status') }}</option>
                                                 <option value="1"
                                                     @isset($is_published)
                                                      @if ($is_published == 1) selected @endif
                                                     @endisset>
-                                                    {{ localize('Active') }}</option>
+                                                    {{  ('Active') }}</option>
                                                 <option value="0"
                                                     @isset($is_published)
                                                      @if ($is_published == 0) selected @endif
                                                     @endisset>
-                                                    {{ localize('Hidden') }}</option>
+                                                    {{  ('Hidden') }}</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-auto">
                                         <button type="submit" class="btn btn-secondary">
                                             <i data-feather="search" width="18"></i>
-                                            {{ localize('Search') }}
+                                            {{  ('Search') }}
                                         </button>
                                     </div>
                                 </div>
@@ -75,12 +75,12 @@
                         <table class="table tt-footable border-top" data-use-parent-width="true">
                             <thead>
                                 <tr>
-                                    <th class="text-center">{{ localize('S/L') }}</th>
-                                    <th>{{ localize('Title') }}</th>
-                                    <th data-breakpoints="xs sm">{{ localize('Category') }}</th>
-                                    <th data-breakpoints="xs sm md">{{ localize('Tags') }}</th>
-                                    <th data-breakpoints="xs sm">{{ localize('Active') }}</th>
-                                    <th data-breakpoints="xs sm" class="text-end">{{ localize('Action') }}
+                                    <th class="text-center">{{  ('S/L') }}</th>
+                                    <th>{{  ('Title') }}</th>
+                                    <th data-breakpoints="xs sm">{{  ('Category') }}</th>
+                                    <th data-breakpoints="xs sm md">{{  ('Tags') }}</th>
+                                    <th data-breakpoints="xs sm">{{  ('Active') }}</th>
+                                    <th data-breakpoints="xs sm" class="text-end">{{  ('Action') }}
                                     </th>
                                 </tr>
                             </thead>
@@ -108,7 +108,7 @@
                                                     class="badge bg-secondary  rounded-pill">{{ $blog->blog_category->name }}
                                                 </span>
                                             @else
-                                                {{ localize('n/a') }}
+                                                {{  ('n/a') }}
                                             @endif
                                         </td>
 
@@ -116,7 +116,7 @@
                                             @forelse ($blog->tags as $tag)
                                                 <span class="badge bg-secondary rounded-pill">{{ $tag->name }}</span>
                                             @empty
-                                                {{ localize('n/a') }}
+                                                {{  ('n/a') }}
                                             @endforelse
                                         </td>
 
@@ -141,22 +141,22 @@
 
                                                     @can('edit_blogs')
                                                         <a class="dropdown-item"
-                                                            href="{{ route('admin.blogs.edit', ['id' => $blog->id, 'lang_key' => env('DEFAULT_LANGUAGE')]) }}&localize">
-                                                            <i data-feather="edit-3" class="me-2"></i>{{ localize('Edit') }}
+                                                            href="{{ route('admin.blogs.edit', ['id' => $blog->id, 'lang_key' => env('DEFAULT_LANGUAGE')]) }}& ">
+                                                            <i data-feather="edit-3" class="me-2"></i>{{  ('Edit') }}
                                                         </a>
                                                     @endcan
 
                                                     <a class="dropdown-item"
                                                         href="{{ route('home.blogs.show', $blog->slug) }}" target="_blank">
-                                                        <i data-feather="eye" class="me-2"></i>{{ localize('View') }}
+                                                        <i data-feather="eye" class="me-2"></i>{{  ('View') }}
                                                     </a>
 
                                                     @can('delete_blogs')
                                                         <a href="#" class="dropdown-item confirm-delete"
                                                             data-href="{{ route('admin.blogs.delete', $blog->id) }}"
-                                                            title="{{ localize('Delete') }}">
+                                                            title="{{  ('Delete') }}">
                                                             <i data-feather="trash-2" class="me-2"></i>
-                                                            {{ localize('Delete') }}
+                                                            {{  ('Delete') }}
                                                         </a>
                                                     @endcan
                                                 </div>
@@ -168,9 +168,9 @@
                         </table>
                         <!--pagination start-->
                         <div class="d-flex align-items-center justify-content-between px-4 pb-4">
-                            <span>{{ localize('Showing') }}
-                                {{ $blogs->firstItem() }}-{{ $blogs->lastItem() }} {{ localize('of') }}
-                                {{ $blogs->total() }} {{ localize('results') }}</span>
+                            <span>{{  ('Showing') }}
+                                {{ $blogs->firstItem() }}-{{ $blogs->lastItem() }} {{  ('of') }}
+                                {{ $blogs->total() }} {{  ('results') }}</span>
                             <nav>
                                 {{ $blogs->appends(request()->input())->links() }}
                             </nav>
@@ -200,9 +200,9 @@
                 },
                 function(data) {
                     if (data == 1) {
-                        notifyMe('success', '{{ localize('Status updated successfully') }}');
+                        notifyMe('success', '{{  ('Status updated successfully') }}');
                     } else {
-                        notifyMe('danger', '{{ localize('Something went wrong') }}');
+                        notifyMe('danger', '{{  ('Something went wrong') }}');
                     }
                 });
         }
@@ -220,9 +220,9 @@
                 },
                 function(data) {
                     if (data == 1) {
-                        notifyMe('success', '{{ localize('Status updated successfully') }}');
+                        notifyMe('success', '{{  ('Status updated successfully') }}');
                     } else {
-                        notifyMe('danger', '{{ localize('Something went wrong') }}');
+                        notifyMe('danger', '{{  ('Something went wrong') }}');
                     }
                 });
         }

@@ -80,7 +80,7 @@ class ClientFeedbackController extends Controller
             $clientFeedback->save();
         }
         cacheClear();
-        flash(localize('Feedback added successfully'))->success();
+        flash( ('Feedback added successfully'))->success();
         return back();
     }
 
@@ -114,7 +114,7 @@ class ClientFeedbackController extends Controller
         $clientFeedback->value = json_encode($tempFeedback);
         $clientFeedback->save();
         cacheClear();
-        flash(localize('Feedback updated successfully'))->success();
+        flash( ('Feedback updated successfully'))->success();
         return redirect()->route('admin.appearance.homepage.clientFeedback');
     }
 
@@ -136,7 +136,7 @@ class ClientFeedbackController extends Controller
         $clientFeedback->save();
 
         cacheClear();
-        flash(localize('Feedback deleted successfully'))->success();
+        flash( ('Feedback deleted successfully'))->success();
         return redirect()->route('admin.appearance.homepage.clientFeedback');
     }
 }

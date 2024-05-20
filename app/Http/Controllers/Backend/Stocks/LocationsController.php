@@ -64,7 +64,7 @@ class LocationsController extends Controller
             $location->is_default = 1;
         }
         $location->save();
-        flash(localize('Location has been added successfully'))->success();
+        flash( ('Location has been added successfully'))->success();
         return redirect()->route('admin.locations.index');
     }
 
@@ -84,7 +84,7 @@ class LocationsController extends Controller
         $location->address = $request->address;
         $location->banner = $request->image;
         $location->save();
-        flash(localize('Location has been updated successfully'))->success();
+        flash( ('Location has been updated successfully'))->success();
         return redirect()->route('admin.locations.index');
     }
 

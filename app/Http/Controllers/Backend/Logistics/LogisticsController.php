@@ -49,7 +49,7 @@ class LogisticsController extends Controller
         }
 
         $logistic->save();
-        flash(localize('Logistic has been inserted successfully'))->success();
+        flash( ('Logistic has been inserted successfully'))->success();
         return redirect()->route('admin.logistics.index');
     }
 
@@ -74,11 +74,11 @@ class LogisticsController extends Controller
         }
 
         $logistic->save();
-        flash(localize('Logistic has been updated successfully'))->success();
+        flash( ('Logistic has been updated successfully'))->success();
         return back();
     }
 
-    # update status 
+    # update status
     public function updateStatus(Request $request)
     {
         $blog = Logistic::findOrFail($request->id);
@@ -96,7 +96,7 @@ class LogisticsController extends Controller
         LogisticZone::where('logistic_id', $logistic->id)->delete();
         LogisticZoneCity::where('logistic_id', $logistic->id)->delete();
         $logistic->delete();
-        flash(localize('Logistic has been deleted successfully'))->success();
+        flash( ('Logistic has been deleted successfully'))->success();
         return back();
     }
 }

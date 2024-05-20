@@ -56,7 +56,7 @@ class CouponsController extends Controller
             $date_var = [date("d-m-Y"), date("d-m-Y")];
         }
         if (Coupon::where('code', $request->code)->where('shop_id', Auth::user()->shop_id)->count() > 0) {
-            flash(localize('Coupon already exist for this coupon code'))->error();
+            flash( ('Coupon already exist for this coupon code'))->error();
             return back();
         }
 
@@ -92,7 +92,7 @@ class CouponsController extends Controller
 
         $coupon->save();
 
-        flash(localize('Coupon has been saved successfully'))->success();
+        flash( ('Coupon has been saved successfully'))->success();
         return redirect()->route('admin.coupons.index');
     }
 
@@ -118,7 +118,7 @@ class CouponsController extends Controller
         }
 
         if (Coupon::where('id', '!=', $request->id)->where('code', $request->code)->where('shop_id', Auth::user()->shop_id)->count() > 0) {
-            flash(localize('Coupon already exist for this coupon code'))->error();
+            flash( ('Coupon already exist for this coupon code'))->error();
             return back();
         }
 
@@ -152,7 +152,7 @@ class CouponsController extends Controller
 
         $coupon->save();
 
-        flash(localize('Coupon has been updated successfully'))->success();
+        flash( ('Coupon has been updated successfully'))->success();
         return back();
     }
 
@@ -162,7 +162,7 @@ class CouponsController extends Controller
     {
         $coupon = Coupon::findOrFail($id);
         $coupon->delete();
-        flash(localize('Coupon has been deleted successfully'))->success();
+        flash( ('Coupon has been deleted successfully'))->success();
         return back();
     }
 }

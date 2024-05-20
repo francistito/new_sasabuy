@@ -1,7 +1,7 @@
 @extends('backend.layouts.master')
 
 @section('title')
-    {{ localize('About Us Configuration') }} {{ getSetting('title_separator') }} {{ getSetting('system_title') }}
+    {{  ('About Us Configuration') }} {{ getSetting('title_separator') }} {{ getSetting('system_title') }}
 @endsection
 
 @section('contents')
@@ -12,7 +12,7 @@
                     <div class="card tt-page-header">
                         <div class="card-body d-lg-flex align-items-center justify-content-lg-between">
                             <div class="tt-page-title">
-                                <h2 class="h5 mb-lg-0">{{ localize('Why Choose Us Section') }}</h2>
+                                <h2 class="h5 mb-lg-0">{{  ('Why Choose Us Section') }}</h2>
                             </div>
                         </div>
                     </div>
@@ -27,40 +27,40 @@
                         <!--about intro info start-->
                         <div class="card mb-4">
                             <div class="card-body">
-                                <h5 class="mb-4">{{ localize('General Information') }}</h5>
+                                <h5 class="mb-4">{{  ('General Information') }}</h5>
 
                                 <div class="mb-3">
                                     <label for="about_why_choose_sub_title"
-                                        class="form-label">{{ localize('Sub Title') }}</label>
+                                        class="form-label">{{  ('Sub Title') }}</label>
                                     <input type="hidden" name="types[]" value="about_why_choose_sub_title">
                                     <input type="text" name="about_why_choose_sub_title" id="about_why_choose_sub_title"
-                                        placeholder="{{ localize('Type sub title') }}" class="form-control"
+                                        placeholder="{{  ('Type sub title') }}" class="form-control"
                                         value="{{ getSetting('about_why_choose_sub_title') }}">
                                 </div>
 
 
                                 <div class="mb-3">
-                                    <label for="about_why_choose_title" class="form-label">{{ localize('Title') }}</label>
+                                    <label for="about_why_choose_title" class="form-label">{{  ('Title') }}</label>
                                     <input type="hidden" name="types[]" value="about_why_choose_title">
                                     <input type="text" name="about_why_choose_title" id="about_why_choose_title"
-                                        placeholder="{{ localize('Type title') }}" class="form-control"
+                                        placeholder="{{  ('Type title') }}" class="form-control"
                                         value="{{ getSetting('about_why_choose_title') }}">
                                 </div>
 
 
                                 <div class="mb-3">
-                                    <label for="about_why_choose_text" class="form-label">{{ localize('Text') }}</label>
+                                    <label for="about_why_choose_text" class="form-label">{{  ('Text') }}</label>
                                     <input type="hidden" name="types[]" value="about_why_choose_text">
                                     <input type="text" name="about_why_choose_text" id="about_why_choose_text"
-                                        placeholder="{{ localize('Type text') }}" class="form-control"
+                                        placeholder="{{  ('Type text') }}" class="form-control"
                                         value="{{ getSetting('about_why_choose_text') }}">
                                 </div>
 
                                 <div class="mb-3">
-                                    <label class="form-label">{{ localize('Image') }}</label>
+                                    <label class="form-label">{{  ('Image') }}</label>
                                     <input type="hidden" name="types[]" value="about_why_choose_banner">
                                     <div class="tt-image-drop rounded">
-                                        <span class="fw-semibold">{{ localize('Choose Banner Image') }}</span>
+                                        <span class="fw-semibold">{{  ('Choose Banner Image') }}</span>
                                         <!-- choose media -->
                                         <div class="tt-product-thumb show-selected-files mt-3">
                                             <div class="avatar avatar-xl cursor-pointer choose-media"
@@ -86,7 +86,7 @@
                             <div class="col-12">
                                 <div class="mb-5">
                                     <button class="btn btn-primary" type="submit">
-                                        <i data-feather="save" class="me-1"></i> {{ localize('Save Changes') }}
+                                        <i data-feather="save" class="me-1"></i> {{  ('Save Changes') }}
                                     </button>
                                 </div>
                             </div>
@@ -96,16 +96,16 @@
                     <!-- features -->
                     <div class="card mb-4">
                         <div class="card-body">
-                            <h5 class="mb-4">{{ localize('Features') }}</h5>
+                            <h5 class="mb-4">{{  ('Features') }}</h5>
                             <table class="table tt-footable" data-use-parent-width="true">
                                 <thead>
                                     <tr>
-                                        <th class="text-center" width="7%">{{ localize('S/L') }}</th>
-                                        <th>{{ localize('Icon') }}</th>
-                                        <th data-breakpoints="xs sm">{{ localize('Title') }}</th>
-                                        <th data-breakpoints="xs sm md lg">{{ localize('Text') }}</th>
+                                        <th class="text-center" width="7%">{{  ('S/L') }}</th>
+                                        <th>{{  ('Icon') }}</th>
+                                        <th data-breakpoints="xs sm">{{  ('Title') }}</th>
+                                        <th data-breakpoints="xs sm md lg">{{  ('Text') }}</th>
                                         <th data-breakpoints="xs sm" class="text-end">
-                                            {{ localize('Action') }}
+                                            {{  ('Action') }}
                                         </th>
                                     </tr>
                                 </thead>
@@ -142,16 +142,16 @@
                                                     <div class="dropdown-menu dropdown-menu-end shadow">
 
                                                         <a class="dropdown-item"
-                                                            href="{{ route('admin.appearance.about-us.editWhyChooseUs', ['id' => $each_why_choose_us->id, 'lang_key' => env('DEFAULT_LANGUAGE')]) }}&localize">
+                                                            href="{{ route('admin.appearance.about-us.editWhyChooseUs', ['id' => $each_why_choose_us->id, 'lang_key' => env('DEFAULT_LANGUAGE')]) }}& ">
                                                             <i data-feather="edit-3"
-                                                                class="me-2"></i>{{ localize('Edit') }}
+                                                                class="me-2"></i>{{  ('Edit') }}
                                                         </a>
 
                                                         <a href="#" class="dropdown-item confirm-delete"
                                                             data-href="{{ route('admin.appearance.about-us.deleteWhyChooseUs', $each_why_choose_us->id) }}"
-                                                            title="{{ localize('Delete') }}">
+                                                            title="{{  ('Delete') }}">
                                                             <i data-feather="trash-2" class="me-2"></i>
-                                                            {{ localize('Delete') }}
+                                                            {{  ('Delete') }}
                                                         </a>
                                                     </div>
                                                 </div>
@@ -172,23 +172,23 @@
                         <!--slider info start-->
                         <div class="card mb-4">
                             <div class="card-body">
-                                <h5 class="mb-4">{{ localize('Add New Widget') }}</h5>
+                                <h5 class="mb-4">{{  ('Add New Widget') }}</h5>
 
                                 <div class="mb-4">
-                                    <label for="title" class="form-label">{{ localize('Title') }}</label>
+                                    <label for="title" class="form-label">{{  ('Title') }}</label>
                                     <input type="text" name="title" id="title"
-                                        placeholder="{{ localize('Type title') }}" class="form-control" required>
+                                        placeholder="{{  ('Type title') }}" class="form-control" required>
                                 </div>
 
                                 <div class="mb-4">
-                                    <label for="text" class="form-label">{{ localize('Text') }}</label>
-                                    <textarea name="text" id="text" placeholder="{{ localize('Type text') }}" class="form-control" required></textarea>
+                                    <label for="text" class="form-label">{{  ('Text') }}</label>
+                                    <textarea name="text" id="text" placeholder="{{  ('Type text') }}" class="form-control" required></textarea>
                                 </div>
 
                                 <div class="mb-4">
-                                    <label class="form-label">{{ localize('Icon Image') }}</label>
+                                    <label class="form-label">{{  ('Icon Image') }}</label>
                                     <div class="tt-image-drop rounded">
-                                        <span class="fw-semibold">{{ localize('Choose Icon Image') }}</span>
+                                        <span class="fw-semibold">{{  ('Choose Icon Image') }}</span>
                                         <!-- choose media -->
                                         <div class="tt-product-thumb show-selected-files mt-3">
                                             <div class="avatar avatar-xl cursor-pointer choose-media"
@@ -212,7 +212,7 @@
                             <div class="col-12">
                                 <div class="mb-4">
                                     <button class="btn btn-primary" type="submit">
-                                        <i data-feather="save" class="me-1"></i> {{ localize('Save Widget') }}
+                                        <i data-feather="save" class="me-1"></i> {{  ('Save Widget') }}
                                     </button>
                                 </div>
                             </div>
@@ -226,7 +226,7 @@
                 <div class="col-xl-3 order-1 order-md-1 order-lg-1 order-xl-2">
                     <div class="card tt-sticky-sidebar">
                         <div class="card-body">
-                            <h5 class="mb-4">{{ localize('About Us Configuration') }}</h5>
+                            <h5 class="mb-4">{{  ('About Us Configuration') }}</h5>
                             <div class="tt-vertical-step-link">
                                 <ul class="list-unstyled">
                                     @include('backend.pages.appearance.aboutUs.inc.rightSidebar')

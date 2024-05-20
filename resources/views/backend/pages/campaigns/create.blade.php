@@ -1,7 +1,7 @@
 @extends('backend.layouts.master')
 
 @section('title')
-    {{ localize('Add New Campaign') }} {{ getSetting('title_separator') }} {{ getSetting('system_title') }}
+    {{  ('Add New Campaign') }} {{ getSetting('title_separator') }} {{ getSetting('system_title') }}
 @endsection
 
 @section('contents')
@@ -12,7 +12,7 @@
                     <div class="card tt-page-header">
                         <div class="card-body d-lg-flex align-items-center justify-content-lg-between">
                             <div class="tt-page-title">
-                                <h2 class="h5 mb-lg-0">{{ localize('Add Campaign') }}</h2>
+                                <h2 class="h5 mb-lg-0">{{  ('Add Campaign') }}</h2>
                             </div>
                         </div>
                     </div>
@@ -27,33 +27,33 @@
                         <!--basic information start-->
                         <div class="card mb-4" id="section-1">
                             <div class="card-body">
-                                <h5 class="mb-4">{{ localize('Basic Information') }}</h5>
+                                <h5 class="mb-4">{{  ('Basic Information') }}</h5>
 
                                 <div class="row mb-4">
                                     <div class="col-lg-6">
                                         <div class="">
-                                            <label for="title" class="form-label">{{ localize('Title') }}</label>
+                                            <label for="title" class="form-label">{{  ('Title') }}</label>
                                             <input class="form-control" type="text" id="title"
-                                                placeholder="{{ localize('Type campaign title') }}" name="title" required>
+                                                placeholder="{{  ('Type campaign title') }}" name="title" required>
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
 
 
                                         <div class="">
-                                            <label class="form-label">{{ localize('Date Range') }}</label>
+                                            <label class="form-label">{{  ('Date Range') }}</label>
                                             <div class="input-group">
                                                 <input class="form-control date-range-picker date-range" type="text"
-                                                    placeholder="{{ localize('Start date - End date') }}" name="date_range">
+                                                    placeholder="{{  ('Start date - End date') }}" name="date_range">
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="mb-4">
-                                    <label class="form-label">{{ localize('Banner') }}</label>
+                                    <label class="form-label">{{  ('Banner') }}</label>
                                     <div class="tt-image-drop rounded">
-                                        <span class="fw-semibold">{{ localize('Choose Campaign Banner') }}</span>
+                                        <span class="fw-semibold">{{  ('Choose Campaign Banner') }}</span>
                                         <!-- choose media -->
                                         <div class="tt-product-thumb show-selected-files mt-3">
                                             <div class="avatar avatar-xl cursor-pointer choose-media"
@@ -76,10 +76,10 @@
                         <!-- products -->
                         <div class="card mb-4" id="section-2">
                             <div class="card-body">
-                                <h5 class="">{{ localize('Products') }}</h5>
+                                <h5 class="">{{  ('Products') }}</h5>
                                 <div class="mb-4">
                                     <select class="form-control select2" class="w-100" data-toggle="select2"
-                                        data-placeholder="{{ localize('Select Products') }}" name="product_ids[]" multiple
+                                        data-placeholder="{{  ('Select Products') }}" name="product_ids[]" multiple
                                         id="campaign_products">
                                         @foreach ($products as $product)
                                             <option value="{{ $product->id }}">
@@ -92,7 +92,7 @@
                                 <div class="">
                                     <div class="d-none">
                                         <h3 class="badge badge-info-lighten font-14">
-                                            {{ localize('If any product exists in another campaign or has discount, that will be replaced by this date & discount configuration.') }}
+                                            {{  ('If any product exists in another campaign or has discount, that will be replaced by this date & discount configuration.') }}
                                         </h3>
                                     </div>
                                     <div class="border bg-light-subtle rounded p-2 mb-2">
@@ -100,16 +100,16 @@
                                             <thead>
                                                 <tr>
                                                     <td width="40%" class="align-middle">
-                                                        <span>{{ localize('Product') }}</span>
+                                                        <span>{{  ('Product') }}</span>
                                                     </td>
                                                     <td data-breakpoints="xs sm md" width="10%" class="align-middle">
-                                                        <span>{{ localize('Base Price') }}</span>
+                                                        <span>{{  ('Base Price') }}</span>
                                                     </td>
                                                     <td data-breakpoints="xs sm md" class="align-middle">
-                                                        <span>{{ localize('Discount') }}</span>
+                                                        <span>{{  ('Discount') }}</span>
                                                     </td>
                                                     <td data-breakpoints="xs sm md" class="align-middle">
-                                                        <span>{{ localize('Discount Type') }}</span>
+                                                        <span>{{  ('Discount Type') }}</span>
                                                     </td>
                                                 </tr>
                                             </thead>
@@ -131,7 +131,7 @@
                             <div class="col-12">
                                 <div class="mb-4">
                                     <button class="btn btn-primary" type="submit">
-                                        <i data-feather="save" class="me-1"></i> {{ localize('Save Campaign') }}
+                                        <i data-feather="save" class="me-1"></i> {{  ('Save Campaign') }}
                                     </button>
                                 </div>
                             </div>
@@ -144,14 +144,14 @@
                 <div class="col-xl-3 order-1 order-md-1 order-lg-1 order-xl-2">
                     <div class="card tt-sticky-sidebar d-none d-xl-block">
                         <div class="card-body">
-                            <h5 class="mb-4">{{ localize('Campaign Information') }}</h5>
+                            <h5 class="mb-4">{{  ('Campaign Information') }}</h5>
                             <div class="tt-vertical-step">
                                 <ul class="list-unstyled">
                                     <li>
-                                        <a href="#section-1" class="active">{{ localize('Basic Information') }}</a>
+                                        <a href="#section-1" class="active">{{  ('Basic Information') }}</a>
                                     </li>
                                     <li>
-                                        <a href="#section-2">{{ localize('Products') }}</a>
+                                        <a href="#section-2">{{  ('Products') }}</a>
                                     </li>
                                 </ul>
                             </div>

@@ -1,7 +1,7 @@
 @extends('backend.layouts.master')
 
 @section('title')
-    {{ localize('Locations') }} {{ getSetting('title_separator') }} {{ getSetting('system_title') }}
+    {{  ('Locations') }} {{ getSetting('title_separator') }} {{ getSetting('system_title') }}
 @endsection
 
 @section('contents')
@@ -12,12 +12,12 @@
                     <div class="card tt-page-header">
                         <div class="card-body d-lg-flex align-items-center justify-content-lg-between">
                             <div class="tt-page-title">
-                                <h2 class="h5 mb-lg-0">{{ localize('Locations') }}</h2>
+                                <h2 class="h5 mb-lg-0">{{  ('Locations') }}</h2>
                             </div>
                             <div class="tt-action">
                                 @can('add_locations')
                                     <a href="{{ route('admin.locations.create') }}" class="btn btn-primary"><i
-                                            data-feather="plus"></i> {{ localize('Add Location') }}</a>
+                                            data-feather="plus"></i> {{  ('Add Location') }}</a>
                                 @endcan
                             </div>
                         </div>
@@ -37,7 +37,7 @@
                                                 <span class="position-absolute top-50 start-0 translate-middle-y ms-2"> <i
                                                         data-feather="search"></i></span>
                                                 <input class="form-control rounded-start w-100" type="text"
-                                                    id="search" name="search" placeholder="{{ localize('Search') }}"
+                                                    id="search" name="search" placeholder="{{  ('Search') }}"
                                                     @isset($searchKey)
                                                 value="{{ $searchKey }}"
                                                 @endisset>
@@ -49,24 +49,24 @@
                                         <div class="input-group">
                                             <select class="form-select select2" name="is_published"
                                                 data-minimum-results-for-search="Infinity">
-                                                <option value="">{{ localize('Select Status') }}</option>
+                                                <option value="">{{  ('Select Status') }}</option>
                                                 <option value="1"
                                                     @isset($is_published)
                                                          @if ($is_published == 1) selected @endif
                                                         @endisset>
-                                                    {{ localize('Published') }}</option>
+                                                    {{  ('Published') }}</option>
                                                 <option value="0"
                                                     @isset($is_published)
                                                          @if ($is_published == 0) selected @endif
                                                         @endisset>
-                                                    {{ localize('Hidden') }}</option>
+                                                    {{  ('Hidden') }}</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-auto">
                                         <button type="submit" class="btn btn-secondary">
                                             <i data-feather="search" width="18"></i>
-                                            {{ localize('Search') }}
+                                            {{  ('Search') }}
                                         </button>
                                     </div>
                                 </div>
@@ -76,13 +76,13 @@
                         <table class="table tt-footable border-top" data-use-parent-width="true">
                             <thead>
                                 <tr>
-                                    <th class="text-center">{{ localize('S/L') }}
+                                    <th class="text-center">{{  ('S/L') }}
                                     </th>
-                                    <th>{{ localize('Name') }}</th>
-                                    <th data-breakpoints="xs sm">{{ localize('Address') }}</th>
-                                    <th data-breakpoints="xs sm md">{{ localize('Default') }}</th>
-                                    <th data-breakpoints="xs sm md">{{ localize('Published') }}</th>
-                                    <th data-breakpoints="xs sm md" class="text-end">{{ localize('Action') }}</th>
+                                    <th>{{  ('Name') }}</th>
+                                    <th data-breakpoints="xs sm">{{  ('Address') }}</th>
+                                    <th data-breakpoints="xs sm md">{{  ('Default') }}</th>
+                                    <th data-breakpoints="xs sm md">{{  ('Published') }}</th>
+                                    <th data-breakpoints="xs sm md" class="text-end">{{  ('Action') }}</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -134,8 +134,8 @@
                                                 <div class="dropdown-menu dropdown-menu-end shadow">
                                                     @can('edit_locations')
                                                         <a class="dropdown-item"
-                                                            href="{{ route('admin.locations.edit', ['id' => $location->id, 'lang_key' => env('DEFAULT_LANGUAGE')]) }}&localize">
-                                                            <i data-feather="edit-3" class="me-2"></i>{{ localize('Edit') }}
+                                                            href="{{ route('admin.locations.edit', ['id' => $location->id, 'lang_key' => env('DEFAULT_LANGUAGE')]) }}& ">
+                                                            <i data-feather="edit-3" class="me-2"></i>{{  ('Edit') }}
                                                         </a>
                                                     @endcan
                                                 </div>
@@ -147,9 +147,9 @@
                         </table>
                         <!--pagination start-->
                         <div class="d-flex align-items-center justify-content-between px-4 pb-4">
-                            <span>{{ localize('Showing') }}
-                                {{ $locations->firstItem() }}-{{ $locations->lastItem() }} {{ localize('of') }}
-                                {{ $locations->total() }} {{ localize('results') }}</span>
+                            <span>{{  ('Showing') }}
+                                {{ $locations->firstItem() }}-{{ $locations->lastItem() }} {{  ('of') }}
+                                {{ $locations->total() }} {{  ('results') }}</span>
                             <nav>
                                 {{ $locations->appends(request()->input())->links() }}
                             </nav>
@@ -180,10 +180,10 @@
                 },
                 function(data) {
                     if (data == 1) {
-                        notifyMe('success', '{{ localize('Status updated successfully') }}');
+                        notifyMe('success', '{{  ('Status updated successfully') }}');
                         location.reload()
                     } else {
-                        notifyMe('danger', '{{ localize('Something went wrong') }}');
+                        notifyMe('danger', '{{  ('Something went wrong') }}');
                     }
                 });
         }
@@ -202,11 +202,11 @@
                 },
                 function(data) {
                     if (data == 1) {
-                        notifyMe('success', '{{ localize('Status updated successfully') }}');
+                        notifyMe('success', '{{  ('Status updated successfully') }}');
                     } else if (data == 3) {
-                        notifyMe('warning', '{{ localize('Default location can not be hidden') }}');
+                        notifyMe('warning', '{{  ('Default location can not be hidden') }}');
                     } else {
-                        notifyMe('danger', '{{ localize('Something went wrong') }}');
+                        notifyMe('danger', '{{  ('Something went wrong') }}');
                     }
                 });
         }

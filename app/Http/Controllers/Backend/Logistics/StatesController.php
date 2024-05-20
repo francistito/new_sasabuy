@@ -53,7 +53,7 @@ class StatesController extends Controller
         $state->country_id  = $request->country_id;
         $state->is_active  = 1;
         $state->save();
-        flash(localize('State has been inserted successfully'))->success();
+        flash( ('State has been inserted successfully'))->success();
         return redirect()->route('admin.states.index');
     }
 
@@ -65,18 +65,18 @@ class StatesController extends Controller
         return view('backend.pages.fulfillments.states.edit', compact('countries', 'state'));
     }
 
-    # update State  
+    # update State
     public function update(Request $request)
     {
         $state = State::findOrFail((int) $request->id);
         $state->name        = $request->name;
         $state->country_id  = $request->country_id;
         $state->save();
-        flash(localize('State has been updated successfully'))->success();
+        flash( ('State has been updated successfully'))->success();
         return back();
     }
 
-    # update status 
+    # update status
     public function updateStatus(Request $request)
     {
         $state = State::findOrFail($request->id);
@@ -88,7 +88,7 @@ class StatesController extends Controller
             $city->save();
         }
 
-        flash(localize('Status updated successfully'))->success();
+        flash( ('Status updated successfully'))->success();
         return 1;
     }
 }

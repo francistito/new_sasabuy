@@ -1,7 +1,7 @@
 @extends('backend.layouts.master')
 
 @section('title')
-    {{ localize('Subscribed users') }} {{ getSetting('title_separator') }} {{ getSetting('system_title') }}
+    {{  ('Subscribed users') }} {{ getSetting('title_separator') }} {{ getSetting('system_title') }}
 @endsection
 
 @section('contents')
@@ -12,7 +12,7 @@
                     <div class="card tt-page-header">
                         <div class="card-body d-lg-flex align-items-center justify-content-lg-between">
                             <div class="tt-page-title">
-                                <h2 class="h5 mb-lg-0">{{ localize('Subscribers') }}</h2>
+                                <h2 class="h5 mb-lg-0">{{  ('Subscribers') }}</h2>
                             </div>
                         </div>
                     </div>
@@ -31,7 +31,7 @@
                                                 <span class="position-absolute top-50 start-0 translate-middle-y ms-2"> <i
                                                         data-feather="search"></i></span>
                                                 <input class="form-control rounded-start w-100" type="text"
-                                                    id="search" name="search" placeholder="{{ localize('Search') }}"
+                                                    id="search" name="search" placeholder="{{  ('Search') }}"
                                                     @isset($searchKey)
                                                 value="{{ $searchKey }}"
                                             @endisset>
@@ -42,7 +42,7 @@
                                     <div class="col-auto">
                                         <button type="submit" class="btn btn-primary">
                                             <i data-feather="search" width="18"></i>
-                                            {{ localize('Search') }}
+                                            {{  ('Search') }}
                                         </button>
                                     </div>
                                 </div>
@@ -52,10 +52,10 @@
                         <table class="table tt-footable border-top" data-use-parent-width="true">
                             <thead>
                                 <tr>
-                                    <th class="text-center" width="7%">{{ localize('S/L') }}</th>
-                                    <th>{{ localize('Email') }}</th>
-                                    <th>{{ localize('Suibscribed At') }}</th>
-                                    <th data-breakpoints="xs sm" class="text-end">{{ localize('Action') }}
+                                    <th class="text-center" width="7%">{{  ('S/L') }}</th>
+                                    <th>{{  ('Email') }}</th>
+                                    <th>{{  ('Suibscribed At') }}</th>
+                                    <th data-breakpoints="xs sm" class="text-end">{{  ('Action') }}
                                     </th>
                                 </tr>
                             </thead>
@@ -82,9 +82,9 @@
                                                     @can('delete_subscribers')
                                                         <a href="#" class="dropdown-item confirm-delete"
                                                             data-href="{{ route('admin.subscribers.delete', $subscriber->id) }}"
-                                                            title="{{ localize('Delete') }}">
+                                                            title="{{  ('Delete') }}">
                                                             <i data-feather="trash-2" class="me-2"></i>
-                                                            {{ localize('Delete') }}
+                                                            {{  ('Delete') }}
                                                         </a>
                                                     @endcan
                                                 </div>
@@ -96,9 +96,9 @@
                         </table>
                         <!--pagination start-->
                         <div class="d-flex align-items-center justify-content-between px-4 pb-4">
-                            <span>{{ localize('Showing') }}
-                                {{ $subscribers->firstItem() }}-{{ $subscribers->lastItem() }} {{ localize('of') }}
-                                {{ $subscribers->total() }} {{ localize('results') }}</span>
+                            <span>{{  ('Showing') }}
+                                {{ $subscribers->firstItem() }}-{{ $subscribers->lastItem() }} {{  ('of') }}
+                                {{ $subscribers->total() }} {{  ('results') }}</span>
                             <nav>
                                 {{ $subscribers->appends(request()->input())->links() }}
                             </nav>

@@ -43,9 +43,9 @@ class PaymentsController extends Controller
         if (session('payment_type') == 'order_payment') {
             $orderGroup = OrderGroup::where('order_code', session('order_code'))->first();
             if (getSetting('enable_cod') == 1) {
-                # order success 
+                # order success
                 clearOrderSession();
-                flash(localize('Payment failed, Please pay in cash on delivery'))->success();
+                flash( ('Payment failed, Please pay in cash on delivery'))->success();
                 return getView('pages.checkout.invoice', ['orderGroup' => $orderGroup]);
             } else {
                 # delete order
@@ -53,7 +53,7 @@ class PaymentsController extends Controller
                 $orderGroup->order()->delete();
                 $orderGroup->delete();
                 clearOrderSession();
-                flash(localize('Payment failed, please try again'))->error();
+                flash( ('Payment failed, please try again'))->error();
                 return redirect()->url('/');
             }
         }

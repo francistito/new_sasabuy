@@ -128,7 +128,7 @@ class PosController extends Controller
 
         $carts = [];
 
-        // old 
+        // old
         if ($request->product_variation_ids != null) {
             foreach ($request->product_variation_ids as $key => $productVariationId) {
                 $tempCart = new Cart;
@@ -146,7 +146,7 @@ class PosController extends Controller
             // stock entry not available
             $responseData = [
                 'status'    => false,
-                'message'   => localize('This product is out of stock for this location'),
+                'message'   =>  ('This product is out of stock for this location'),
                 'carts'     => view('backend.pages.pos.inc.pos-cart', compact('carts'))->render(),
                 'posSummary'     => view('backend.pages.pos.inc.posSummary', compact('carts'))->render(),
             ];
@@ -163,7 +163,7 @@ class PosController extends Controller
                     $prevQty = $request->quantities[$indexOfNewVariationInAddedCartList];
 
                     if ($stock > $prevQty) {
-                        // add to cart list 
+                        // add to cart list
                         $tempCarts = [];
                         foreach ($carts as $cartKey => $cart) {
                             if ($cart->product_variation_id == $request->product_variation_id) {
@@ -184,7 +184,7 @@ class PosController extends Controller
                         // max stock qty reached
                         $responseData = [
                             'status'    => false,
-                            'message'   => localize('No more stock left of this product'),
+                            'message'   =>  ('No more stock left of this product'),
                             'carts'     => view('backend.pages.pos.inc.pos-cart', compact('carts'))->render(),
                             'posSummary'     => view('backend.pages.pos.inc.posSummary', compact('carts'))->render(),
                         ];
@@ -208,7 +208,7 @@ class PosController extends Controller
                     } else {
                         $responseData = [
                             'status'    => false,
-                            'message'   => localize('Out of stock'),
+                            'message'   =>  ('Out of stock'),
                             'carts'     => view('backend.pages.pos.inc.pos-cart', compact('carts'))->render(),
                             'posSummary'     => view('backend.pages.pos.inc.posSummary', compact('carts'))->render(),
                         ];
@@ -233,7 +233,7 @@ class PosController extends Controller
                 } else {
                     $responseData = [
                         'status'    => false,
-                        'message'       => localize('Out of stock'),
+                        'message'       =>  ('Out of stock'),
                         'carts'          => view('backend.pages.pos.inc.pos-cart', compact('carts'))->render(),
                         'posSummary'     => view('backend.pages.pos.inc.posSummary', compact('carts'))->render(),
                     ];
@@ -255,7 +255,7 @@ class PosController extends Controller
     {
         $carts = [];
 
-        // old 
+        // old
         if ($request->product_variation_ids != null) {
             foreach ($request->product_variation_ids as $key => $productVariationId) {
                 if ($request->product_variation_id != $productVariationId) {
@@ -321,7 +321,7 @@ class PosController extends Controller
                             $tempCart->qty = $request->quantities[$key] + 1;
                             array_push($carts, $tempCart);
                         } else {
-                            $message  = localize('No more stock left of this product');
+                            $message  =  ('No more stock left of this product');
                         }
                     } else {
                         $tempCart = new Cart;
@@ -347,7 +347,7 @@ class PosController extends Controller
         if (is_null($productVariation)) {
             return [
                 'success' => false,
-                'message' => localize('Product does not exist by this code')
+                'message' =>  ('Product does not exist by this code')
             ];
         }
 
@@ -361,7 +361,7 @@ class PosController extends Controller
     public function updatePosSummary(Request $request)
     {
         $carts = [];
-        // old 
+        // old
         if ($request->product_variation_ids != null) {
             foreach ($request->product_variation_ids as $key => $productVariationId) {
                 $tempCart = new Cart;
@@ -392,7 +392,7 @@ class PosController extends Controller
         $currentCurrency = \App\Models\Currency::where('code', $currency_code)->first();
 
         $carts = [];
-        // old 
+        // old
         if ($request->product_variation_ids != null) {
             foreach ($request->product_variation_ids as $key => $productVariationId) {
                 $tempCart = new Cart;
@@ -481,7 +481,7 @@ class PosController extends Controller
                 }
             }
 
-            # order group  
+            # order group
             $orderGroup->payment_method = $request->payment;
             if ($request->payment == "card") {
                 // store card info
@@ -498,7 +498,7 @@ class PosController extends Controller
         } else {
             return [
                 'success' => false,
-                'message' => localize('Add products to list to make order')
+                'message' =>  ('Add products to list to make order')
             ];
         }
     }

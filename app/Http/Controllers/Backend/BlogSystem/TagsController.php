@@ -40,7 +40,7 @@ class TagsController extends Controller
         $tag->name = $request->name;
         $tag->save();
 
-        flash(localize('Tag has been inserted successfully'))->success();
+        flash( ('Tag has been inserted successfully'))->success();
         return redirect()->route('admin.tags.index');
     }
 
@@ -57,7 +57,7 @@ class TagsController extends Controller
         $tag = Tag::findOrFail($request->id);
         $tag->name = $request->name;
         $tag->save();
-        flash(localize('Tag has been updated successfully'))->success();
+        flash( ('Tag has been updated successfully'))->success();
         return back();
     }
 
@@ -68,7 +68,7 @@ class TagsController extends Controller
         $tag = Tag::findOrFail($id);
         BlogTag::where('tag_id', $tag->id)->delete();
         $tag->delete();
-        flash(localize('Tag has been deleted successfully'))->success();
+        flash( ('Tag has been deleted successfully'))->success();
         return back();
     }
 }

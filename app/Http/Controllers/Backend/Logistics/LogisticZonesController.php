@@ -51,7 +51,7 @@ class LogisticZonesController extends Controller
     public function getLogisticCities(Request $request)
     {
         $logistic = Logistic::find($request->logistic_id);
-        $html = '<option value="">' . localize("Select City") . '</option>';
+        $html = '<option value="">' .  ("Select City") . '</option>';
 
         if (!is_null($logistic)) {
             $logisticCities = $logistic->cities()->pluck('city_id');
@@ -86,7 +86,7 @@ class LogisticZonesController extends Controller
             $logisticZoneCity->save();
         }
 
-        flash(localize('Zone has been inserted successfully'))->success();
+        flash( ('Zone has been inserted successfully'))->success();
         return redirect()->route('admin.logisticZones.index');
     }
 
@@ -128,7 +128,7 @@ class LogisticZonesController extends Controller
             $logisticZoneCity->save();
         }
 
-        flash(localize('Zone has been updated successfully'))->success();
+        flash( ('Zone has been updated successfully'))->success();
         return back();
     }
 
@@ -138,7 +138,7 @@ class LogisticZonesController extends Controller
         $logisticZone = LogisticZone::findOrFail($id);
         LogisticZoneCity::where('logistic_zone_id', $logisticZone->id)->delete();
         $logisticZone->delete();
-        flash(localize('Zone has been deleted successfully'))->success();
+        flash( ('Zone has been deleted successfully'))->success();
         return back();
     }
 }

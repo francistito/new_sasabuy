@@ -55,7 +55,7 @@ class VariationsController extends Controller
 
         $variationLocalization->save();
 
-        flash(localize('Variation has been inserted successfully'))->success();
+        flash( ('Variation has been inserted successfully'))->success();
         return redirect()->route('admin.variations.index');
     }
 
@@ -65,7 +65,7 @@ class VariationsController extends Controller
         $lang_key = $request->lang_key;
         $language = Language::where('is_active', 1)->where('code', $lang_key)->first();
         if (!$language) {
-            flash(localize('Language you are trying to translate is not available or not active'))->error();
+            flash( ('Language you are trying to translate is not available or not active'))->error();
             return redirect()->route('admin.variations.index');
         }
         $variation = Variation::findOrFail($id);
@@ -87,11 +87,11 @@ class VariationsController extends Controller
         $variation->save();
         $variationLocalization->save();
 
-        flash(localize('Variation has been updated successfully'))->success();
+        flash( ('Variation has been updated successfully'))->success();
         return back();
     }
 
-    # update status 
+    # update status
     public function updateStatus(Request $request)
     {
         $variation = Variation::findOrFail($request->id);
@@ -107,7 +107,7 @@ class VariationsController extends Controller
     {
         $variation = Variation::findOrFail($id);
         $variation->delete();
-        flash(localize('Variation has been deleted successfully'))->success();
+        flash( ('Variation has been deleted successfully'))->success();
         return back();
     }
 }

@@ -29,7 +29,7 @@ class CountriesController extends Controller
         return view('backend.pages.fulfillments.countries.index', compact('countries', 'searchKey'));
     }
 
-    # update status 
+    # update status
     public function updateStatus(Request $request)
     {
         $country = Country::findOrFail($request->id);
@@ -46,7 +46,7 @@ class CountriesController extends Controller
             }
         }
 
-        flash(localize('Status updated successfully'))->success();
+        flash( ('Status updated successfully'))->success();
         return 1;
     }
 }

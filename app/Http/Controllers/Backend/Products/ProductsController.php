@@ -145,7 +145,7 @@ class ProductsController extends Controller
     {
 
         if ($request->has('is_variant') && !$request->has('variations')) {
-            flash(localize('Invalid product variations, please check again'))->error();
+            flash( ('Invalid product variations, please check again'))->error();
             return redirect()->back();
         }
 
@@ -283,7 +283,7 @@ class ProductsController extends Controller
 
 
 
-//        flash(localize('Product has been inserted successfully'))->success();
+//        flash( ('Product has been inserted successfully'))->success();
         return redirect()->route('product.index');
     }
 
@@ -311,7 +311,7 @@ class ProductsController extends Controller
     public function update(Request $request)
     {
         if ($request->has('is_variant') && !$request->has('variations')) {
-            flash(localize('Invalid product variations, please check again'))->error();
+            flash( ('Invalid product variations, please check again'))->error();
             return redirect()->back();
         }
 

@@ -1,7 +1,7 @@
 @extends('backend.layouts.master')
 
 @section('title')
-    {{ localize('Delivery Status Report') }} {{ getSetting('title_separator') }} {{ getSetting('system_title') }}
+    {{  ('Delivery Status Report') }} {{ getSetting('title_separator') }} {{ getSetting('system_title') }}
 @endsection
 
 @section('contents')
@@ -12,7 +12,7 @@
                     <div class="card tt-page-header">
                         <div class="card-body d-lg-flex align-items-center justify-content-lg-between">
                             <div class="tt-page-title">
-                                <h2 class="h5 mb-lg-0">{{ localize('Delivery Status Wise Report') }}</h2>
+                                <h2 class="h5 mb-lg-0">{{  ('Delivery Status Wise Report') }}</h2>
                             </div>
                         </div>
                     </div>
@@ -37,7 +37,7 @@
                                             @endphp
 
                                             <input class="form-control date-range-picker date-range" type="text"
-                                                placeholder="{{ localize('Start date - End date') }}" name="date_range"
+                                                placeholder="{{  ('Start date - End date') }}" name="date_range"
                                                 data-startdate="'{{ $start_date }}'" data-enddate="'{{ $end_date }}'">
                                         </div>
                                     </div>
@@ -45,14 +45,14 @@
                                     <div class="col-auto">
                                         <button type="submit" class="btn btn-secondary">
                                             <i data-feather="search" width="18"></i>
-                                            {{ localize('Search') }}
+                                            {{  ('Search') }}
                                         </button>
                                     </div>
 
                                     <div class="col-auto flex-grow-1"></div>
                                     <div class="col-auto text-end">
                                         <span class="fs-sm">
-                                            {{ localize('Total Orders') }}
+                                            {{  ('Total Orders') }}
                                         </span>
                                         <div class="fw-bold text-accent">
                                             {{ $totalOrders }}
@@ -64,9 +64,9 @@
                         <table class="table tt-footable border-top" data-use-parent-width="true">
                             <thead>
                                 <tr>
-                                    <th class="text-center">{{ localize('S/L') }}</th>
-                                    <th>{{ localize('Date') }}</th>
-                                    <th class="text-end">{{ localize('Total Sales') }}</th>
+                                    <th class="text-center">{{  ('S/L') }}</th>
+                                    <th>{{  ('Date') }}</th>
+                                    <th class="text-end">{{  ('Total Sales') }}</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -77,7 +77,7 @@
                                         </td>
                                         <td>
                                             <span class="fw-semibold text-capitalize">
-                                                {{ localize(Str::title(Str::replace('_', ' ', $order->delivery_status))) }}
+                                                {{  (Str::title(Str::replace('_', ' ', $order->delivery_status))) }}
                                             </span>
                                         </td>
 
@@ -90,9 +90,9 @@
                         </table>
                         <!--pagination start-->
                         <div class="d-flex align-items-center justify-content-between px-4 pb-4">
-                            <span>{{ localize('Showing') }}
-                                {{ $orders->firstItem() }}-{{ $orders->lastItem() }} {{ localize('of') }}
-                                {{ $orders->total() }} {{ localize('results') }}</span>
+                            <span>{{  ('Showing') }}
+                                {{ $orders->firstItem() }}-{{ $orders->lastItem() }} {{  ('of') }}
+                                {{ $orders->total() }} {{  ('results') }}</span>
                             <nav>
                                 {{ $orders->appends(request()->input())->links() }}
                             </nav>

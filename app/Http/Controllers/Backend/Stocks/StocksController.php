@@ -63,7 +63,7 @@ class StocksController extends Controller
                 $productVariationStock->save();
             }
         }
-        flash(localize('Stock updated successfully'))->success();
+        flash( ('Stock updated successfully'))->success();
         return back();
     }
 }

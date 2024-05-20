@@ -74,7 +74,7 @@ class BannerSectionOneController extends Controller
             $bannerImage->save();
         }
         cacheClear();
-        flash(localize('Banner image added successfully'))->success();
+        flash( ('Banner image added successfully'))->success();
         return back();
     }
 
@@ -106,7 +106,7 @@ class BannerSectionOneController extends Controller
         $bannerImage->value = json_encode($tempBanners);
         $bannerImage->save();
         cacheClear();
-        flash(localize('Banner updated successfully'))->success();
+        flash( ('Banner updated successfully'))->success();
         return redirect()->route('admin.appearance.homepage.bannerOne');
     }
 
@@ -128,7 +128,7 @@ class BannerSectionOneController extends Controller
         $bannerImage->save();
 
         cacheClear();
-        flash(localize('Banner deleted successfully'))->success();
+        flash( ('Banner deleted successfully'))->success();
         return back();
     }
 }

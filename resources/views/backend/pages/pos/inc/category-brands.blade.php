@@ -4,12 +4,12 @@
             <li class="nav-item me-2" role="presentation">
                 <button class="nav-link px-3 py-1 fs-md active" id="pills-home-tab" data-bs-toggle="pill"
                     data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home"
-                    aria-selected="true">{{ localize('Categories') }}</button>
+                    aria-selected="true">{{  ('Categories') }}</button>
             </li>
             <li class="nav-item me-2" role="presentation">
                 <button class="nav-link px-3 py-1 fs-md" id="pills-profile-tab" data-bs-toggle="pill"
                     data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile"
-                    aria-selected="false">{{ localize('Brands') }}</button>
+                    aria-selected="false">{{  ('Brands') }}</button>
             </li>
 
 
@@ -79,11 +79,11 @@
                                             onerror="this.onerror=null;this.src='{{ asset('backend/assets/img/placeholder-thumb.png') }}';">
                                     </div>
                                     <h6 class="fs-sm mb-1">
-                                        {{ localize('All Categories') }}
+                                        {{  ('All Categories') }}
                                     </h6>
                                     <span
                                         class="fs-xs tt-available-item">{{ \App\Models\Product::isPublished()->count() }}
-                                        {{ localize('Items') }}
+                                        {{  ('Items') }}
                                     </span>
                                 </label>
                             </div>
@@ -106,7 +106,7 @@
                                             {{ $category->collectLocalization('name') }}</h6>
                                         <span
                                             class="fs-xs tt-available-item">{{ \App\Models\ProductCategory::where('category_id', $category->id)->count() }}
-                                            {{ localize('Items') }}
+                                            {{  ('Items') }}
                                         </span>
                                     </label>
                                 </div>
@@ -164,11 +164,11 @@
                                             onerror="this.onerror=null;this.src='{{ asset('backend/assets/img/placeholder-thumb.png') }}';">
                                     </div>
                                     <h6 class="fs-sm mb-1">
-                                        {{ localize('All Brands') }}
+                                        {{  ('All Brands') }}
                                     </h6>
                                     <span
                                         class="fs-xs tt-available-item">{{ \App\Models\Product::isPublished()->count() }}
-                                        {{ localize('Items') }}
+                                        {{  ('Items') }}
                                     </span>
                                 </label>
                             </div>
@@ -191,7 +191,7 @@
                                             {{ $brand->collectLocalization('name') }}</h6>
                                         <span
                                             class="fs-xs tt-available-item">{{ \App\Models\Product::where('brand_id', $brand->id)->count() }}
-                                            {{ localize('Items') }}
+                                            {{  ('Items') }}
                                         </span>
                                     </label>
                                 </div>

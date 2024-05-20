@@ -63,7 +63,7 @@ class UnitsController extends Controller
 
         $unitLocalization->save();
 
-        flash(localize('Unit has been inserted successfully'))->success();
+        flash( ('Unit has been inserted successfully'))->success();
         return redirect()->route('admin.units.index');
     }
 
@@ -73,7 +73,7 @@ class UnitsController extends Controller
         $lang_key = $request->lang_key;
         $language = Language::where('is_active', 1)->where('code', $lang_key)->first();
         if (!$language) {
-            flash(localize('Language you are trying to translate is not available or not active'))->error();
+            flash( ('Language you are trying to translate is not available or not active'))->error();
             return redirect()->route('admin.units.index');
         }
         $unit = Unit::findOrFail($id);
@@ -96,7 +96,7 @@ class UnitsController extends Controller
         $unit->save();
         $unitLocalization->save();
 
-        flash(localize('Unit has been updated successfully'))->success();
+        flash( ('Unit has been updated successfully'))->success();
         return back();
     }
 
@@ -123,7 +123,7 @@ class UnitsController extends Controller
             //throw $th;
         }
         $unit->delete();
-        flash(localize('Unit has been deleted successfully'))->success();
+        flash( ('Unit has been deleted successfully'))->success();
         return back();
     }
 }

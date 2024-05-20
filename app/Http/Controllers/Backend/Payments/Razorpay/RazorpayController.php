@@ -19,7 +19,7 @@ class RazorpayController extends Controller
         $payment_type = session('payment_type');
         switch ($payment_type) {
             case 'order_payment':
-                $title = localize('Order Payment');
+                $title =  ('Order Payment');
                 $orderGroup = OrderGroup::where('order_code', session('order_code'))->first();
                 $amount = $orderGroup->grand_total_amount;
                 break;

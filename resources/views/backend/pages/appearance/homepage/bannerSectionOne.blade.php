@@ -1,7 +1,7 @@
 @extends('backend.layouts.master')
 
 @section('title')
-    {{ localize('Website Homepage Configuration') }} {{ getSetting('title_separator') }} {{ getSetting('system_title') }}
+    {{  ('Website Homepage Configuration') }} {{ getSetting('title_separator') }} {{ getSetting('system_title') }}
 @endsection
 
 @section('contents')
@@ -12,7 +12,7 @@
                     <div class="card tt-page-header">
                         <div class="card-body d-lg-flex align-items-center justify-content-lg-between">
                             <div class="tt-page-title">
-                                <h2 class="h5 mb-lg-0">{{ localize('Banner Section One') }}</h2>
+                                <h2 class="h5 mb-lg-0">{{  ('Banner Section One') }}</h2>
                             </div>
                         </div>
                     </div>
@@ -28,11 +28,11 @@
                                 <table class="table tt-footable" data-use-parent-width="true">
                                     <thead>
                                         <tr>
-                                            <th class="text-center" width="7%">{{ localize('S/L') }}</th>
-                                            <th>{{ localize('Image') }}</th>
-                                            <th>{{ localize('Link') }}</th>
+                                            <th class="text-center" width="7%">{{  ('S/L') }}</th>
+                                            <th>{{  ('Image') }}</th>
+                                            <th>{{  ('Link') }}</th>
                                             <th data-breakpoints="xs sm" class="text-end">
-                                                {{ localize('Action') }}
+                                                {{  ('Action') }}
                                             </th>
                                         </tr>
                                     </thead>
@@ -65,16 +65,16 @@
                                                         <div class="dropdown-menu dropdown-menu-end shadow">
 
                                                             <a class="dropdown-item"
-                                                                href="{{ route('admin.appearance.homepage.editBannerOne', ['id' => $banner->id, 'lang_key' => env('DEFAULT_LANGUAGE')]) }}&localize">
+                                                                href="{{ route('admin.appearance.homepage.editBannerOne', ['id' => $banner->id, 'lang_key' => env('DEFAULT_LANGUAGE')]) }}& ">
                                                                 <i data-feather="edit-3"
-                                                                    class="me-2"></i>{{ localize('Edit') }}
+                                                                    class="me-2"></i>{{  ('Edit') }}
                                                             </a>
 
                                                             <a href="#" class="dropdown-item confirm-delete"
                                                                 data-href="{{ route('admin.appearance.homepage.deleteBannerOne', $banner->id) }}"
-                                                                title="{{ localize('Delete') }}">
+                                                                title="{{  ('Delete') }}">
                                                                 <i data-feather="trash-2" class="me-2"></i>
-                                                                {{ localize('Delete') }}
+                                                                {{  ('Delete') }}
                                                             </a>
                                                         </div>
                                                     </div>
@@ -93,18 +93,18 @@
                         <!--slider info start-->
                         <div class="card mb-4">
                             <div class="card-body">
-                                <h5 class="mb-4">{{ localize('Add New Banner') }}</h5>
+                                <h5 class="mb-4">{{  ('Add New Banner') }}</h5>
 
                                 <div class="mb-4">
-                                    <label for="link" class="form-label">{{ localize('Link') }}</label>
+                                    <label for="link" class="form-label">{{  ('Link') }}</label>
                                     <input type="url" name="link" id="link"
                                         placeholder="{{ env('APP_URL') }}/example" class="form-control">
                                 </div>
 
                                 <div class="mb-4">
-                                    <label class="form-label">{{ localize('Image') }}</label>
+                                    <label class="form-label">{{  ('Image') }}</label>
                                     <div class="tt-image-drop rounded">
-                                        <span class="fw-semibold">{{ localize('Choose Banner Image') }}</span>
+                                        <span class="fw-semibold">{{  ('Choose Banner Image') }}</span>
                                         <!-- choose media -->
                                         <div class="tt-product-thumb show-selected-files mt-3">
                                             <div class="avatar avatar-xl cursor-pointer choose-media"
@@ -128,7 +128,7 @@
                             <div class="col-12">
                                 <div class="mb-4">
                                     <button class="btn btn-primary" type="submit">
-                                        <i data-feather="save" class="me-1"></i> {{ localize('Save Banner') }}
+                                        <i data-feather="save" class="me-1"></i> {{  ('Save Banner') }}
                                     </button>
                                 </div>
                             </div>
@@ -140,7 +140,7 @@
                 <div class="col-xl-3 order-1 order-md-1 order-lg-1 order-xl-2">
                     <div class="card tt-sticky-sidebar">
                         <div class="card-body">
-                            <h5 class="mb-4">{{ localize('Homepage Configuration') }}</h5>
+                            <h5 class="mb-4">{{  ('Homepage Configuration') }}</h5>
                             <div class="tt-vertical-step-link">
                                 <ul class="list-unstyled">
                                     @include('backend.pages.appearance.homepage.inc.rightSidebar')

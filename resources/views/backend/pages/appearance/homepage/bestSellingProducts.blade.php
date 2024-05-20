@@ -1,7 +1,7 @@
 @extends('backend.layouts.master')
 
 @section('title')
-    {{ localize('Website Homepage Configuration') }} {{ getSetting('title_separator') }} {{ getSetting('system_title') }}
+    {{  ('Website Homepage Configuration') }} {{ getSetting('title_separator') }} {{ getSetting('system_title') }}
 @endsection
 
 @section('contents')
@@ -12,7 +12,7 @@
                     <div class="card tt-page-header">
                         <div class="card-body d-lg-flex align-items-center justify-content-lg-between">
                             <div class="tt-page-title">
-                                <h2 class="h5 mb-lg-0">{{ localize('Best Selling Products') }}</h2>
+                                <h2 class="h5 mb-lg-0">{{  ('Best Selling Products') }}</h2>
                             </div>
                         </div>
                     </div>
@@ -32,10 +32,10 @@
                                     @php
                                         $best_selling_products = getSetting('best_selling_products') != null ? json_decode(getSetting('best_selling_products')) : [];
                                     @endphp
-                                    <label class="form-label">{{ localize('Best Selling Products') }}</label>
+                                    <label class="form-label">{{  ('Best Selling Products') }}</label>
                                     <input type="hidden" name="types[]" value="best_selling_products">
                                     <select class="select2 form-control" multiple="multiple"
-                                        data-placeholder="{{ localize('Select products') }}" name="best_selling_products[]"
+                                        data-placeholder="{{  ('Select products') }}" name="best_selling_products[]"
                                         required>
                                         @foreach ($products as $product)
                                             <option value="{{ $product->id }}"
@@ -47,10 +47,10 @@
 
 
                                 <div class="mb-3">
-                                    <label class="form-label">{{ localize('Banner Image') }}</label>
+                                    <label class="form-label">{{  ('Banner Image') }}</label>
                                     <input type="hidden" name="types[]" value="best_selling_banner">
                                     <div class="tt-image-drop rounded">
-                                        <span class="fw-semibold">{{ localize('Choose Banner Image') }}</span>
+                                        <span class="fw-semibold">{{  ('Choose Banner Image') }}</span>
                                         <!-- choose media -->
                                         <div class="tt-product-thumb show-selected-files mt-3">
                                             <div class="avatar avatar-xl cursor-pointer choose-media"
@@ -69,7 +69,7 @@
 
                                 <div class="mb-3">
                                     <label for="best_selling_banner_link"
-                                        class="form-label">{{ localize('Banner Link') }}</label>
+                                        class="form-label">{{  ('Banner Link') }}</label>
                                     <input type="hidden" name="types[]" value="best_selling_banner_link">
                                     <input type="url" name="best_selling_banner_link" id="best_selling_banner_link"
                                         placeholder="{{ env('APP_URL') . '/example' }}" class="form-control"
@@ -84,7 +84,7 @@
                             <div class="col-12">
                                 <div class="mb-3">
                                     <button class="btn btn-primary" type="submit">
-                                        <i data-feather="save" class="me-1"></i> {{ localize('Save') }}
+                                        <i data-feather="save" class="me-1"></i> {{  ('Save') }}
                                     </button>
                                 </div>
                             </div>
@@ -96,7 +96,7 @@
                 <div class="col-xl-3 order-1 order-md-1 order-lg-1 order-xl-2">
                     <div class="card tt-sticky-sidebar">
                         <div class="card-body">
-                            <h5 class="mb-3">{{ localize('Homepage Configuration') }}</h5>
+                            <h5 class="mb-3">{{  ('Homepage Configuration') }}</h5>
                             <div class="tt-vertical-step-link">
                                 <ul class="list-unstyled">
                                     @include('backend.pages.appearance.homepage.inc.rightSidebar')

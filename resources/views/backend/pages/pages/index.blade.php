@@ -1,7 +1,7 @@
 @extends('backend.layouts.master')
 
 @section('title')
-    {{ localize('Pages') }} {{ getSetting('title_separator') }} {{ getSetting('system_title') }}
+    {{  ('Pages') }} {{ getSetting('title_separator') }} {{ getSetting('system_title') }}
 @endsection
 
 @section('contents')
@@ -12,12 +12,12 @@
                     <div class="card tt-page-header">
                         <div class="card-body d-lg-flex align-items-center justify-content-lg-between">
                             <div class="tt-page-title">
-                                <h2 class="h5 mb-lg-0">{{ localize('Pages') }}</h2>
+                                <h2 class="h5 mb-lg-0">{{  ('Pages') }}</h2>
                             </div>
                             <div class="tt-action">
                                 @can('add_pages')
                                     <a href="{{ route('admin.pages.create') }}" class="btn btn-primary"><i
-                                            data-feather="plus"></i> {{ localize('Add Page') }}</a>
+                                            data-feather="plus"></i> {{  ('Add Page') }}</a>
                                 @endcan
                             </div>
                         </div>
@@ -37,7 +37,7 @@
                                                 <span class="position-absolute top-50 start-0 translate-middle-y ms-2"> <i
                                                         data-feather="search"></i></span>
                                                 <input class="form-control rounded-start w-100" type="text"
-                                                    id="search" name="search" placeholder="{{ localize('Search') }}"
+                                                    id="search" name="search" placeholder="{{  ('Search') }}"
                                                     @isset($searchKey)
                                                     value="{{ $searchKey }}"
                                                 @endisset>
@@ -48,7 +48,7 @@
                                     <div class="col-auto">
                                         <button type="submit" class="btn btn-secondary">
                                             <i data-feather="search" width="18"></i>
-                                            {{ localize('Search') }}
+                                            {{  ('Search') }}
                                         </button>
                                     </div>
                                 </div>
@@ -58,10 +58,10 @@
                         <table class="table tt-footable border-top" data-use-parent-width="true">
                             <thead>
                                 <tr>
-                                    <th class="text-center">{{ localize('S/L') }}</th>
-                                    <th>{{ localize('Title') }}</th>
-                                    <th>{{ localize('Page Link') }}</th>
-                                    <th data-breakpoints="xs sm" class="text-end">{{ localize('Action') }}
+                                    <th class="text-center">{{  ('S/L') }}</th>
+                                    <th>{{  ('Title') }}</th>
+                                    <th>{{  ('Page Link') }}</th>
+                                    <th data-breakpoints="xs sm" class="text-end">{{  ('Action') }}
                                     </th>
                                 </tr>
                             </thead>
@@ -89,22 +89,22 @@
 
                                                     @can('edit_pages')
                                                         <a class="dropdown-item"
-                                                            href="{{ route('admin.pages.edit', ['id' => $page->id, 'lang_key' => env('DEFAULT_LANGUAGE')]) }}&localize">
-                                                            <i data-feather="edit-3" class="me-2"></i>{{ localize('Edit') }}
+                                                            href="{{ route('admin.pages.edit', ['id' => $page->id, 'lang_key' => env('DEFAULT_LANGUAGE')]) }}& ">
+                                                            <i data-feather="edit-3" class="me-2"></i>{{  ('Edit') }}
                                                         </a>
                                                     @endcan
 
                                                     <a class="dropdown-item"
                                                         href="{{ route('home.pages.show', $page->slug) }}" target="_blank">
-                                                        <i data-feather="eye" class="me-2"></i>{{ localize('View') }}
+                                                        <i data-feather="eye" class="me-2"></i>{{  ('View') }}
                                                     </a>
 
                                                     @can('delete_pages')
                                                         <a href="#" class="dropdown-item confirm-delete"
                                                             data-href="{{ route('admin.pages.delete', $page->id) }}"
-                                                            title="{{ localize('Delete') }}">
+                                                            title="{{  ('Delete') }}">
                                                             <i data-feather="trash-2" class="me-2"></i>
-                                                            {{ localize('Delete') }}
+                                                            {{  ('Delete') }}
                                                         </a>
                                                     @endcan
                                                 </div>
@@ -116,9 +116,9 @@
                         </table>
                         <!--pagination start-->
                         <div class="d-flex align-items-center justify-content-between px-4 pb-4">
-                            <span>{{ localize('Showing') }}
-                                {{ $pages->firstItem() }}-{{ $pages->lastItem() }} {{ localize('of') }}
-                                {{ $pages->total() }} {{ localize('results') }}</span>
+                            <span>{{  ('Showing') }}
+                                {{ $pages->firstItem() }}-{{ $pages->lastItem() }} {{  ('of') }}
+                                {{ $pages->total() }} {{  ('results') }}</span>
                             <nav>
                                 {{ $pages->appends(request()->input())->links() }}
                             </nav>

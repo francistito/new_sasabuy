@@ -1,7 +1,7 @@
 @extends('backend.layouts.master')
 
 @section('title')
-    {{ localize('Customers') }} {{ getSetting('title_separator') }} {{ getSetting('system_title') }}
+    {{  ('Customers') }} {{ getSetting('title_separator') }} {{ getSetting('system_title') }}
 @endsection
 
 @section('contents')
@@ -12,7 +12,7 @@
                     <div class="card tt-page-header">
                         <div class="card-body d-lg-flex align-items-center justify-content-lg-between">
                             <div class="tt-page-title">
-                                <h2 class="h5 mb-lg-0">{{ localize('Customers') }}</h2>
+                                <h2 class="h5 mb-lg-0">{{  ('Customers') }}</h2>
                             </div>
                         </div>
                     </div>
@@ -31,7 +31,7 @@
                                                 <span class="position-absolute top-50 start-0 translate-middle-y ms-2"> <i
                                                         data-feather="search"></i></span>
                                                 <input class="form-control rounded-start w-100" type="text"
-                                                    id="search" name="search" placeholder="{{ localize('Search') }}"
+                                                    id="search" name="search" placeholder="{{  ('Search') }}"
                                                     @isset($searchKey)
                                         value="{{ $searchKey }}"
                                         @endisset>
@@ -42,19 +42,19 @@
                                         <div class="input-group">
                                             <select class="form-select select2" name="is_banned"
                                                 data-minimum-results-for-search="Infinity">
-                                                <option value="">{{ localize('Select status') }}</option>
+                                                <option value="">{{  ('Select status') }}</option>
 
                                                 <option value="0"
                                                     @isset($is_banned)
                                                      @if ($is_banned == 0) selected @endif
                                                     @endisset>
-                                                    {{ localize('Active') }}</option>
+                                                    {{  ('Active') }}</option>
 
                                                 <option value="1"
                                                     @isset($is_banned)
                                                      @if ($is_banned == 1) selected @endif
                                                     @endisset>
-                                                    {{ localize('Banned') }}</option>
+                                                    {{  ('Banned') }}</option>
 
                                             </select>
                                         </div>
@@ -62,7 +62,7 @@
                                     <div class="col-auto">
                                         <button type="submit" class="btn btn-primary">
                                             <i data-feather="search" width="18"></i>
-                                            {{ localize('Search') }}
+                                            {{  ('Search') }}
                                         </button>
                                     </div>
                                 </div>
@@ -72,11 +72,11 @@
                         <table class="table tt-footable border-top" data-use-parent-width="true">
                             <thead>
                                 <tr>
-                                    <th class="text-center">{{ localize('S/L') }}</th>
-                                    <th>{{ localize('Name') }}</th>
-                                    <th data-breakpoints="xs sm">{{ localize('Email') }}</th>
-                                    <th data-breakpoints="xs sm">{{ localize('Phone') }}</th>
-                                    <th data-breakpoints="xs sm" class="text-end">{{ localize('Banned') }}
+                                    <th class="text-center">{{  ('S/L') }}</th>
+                                    <th>{{  ('Name') }}</th>
+                                    <th data-breakpoints="xs sm">{{  ('Email') }}</th>
+                                    <th data-breakpoints="xs sm">{{  ('Phone') }}</th>
+                                    <th data-breakpoints="xs sm" class="text-end">{{  ('Banned') }}
                                     </th>
                                 </tr>
                             </thead>
@@ -101,7 +101,7 @@
                                             {{ $customer->email }}
                                         </td>
                                         <td>
-                                            {{ $customer->phone ?? localize('n/a') }}
+                                            {{ $customer->phone ??  ('n/a') }}
                                         </td>
                                         <td class="text-end">
                                             @can('ban_customers')
@@ -119,9 +119,9 @@
                         </table>
                         <!--pagination start-->
                         <div class="d-flex align-items-center justify-content-between px-4 pb-4">
-                            <span>{{ localize('Showing') }}
-                                {{ $customers->firstItem() }}-{{ $customers->lastItem() }} {{ localize('of') }}
-                                {{ $customers->total() }} {{ localize('results') }}</span>
+                            <span>{{  ('Showing') }}
+                                {{ $customers->firstItem() }}-{{ $customers->lastItem() }} {{  ('of') }}
+                                {{ $customers->total() }} {{  ('results') }}</span>
                             <nav>
                                 {{ $customers->appends(request()->input())->links() }}
                             </nav>
@@ -152,10 +152,10 @@
                 },
                 function(data) {
                     if (data == 1) {
-                        notifyMe('success', '{{ localize('Status updated successfully') }}');
+                        notifyMe('success', '{{  ('Status updated successfully') }}');
 
                     } else {
-                        notifyMe('danger', '{{ localize('Something went wrong') }}');
+                        notifyMe('danger', '{{  ('Something went wrong') }}');
                     }
                 });
         }

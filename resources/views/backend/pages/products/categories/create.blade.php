@@ -1,7 +1,7 @@
 @extends('backend.layouts.master')
 
 @section('title')
-    {{ localize('Add New Category') }} {{ getSetting('title_separator') }} {{ getSetting('system_title') }}
+    {{  ('Add New Category') }} {{ getSetting('title_separator') }} {{ getSetting('system_title') }}
 @endsection
 
 
@@ -13,7 +13,7 @@
                     <div class="card tt-page-header">
                         <div class="card-body d-lg-flex align-items-center justify-content-lg-between">
                             <div class="tt-page-title">
-                                <h2 class="h5 mb-lg-0">{{ localize('Add Category') }}</h2>
+                                <h2 class="h5 mb-lg-0">{{  ('Add Category') }}</h2>
                             </div>
 
                         </div>
@@ -30,16 +30,16 @@
                         <!--basic information start-->
                         <div class="card mb-4" id="section-1">
                             <div class="card-body">
-                                <h5 class="mb-4">{{ localize('Basic Information') }}</h5>
+                                <h5 class="mb-4">{{  ('Basic Information') }}</h5>
 
                                 <div class="mb-4">
-                                    <label for="name" class="form-label">{{ localize('Category Name') }}</label>
+                                    <label for="name" class="form-label">{{  ('Category Name') }}</label>
                                     <input class="form-control" type="text" id="name"
-                                        placeholder="{{ localize('Type your category name') }}" name="name" required>
+                                        placeholder="{{  ('Type your category name') }}" name="name" required>
                                 </div>
 
                                 <div class="mb-4">
-                                    <label for="parent_id" class="form-label">{{ localize('Base Category') }}</label>
+                                    <label for="parent_id" class="form-label">{{  ('Base Category') }}</label>
                                     <select class="form-control select2" name="parent_id" class="w-100"
                                         data-toggle="select2">
                                         <option value="0">᎗</option>
@@ -56,9 +56,9 @@
                                 </div>
 
                                 <div class="mb-4">
-                                    <label class="form-label">{{ localize('Brands') }}</label>
+                                    <label class="form-label">{{  ('Brands') }}</label>
                                     <select class="form-control select2" name="brand_ids[]" class="w-100"
-                                        data-toggle="select2" data-placeholder="{{ localize('Select brands') }}" multiple>
+                                        data-toggle="select2" data-placeholder="{{  ('Select brands') }}" multiple>
                                         @foreach ($brands as $brand)
                                             <option value="{{ $brand->id }}">
                                                 {{ $brand->collectLocalization('name') }}</option>
@@ -68,9 +68,9 @@
 
                                 <div class="mb-4">
                                     <label for="sorting_order_level"
-                                        class="form-label">{{ localize('Sorting Priority Number') }}</label>
+                                        class="form-label">{{  ('Sorting Priority Number') }}</label>
                                     <input class="form-control" type="number" id="sorting_order_level"
-                                        placeholder="{{ localize('Type sorting priority number') }}"
+                                        placeholder="{{  ('Type sorting priority number') }}"
                                         name="sorting_order_level">
                                 </div>
                             </div>
@@ -80,11 +80,11 @@
                         <!--product image and gallery start-->
                         <div class="card mb-4" id="section-2">
                             <div class="card-body">
-                                <h5 class="mb-4">{{ localize('Images') }}</h5>
+                                <h5 class="mb-4">{{  ('Images') }}</h5>
                                 <div class="mb-4">
-                                    <label class="form-label">{{ localize('Thumbnail') }}</label>
+                                    <label class="form-label">{{  ('Thumbnail') }}</label>
                                     <div class="tt-image-drop rounded">
-                                        <span class="fw-semibold">{{ localize('Choose Category Thumbnail') }}</span>
+                                        <span class="fw-semibold">{{  ('Choose Category Thumbnail') }}</span>
                                         <!-- choose media -->
                                         <div class="tt-product-thumb show-selected-files mt-3">
                                             <div class="avatar avatar-xl cursor-pointer choose-media"
@@ -106,27 +106,27 @@
                         <!--seo meta description start-->
                         <div class="card mb-4" id="section-10">
                             <div class="card-body">
-                                <h5 class="mb-4">{{ localize('SEO Meta Configuration') }}</h5>
+                                <h5 class="mb-4">{{  ('SEO Meta Configuration') }}</h5>
 
                                 <div class="mb-4">
-                                    <label for="meta_title" class="form-label">{{ localize('Meta Title') }}</label>
+                                    <label for="meta_title" class="form-label">{{  ('Meta Title') }}</label>
                                     <input type="text" name="meta_title" id="meta_title"
-                                        placeholder="{{ localize('Type meta title') }}" class="form-control">
+                                        placeholder="{{  ('Type meta title') }}" class="form-control">
                                     <span class="fs-sm text-muted">
-                                        {{ localize('Set a meta tag title. Recommended to be simple and unique.') }}
+                                        {{  ('Set a meta tag title. Recommended to be simple and unique.') }}
                                     </span>
                                 </div>
 
                                 <div class="mb-4">
                                     <label for="meta_description"
-                                        class="form-label">{{ localize('Meta Description') }}</label>
+                                        class="form-label">{{  ('Meta Description') }}</label>
                                     <textarea class="form-control" name="meta_description" id="meta_description" rows="4"
-                                        placeholder="{{ localize('Type your meta description') }}"></textarea>
+                                        placeholder="{{  ('Type your meta description') }}"></textarea>
                                 </div>
                                 <div class="mb-4">
-                                    <label class="form-label">{{ localize('Meta Image') }}</label>
+                                    <label class="form-label">{{  ('Meta Image') }}</label>
                                     <div class="tt-image-drop rounded">
-                                        <span class="fw-semibold">{{ localize('Choose Meta Image') }}</span>
+                                        <span class="fw-semibold">{{  ('Choose Meta Image') }}</span>
                                         <!-- choose media -->
                                         <div class="tt-product-thumb show-selected-files mt-3">
                                             <div class="avatar avatar-xl cursor-pointer choose-media"
@@ -151,7 +151,7 @@
                             <div class="col-12">
                                 <div class="mb-4">
                                     <button class="btn btn-primary" type="submit">
-                                        <i data-feather="save" class="me-1"></i> {{ localize('Save Category') }}
+                                        <i data-feather="save" class="me-1"></i> {{  ('Save Category') }}
                                     </button>
                                 </div>
                             </div>
@@ -165,17 +165,17 @@
                 <div class="col-xl-3 order-1 order-md-1 order-lg-1 order-xl-2">
                     <div class="card tt-sticky-sidebar d-none d-xl-block">
                         <div class="card-body">
-                            <h5 class="mb-4">{{ localize('Category Information') }}</h5>
+                            <h5 class="mb-4">{{  ('Category Information') }}</h5>
                             <div class="tt-vertical-step">
                                 <ul class="list-unstyled">
                                     <li>
-                                        <a href="#section-1" class="active">{{ localize('Basic Information') }}</a>
+                                        <a href="#section-1" class="active">{{  ('Basic Information') }}</a>
                                     </li>
                                     <li>
-                                        <a href="#section-2">{{ localize('Category Image') }}</a>
+                                        <a href="#section-2">{{  ('Category Image') }}</a>
                                     </li>
                                     <li>
-                                        <a href="#section-10">{{ localize('SEO Meta Options') }}</a>
+                                        <a href="#section-10">{{  ('SEO Meta Options') }}</a>
                                     </li>
                                 </ul>
                             </div>

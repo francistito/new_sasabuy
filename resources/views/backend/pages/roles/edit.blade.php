@@ -1,7 +1,7 @@
 @extends('backend.layouts.master')
 
 @section('title')
-    {{ localize('Update Role') }} {{ getSetting('title_separator') }} {{ getSetting('system_title') }}
+    {{  ('Update Role') }} {{ getSetting('title_separator') }} {{ getSetting('system_title') }}
 @endsection
 
 @section('contents')
@@ -12,7 +12,7 @@
                     <div class="card tt-page-header">
                         <div class="card-body d-lg-flex align-items-center justify-content-lg-between">
                             <div class="tt-page-title">
-                                <h2 class="h5 mb-lg-0">{{ localize('Update Role') }}</h2>
+                                <h2 class="h5 mb-lg-0">{{  ('Update Role') }}</h2>
                             </div>
 
                         </div>
@@ -29,12 +29,12 @@
                         <!--basic information start-->
                         <div class="card mb-4" id="section-1">
                             <div class="card-body">
-                                <h5 class="mb-4">{{ localize('Basic Information') }}</h5>
+                                <h5 class="mb-4">{{  ('Basic Information') }}</h5>
 
                                 <div class="mb-4">
-                                    <label for="name" class="form-label">{{ localize('Role Name') }}</label>
+                                    <label for="name" class="form-label">{{  ('Role Name') }}</label>
                                     <input class="form-control" type="text" id="name"
-                                        placeholder="{{ localize('Type role name') }}" name="name" required
+                                        placeholder="{{  ('Type role name') }}" name="name" required
                                         value="{{ $role->name }}">
                                 </div>
 
@@ -49,11 +49,11 @@
                                 <div class="tt-page-header" id="section-2">
                                     <div class="d-lg-flex align-items-center justify-content-lg-between">
                                         <div class="tt-page-title">
-                                            <h2 class="h5 mb-lg-0">{{ localize('Permissions') }}</h2>
+                                            <h2 class="h5 mb-lg-0">{{  ('Permissions') }}</h2>
                                         </div>
                                         <div class="form-check form-switch">
                                             <label class="form-check-label fw-medium text-primary"
-                                                for="all_permissions">{{ localize('Select All') }}</label>
+                                                for="all_permissions">{{  ('Select All') }}</label>
                                             <input type="checkbox" class="form-check-input" id="all_permissions"
                                                 onchange="toggleSelectAll(this)" name="all_permissions">
                                         </div>
@@ -68,8 +68,8 @@
                                     <div class="d-lg-flex align-items-center align-items-center">
                                         <label
                                             class="form-check-label fs-sm h6 bagde bg-soft-info rounded-pill px-3 p-2 cursor-pointer"
-                                            for="group-{{ $permission_group[0]['id'] }}">{{ localize('Select all of') }}
-                                            {{ localize(ucwords(str_replace('_', ' ', $permission_group[0]['group_name']))) }}</label>
+                                            for="group-{{ $permission_group[0]['id'] }}">{{  ('Select all of') }}
+                                            {{  (ucwords(str_replace('_', ' ', $permission_group[0]['group_name']))) }}</label>
 
                                         <div class="form-check form-switch ms-3 opacity-0">
                                             <input type="checkbox" class="form-check-input permission-checkbox"
@@ -84,7 +84,7 @@
                                                     <div class="alert alert-secondary d-flex flex-wrap mb-0 py-2">
                                                         <label class="flex-grow-1 cursor-pointer"
                                                             for="permission-{{ $permission->id }}">
-                                                            {{ localize(ucwords(str_replace('_', ' ', $permission->name))) }}
+                                                            {{  (ucwords(str_replace('_', ' ', $permission->name))) }}
                                                         </label>
 
                                                         <div class="form-check form-switch mb-0">
@@ -111,7 +111,7 @@
                             <div class="col-12">
                                 <div class="mb-4">
                                     <button class="btn btn-primary" type="submit">
-                                        <i data-feather="save" class="me-1"></i> {{ localize('Save Changes') }}
+                                        <i data-feather="save" class="me-1"></i> {{  ('Save Changes') }}
                                     </button>
                                 </div>
                             </div>
@@ -125,14 +125,14 @@
                 <div class="col-xl-3 order-1 order-md-1 order-lg-1 order-xl-2">
                     <div class="card tt-sticky-sidebar d-none d-xl-block">
                         <div class="card-body">
-                            <h5 class="mb-4">{{ localize('Role Information') }}</h5>
+                            <h5 class="mb-4">{{  ('Role Information') }}</h5>
                             <div class="tt-vertical-step">
                                 <ul class="list-unstyled">
                                     <li>
-                                        <a href="#section-1" class="active">{{ localize('Basic Information') }}</a>
+                                        <a href="#section-1" class="active">{{  ('Basic Information') }}</a>
                                     </li>
                                     <li>
-                                        <a href="#section-2">{{ localize('Permissions') }}</a>
+                                        <a href="#section-2">{{  ('Permissions') }}</a>
                                     </li>
                                 </ul>
                             </div>

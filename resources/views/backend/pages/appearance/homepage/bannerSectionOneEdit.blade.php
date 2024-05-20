@@ -1,7 +1,7 @@
 @extends('backend.layouts.master')
 
 @section('title')
-    {{ localize('Website Homepage Configuration') }} {{ getSetting('title_separator') }} {{ getSetting('system_title') }}
+    {{  ('Website Homepage Configuration') }} {{ getSetting('title_separator') }} {{ getSetting('system_title') }}
 @endsection
 
 @section('contents')
@@ -12,7 +12,7 @@
                     <div class="card tt-page-header">
                         <div class="card-body d-lg-flex align-items-center justify-content-lg-between">
                             <div class="tt-page-title">
-                                <h2 class="h5 mb-lg-0">{{ localize('Update Banner') }}</h2>
+                                <h2 class="h5 mb-lg-0">{{  ('Update Banner') }}</h2>
                             </div>
                         </div>
                     </div>
@@ -42,16 +42,16 @@
                             <div class="card-body">
 
                                 <div class="mb-4">
-                                    <label for="link" class="form-label">{{ localize('Link') }}</label>
+                                    <label for="link" class="form-label">{{  ('Link') }}</label>
                                     <input type="url" name="link" id="link"
                                         placeholder="{{ env('APP_URL') }}/example" class="form-control"
                                         value="{{ $banner->link }}">
                                 </div>
 
                                 <div class="mb-4">
-                                    <label class="form-label">{{ localize('Slider Image') }}</label>
+                                    <label class="form-label">{{  ('Slider Image') }}</label>
                                     <div class="tt-image-drop rounded">
-                                        <span class="fw-semibold">{{ localize('Choose Slider Image') }}</span>
+                                        <span class="fw-semibold">{{  ('Choose Slider Image') }}</span>
                                         <!-- choose media -->
                                         <div class="tt-product-thumb show-selected-files mt-3">
                                             <div class="avatar avatar-xl cursor-pointer choose-media"
@@ -75,7 +75,7 @@
                             <div class="col-12">
                                 <div class="mb-4">
                                     <button class="btn btn-primary" type="submit">
-                                        <i data-feather="save" class="me-1"></i> {{ localize('Save Changes') }}
+                                        <i data-feather="save" class="me-1"></i> {{  ('Save Changes') }}
                                     </button>
                                 </div>
                             </div>
@@ -87,11 +87,11 @@
                 <div class="col-xl-3 order-1 order-md-1 order-lg-1 order-xl-2">
                     <div class="card tt-sticky-sidebar">
                         <div class="card-body">
-                            <h5 class="mb-4">{{ localize('Banner Section One') }}</h5>
+                            <h5 class="mb-4">{{  ('Banner Section One') }}</h5>
                             <div class="tt-vertical-step">
                                 <ul class="list-unstyled">
                                     <li>
-                                        <a href="#section-1" class="active">{{ localize('Update Banner') }}</a>
+                                        <a href="#section-1" class="active">{{  ('Update Banner') }}</a>
                                     </li>
                                 </ul>
                             </div>

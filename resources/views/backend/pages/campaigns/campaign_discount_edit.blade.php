@@ -5,16 +5,16 @@
             <thead>
                 <tr>
                     <td width="40%" class="align-middle">
-                        <span>{{ localize('Product') }}</span>
+                        <span>{{  ('Product') }}</span>
                     </td>
                     <td data-breakpoints="xs sm md" width="10%" class="align-middle">
-                        <span>{{ localize('Base Price') }}</span>
+                        <span>{{  ('Base Price') }}</span>
                     </td>
                     <td data-breakpoints="xs sm md" class="align-middle">
-                        <span>{{ localize('Discount') }}</span>
+                        <span>{{  ('Discount') }}</span>
                     </td>
                     <td data-breakpoints="xs sm md" class="align-middle">
-                        <span>{{ localize('Discount Type') }}</span>
+                        <span>{{  ('Discount Type') }}</span>
                     </td>
                 </tr>
             </thead>
@@ -50,10 +50,10 @@
                                 name="discount_type_{{ $id }}">
                                 <option value="percent" <?php if ($product->discount_type == 'percent') {
                                     echo 'selected';
-                                } ?>>{{ localize('Percent %') }}</option>
+                                } ?>>{{  ('Percent %') }}</option>
                                 <option value="flat" <?php if ($product->discount_type == 'flat') {
                                     echo 'selected';
-                                } ?>>{{ localize('Fixed') }}</option>
+                                } ?>>{{  ('Fixed') }}</option>
                             </select>
                         </td>
                     </tr>

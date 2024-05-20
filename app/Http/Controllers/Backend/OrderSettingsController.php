@@ -28,7 +28,7 @@ class OrderSettingsController extends Controller
         $timeSlot->timeline         = $request->timeline;
         $timeSlot->sorting_order    = $request->sorting_order;
         $timeSlot->save();
-        flash(localize('Slot has been saved successfully'))->success();
+        flash( ('Slot has been saved successfully'))->success();
         return back();
     }
 
@@ -47,7 +47,7 @@ class OrderSettingsController extends Controller
         $timeSlot->sorting_order    = $request->sorting_order;
         $timeSlot->save();
 
-        flash(localize('Slot has been updated successfully'))->success();
+        flash( ('Slot has been updated successfully'))->success();
         return redirect()->route('admin.orderSettings');
     }
 
@@ -55,7 +55,7 @@ class OrderSettingsController extends Controller
     public function delete($id)
     {
         ScheduledDeliveryTimeList::where('id', $id)->delete();
-        flash(localize('Slot has been deleted successfully'))->success();
+        flash( ('Slot has been deleted successfully'))->success();
         return back();
     }
 }

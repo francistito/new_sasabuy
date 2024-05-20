@@ -9,7 +9,7 @@
 }(function( $ ) {
 
 /*
- * Localized default methods for the jQuery validation plugin.
+ *  d default methods for the jQuery validation plugin.
  * Locale: FI
  */
 $.extend( $.validator.methods, {

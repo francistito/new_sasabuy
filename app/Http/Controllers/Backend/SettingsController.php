@@ -38,7 +38,7 @@ class SettingsController extends Controller
         foreach ($request->types as $key => $type) {
             writeToEnvFile($type, $request[$type]);
         }
-        flash(localize("Settings updated successfully"))->success();
+        flash( ("Settings updated successfully"))->success();
         return back();
     }
 
@@ -55,7 +55,7 @@ class SettingsController extends Controller
             dd($e);
         }
 
-        flash(localize('An email has been sent.'))->success();
+        flash( ('An email has been sent.'))->success();
         return back();
     }
 
@@ -115,7 +115,7 @@ class SettingsController extends Controller
         }
 
         cacheClear();
-        flash(localize("Settings updated successfully"))->success();
+        flash( ("Settings updated successfully"))->success();
         return back();
     }
 
@@ -188,7 +188,7 @@ class SettingsController extends Controller
         }
 
         cacheClear();
-        flash(localize("Payment settings updated successfully"))->success();
+        flash( ("Payment settings updated successfully"))->success();
         return back();
     }
 }

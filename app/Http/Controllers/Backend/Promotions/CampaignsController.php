@@ -82,10 +82,10 @@ class CampaignsController extends Controller
                 }
             }
 
-            flash(localize('Campaign has been saved successfully'))->success();
+            flash( ('Campaign has been saved successfully'))->success();
             return redirect()->route('admin.campaigns.index');
         } else {
-            flash(localize('Something went wrong'))->error();
+            flash( ('Something went wrong'))->error();
             return back();
         }
     }
@@ -132,15 +132,15 @@ class CampaignsController extends Controller
                     $root_product->save();
                 }
             }
-            flash(localize('Campaign has been updated successfully'))->success();
+            flash( ('Campaign has been updated successfully'))->success();
             return redirect()->route('admin.campaigns.index');
         } else {
-            flash(localize('Something went wrong'))->error();
+            flash( ('Something went wrong'))->error();
             return back();
         }
     }
 
-    # update published  
+    # update published
     public function updatePublishedStatus(Request $request)
     {
         $product = Campaign::findOrFail($request->id);
@@ -173,7 +173,7 @@ class CampaignsController extends Controller
         $campaign->campaignProducts()->delete();
 
         $campaign->delete();
-        flash(localize('Campaign has been deleted successfully'))->success();
+        flash( ('Campaign has been deleted successfully'))->success();
         return back();
     }
 }

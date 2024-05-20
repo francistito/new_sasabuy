@@ -48,7 +48,7 @@ class TaxesController extends Controller
         $tax->name = $request->name;
         $tax->save();
 
-        flash(localize('Tax has been inserted successfully'))->success();
+        flash( ('Tax has been inserted successfully'))->success();
         return redirect()->route('admin.taxes.index');
     }
 
@@ -67,11 +67,11 @@ class TaxesController extends Controller
 
         $tax->save();
 
-        flash(localize('Tax has been updated successfully'))->success();
+        flash( ('Tax has been updated successfully'))->success();
         return back();
     }
 
-    # update status 
+    # update status
     public function updateStatus(Request $request)
     {
         $tax = Tax::findOrFail($request->id);
@@ -88,7 +88,7 @@ class TaxesController extends Controller
         $tax = Tax::findOrFail($id);
         ProductTax::where('tax_id', $id)->delete();
         $tax->delete();
-        flash(localize('Tax has been deleted successfully'))->success();
+        flash( ('Tax has been deleted successfully'))->success();
         return back();
     }
 }

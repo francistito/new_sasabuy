@@ -93,7 +93,7 @@ class CategoriesController extends Controller
         $category->save();
 //        $categoryLocalization->save();
 
-//        flash(localize('Category has been inserted successfully'))->success();
+//        flash( ('Category has been inserted successfully'))->success();
         return redirect()->route('product.categories.index');
     }
 
@@ -103,7 +103,7 @@ class CategoriesController extends Controller
         $lang_key = $request->lang_key;
         $language = Language::where('is_active', 1)->where('code', $lang_key)->first();
         if (!$language) {
-            flash(localize('Language you are trying to translate is not available or not active'))->error();
+            flash( ('Language you are trying to translate is not available or not active'))->error();
             return redirect()->route('admin.categories.index');
         }
 
@@ -175,7 +175,7 @@ class CategoriesController extends Controller
         (new DocumentResourceRepository())->saveDocument($category->id,3,'image', $request->all());
 
 
-        flash(localize('Category has been updated successfully'))->success();
+        flash( ('Category has been updated successfully'))->success();
         return back();
     }
 
@@ -215,7 +215,7 @@ class CategoriesController extends Controller
 
             $category->delete();
         }
-        flash(localize('Category has been deleted successfully'))->success();
+        flash( ('Category has been deleted successfully'))->success();
         return back();
     }
 

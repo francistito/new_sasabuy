@@ -1,7 +1,7 @@
 @extends('backend.layouts.master')
 
 @section('title')
-    {{ localize('Update Time Slot') }} {{ getSetting('title_separator') }} {{ getSetting('system_title') }}
+    {{  ('Update Time Slot') }} {{ getSetting('title_separator') }} {{ getSetting('system_title') }}
 @endsection
 
 
@@ -13,7 +13,7 @@
                     <div class="card tt-page-header">
                         <div class="card-body d-lg-flex align-items-center justify-content-lg-between">
                             <div class="tt-page-title">
-                                <h2 class="h5 mb-lg-0">{{ localize('Update Time Slot') }}</h2>
+                                <h2 class="h5 mb-lg-0">{{  ('Update Time Slot') }}</h2>
                             </div>
                         </div>
                     </div>
@@ -31,16 +31,16 @@
                         <div class="card mb-4" id="section-1">
                             <div class="card-body">
                                 <div class="mb-3">
-                                    <label for="timeline" class="form-label">{{ localize('Time Slot') }}</label>
+                                    <label for="timeline" class="form-label">{{  ('Time Slot') }}</label>
                                     <input type="text" id="timeline" name="timeline" class="form-control"
-                                        placeholder="{{ localize('8am - 9am') }}" value="{{ $slot->timeline }}" required>
+                                        placeholder="{{  ('8am - 9am') }}" value="{{ $slot->timeline }}" required>
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="sorting_order" class="form-label">{{ localize('Sorting Order') }}</label>
+                                    <label for="sorting_order" class="form-label">{{  ('Sorting Order') }}</label>
                                     <input type="number" min="0" value="{{ $slot->sorting_order }}"
                                         id="sorting_order" name="sorting_order" class="form-control">
-                                    <small>{{ localize('Timeslots with lower sorting order will be shown first') }}</small>
+                                    <small>{{  ('Timeslots with lower sorting order will be shown first') }}</small>
                                 </div>
                             </div>
                         </div>
@@ -51,7 +51,7 @@
                             <div class="col-12">
                                 <div class="mb-4">
                                     <button class="btn btn-primary" type="submit">
-                                        <i data-feather="save" class="me-1"></i> {{ localize('Save Changes') }}
+                                        <i data-feather="save" class="me-1"></i> {{  ('Save Changes') }}
                                     </button>
                                 </div>
                             </div>
@@ -65,11 +65,11 @@
                 <div class="col-xl-3 order-1 order-md-1 order-lg-1 order-xl-2">
                     <div class="card tt-sticky-sidebar d-none d-xl-block">
                         <div class="card-body">
-                            <h5 class="mb-4">{{ localize('Time Slot Information') }}</h5>
+                            <h5 class="mb-4">{{  ('Time Slot Information') }}</h5>
                             <div class="tt-vertical-step">
                                 <ul class="list-unstyled">
                                     <li>
-                                        <a href="#section-1" class="active">{{ localize('Basic Information') }}</a>
+                                        <a href="#section-1" class="active">{{  ('Basic Information') }}</a>
                                     </li>
                                 </ul>
                             </div>

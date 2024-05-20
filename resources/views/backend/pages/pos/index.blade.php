@@ -1,7 +1,7 @@
 @extends('backend.layouts.master')
 
 @section('title')
-    {{ localize('Pos') }} {{ getSetting('title_separator') }} {{ getSetting('system_title') }}
+    {{  ('Pos') }} {{ getSetting('title_separator') }} {{ getSetting('system_title') }}
 @endsection
 
 @section('contents')
@@ -21,7 +21,7 @@
                         <div class="tt-pos-products-wrap">
                             <div class="row justify-content-between align-items-center g-3 mb-3">
                                 <div class="col-auto flex-grow-1">
-                                    <h2 class="h5 mb-0">{{ localize('All Listed Products') }}</h2>
+                                    <h2 class="h5 mb-0">{{  ('All Listed Products') }}</h2>
                                 </div>
                                 <div class="col-auto">
                                     <div class="tt-search-box">
@@ -29,19 +29,19 @@
                                             <span class="position-absolute top-50 start-0 translate-middle-y ms-2"> <i
                                                     data-feather="search"></i></span>
                                             <input class="form-control rounded-start w-100" type="text" name="search"
-                                                placeholder="{{ localize('Search') }}...">
+                                                placeholder="{{  ('Search') }}...">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-auto">
                                     <button type="button" class="btn btn-secondary" onclick="getPosProducts()">
-                                        {{ localize('Search') }}
+                                        {{  ('Search') }}
                                     </button>
                                 </div>
                                 <div class="col-auto">
                                     <button type="button" class="btn btn-soft-primary" data-bs-toggle="modal"
                                         data-bs-target="#addItemCode">
-                                        <i data-feather="plus"></i> {{ localize('Add Item by Code') }}
+                                        <i data-feather="plus"></i> {{  ('Add Item by Code') }}
                                     </button>
                                 </div>
                             </div>
@@ -54,7 +54,7 @@
                                 <button type="button" class="mt-3 btn btn-primary d-block mx-auto pos-load-more d-none"
                                     onclick="getNextPosProducts()">
                                     <span> <i data-feather="refresh-cw" class="me-2"
-                                            width="18"></i>{{ localize('Load More') }}</span>
+                                            width="18"></i>{{  ('Load More') }}</span>
                                 </button>
 
                             </div>
@@ -72,23 +72,23 @@
                         <form action="" class="d-flex flex-column h-100 pos-cart-list-form">
                             @csrf
                             <div class="d-flex align-items-center justify-content-between mb-3">
-                                <h5 class="mb-0">{{ localize('Billing Section') }}</h5>
+                                <h5 class="mb-0">{{  ('Billing Section') }}</h5>
                                 <div class="d-flex flex-wrap align-items-center">
                                     <div class="me-2 mb-1 mb-md-0">
                                         <select class="form-select py-1" name="delivery_status">
                                             <option value="{{ orderDeliveredStatus() }}" selected>
-                                                {{ localize('Delivered') }}</option>
-                                            <option value="{{ orderPlacedStatus() }}">{{ localize('Order Placed') }}
+                                                {{  ('Delivered') }}</option>
+                                            <option value="{{ orderPlacedStatus() }}">{{  ('Order Placed') }}
                                             </option>
                                         </select>
                                     </div>
 
                                     <button type="button" class="btn btn-soft-primary py-1 px-2 me-2 mb-1 mb-md-0"
                                         onclick="showCustomerModal()"><i data-feather="user-plus"
-                                            class="me-1"></i>{{ localize('Customer') }}</button>
+                                            class="me-1"></i>{{  ('Customer') }}</button>
                                     <a href="{{ route('admin.pos.index') }}" target="_blank"
                                         class="btn btn-soft-accent py-1 px-2 mb-1 mb-md-0"><i data-feather="plus-circle"
-                                            class="me-1"></i>{{ localize('New Order') }}</a>
+                                            class="me-1"></i>{{  ('New Order') }}</a>
                                 </div>
                             </div>
 
@@ -122,10 +122,10 @@
                                 <table class="table tt-footable align-middle" data-use-parent-width="true">
                                     <thead class="sticky-top bg-secondary-subtle">
                                         <tr>
-                                            <th>{{ localize('Item') }}</th>
-                                            <th data-breakpoints="xs sm" class="text-center">{{ localize('Qty') }}</th>
-                                            <th data-breakpoints="xs sm md">{{ localize('Price') }}</th>
-                                            <th data-breakpoints="xs sm md" class="text-end">{{ localize('Action') }}</th>
+                                            <th>{{  ('Item') }}</th>
+                                            <th data-breakpoints="xs sm" class="text-center">{{  ('Qty') }}</th>
+                                            <th data-breakpoints="xs sm md">{{  ('Price') }}</th>
+                                            <th data-breakpoints="xs sm md" class="text-end">{{  ('Action') }}</th>
                                         </tr>
                                     </thead>
                                     <tbody class="pos-cart-list">
@@ -361,7 +361,7 @@
             if (isValidForAddingToCart()) {
                 addToPosCart(product_variation_id);
             } else {
-                notifyMe('warning', '{{ localize('Please select all the options') }}');
+                notifyMe('warning', '{{  ('Please select all the options') }}');
             }
         }
 

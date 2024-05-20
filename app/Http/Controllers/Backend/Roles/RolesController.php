@@ -46,7 +46,7 @@ class RolesController extends Controller
     {
         $role = Role::create(['name' => $request->name]);
 //        $role->givePermissionTo($request->permissions);
-        flash(localize('New Role has been added successfully'))->success();
+        flash( ('New Role has been added successfully'))->success();
         return redirect()->route('admin.roles.index');
     }
 
@@ -65,7 +65,7 @@ class RolesController extends Controller
         $role->name = $request->name;
         $role->syncPermissions($request->permissions);
         $role->save();
-        flash(localize('Role has been updated successfully'))->success();
+        flash( ('Role has been updated successfully'))->success();
         return back();
     }
 
@@ -73,7 +73,7 @@ class RolesController extends Controller
     public function delete($id)
     {
         Role::destroy($id);
-        flash(localize('Role has been deleted successfully'))->success();
+        flash( ('Role has been deleted successfully'))->success();
         return redirect()->route('admin.roles.index');
     }
 }

@@ -27,10 +27,10 @@ class ContactUsMessagesController extends Controller
 
         if ($message->is_seen == 0) {
             $message->is_seen = 1;
-            flash(localize('Marked as read'))->success();
+            flash( ('Marked as read'))->success();
         } else {
             $message->is_seen = 0;
-            flash(localize('Marked as unread'))->success();
+            flash( ('Marked as unread'))->success();
         }
         $message->save();
         return back();

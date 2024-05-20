@@ -2475,37 +2475,37 @@ if (!function_exists('getSetting')) {
     }
 }
 
-if (!function_exists('localize')) {
-    # add / return localization
-    function localize($key, $lang = null)
-    {
-        if ($lang == null) {
-            $lang = App::getLocale();
-        }
-
-        $t_key = preg_replace('/[^A-Za-z0-9\_]/', '', str_replace(' ', '_', strtolower($key)));
-
-        $localization_default = Cache::rememberForever('localizations-' . env('DEFAULT_LANGUAGE', 'en'), function () {
-            return Localization::where('lang_key', env('DEFAULT_LANGUAGE', 'en'))->pluck('t_value', 't_key');
-        });
-
-        if (!isset($localization_default[$t_key])) {
-            # add new localization
-            newLocalization(env('DEFAULT_LANGUAGE', 'en'), $t_key, $key);
-        }
-
-        # return user session lang
-        $localization_user = Cache::rememberForever("localizations-{$lang}", function () use ($lang) {
-            return Localization::where('lang_key', $lang)->pluck('t_value', 't_key')->toArray();
-        });
-
-        if (isset($localization_user[$t_key])) {
-            return trim($localization_user[$t_key]);
-        }
-
-        return trim(__($t_key));
-    }
-}
+//if (!function_exists(' ')) {
+//    # add / return localization
+//    function  ($key, $lang = null)
+//    {
+//        if ($lang == null) {
+//            $lang = App::getLocale();
+//        }
+//
+//        $t_key = preg_replace('/[^A-Za-z0-9\_]/', '', str_replace(' ', '_', strtolower($key)));
+//
+//        $localization_default = Cache::rememberForever('localizations-' . env('DEFAULT_LANGUAGE', 'en'), function () {
+//            return Localization::where('lang_key', env('DEFAULT_LANGUAGE', 'en'))->pluck('t_value', 't_key');
+//        });
+//
+//        if (!isset($localization_default[$t_key])) {
+//            # add new localization
+//            newLocalization(env('DEFAULT_LANGUAGE', 'en'), $t_key, $key);
+//        }
+//
+//        # return user session lang
+//        $localization_user = Cache::rememberForever("localizations-{$lang}", function () use ($lang) {
+//            return Localization::where('lang_key', $lang)->pluck('t_value', 't_key')->toArray();
+//        });
+//
+//        if (isset($localization_user[$t_key])) {
+//            return trim($localization_user[$t_key]);
+//        }
+//
+//        return trim(__($t_key));
+//    }
+//}
 
 if (!function_exists('newLocalization')) {
     # new localization

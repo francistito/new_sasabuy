@@ -13,10 +13,10 @@ class NewslettersController extends Controller
 {
     # construct
     public function __construct()
-    { 
-        $this->middleware(['permission:newsletters'])->only(['index', 'sendNewsletter']);   
+    {
+        $this->middleware(['permission:newsletters'])->only(['index', 'sendNewsletter']);
     }
-    
+
     # newsletter sending page
     public function index(Request $request)
     {
@@ -35,11 +35,11 @@ class NewslettersController extends Controller
                     $array['view'] = 'emails.bulkEmail';
                     $array['subject'] = $request->subject;
                     $array['from'] = env('MAIL_FROM_ADDRESS');
-                    $array['content'] = $request->content; 
+                    $array['content'] = $request->content;
                     try {
                         Mail::to($email)->queue(new EmailManager($array));
                     } catch (\Exception $e) {
-                        // 
+                        //
                     }
             	}
             }
@@ -55,16 +55,16 @@ class NewslettersController extends Controller
                     try {
                         Mail::to($email)->queue(new EmailManager($array));
                     } catch (\Exception $e) {
-                        // 
+                        //
                     }
             	}
-            } 
+            }
         } else {
-            flash(localize('Please configure SMTP first'))->error();
+            flash( ('Please configure SMTP first'))->error();
             return back();
         }
 
-    	flash(localize('Newsletter has been sent'))->success();
+    	flash( ('Newsletter has been sent'))->success();
     	return back();
-    } 
+    }
 }

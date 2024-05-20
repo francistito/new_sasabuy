@@ -1,7 +1,7 @@
 @extends('backend.layouts.master')
 
 @section('title')
-    {{ localize('Media Manager') }} {{ getSetting('title_separator') }} {{ getSetting('system_title') }}
+    {{  ('Media Manager') }} {{ getSetting('title_separator') }} {{ getSetting('system_title') }}
 @endsection
 
 @section('contents')
@@ -12,7 +12,7 @@
                     <div class="card tt-page-header">
                         <div class="card-body d-lg-flex align-items-center justify-content-lg-between">
                             <div class="tt-page-title">
-                                <h2 class="h5 mb-lg-0">{{ localize('Media Manager') }}</h2>
+                                <h2 class="h5 mb-lg-0">{{  ('Media Manager') }}</h2>
                             </div>
 
                         </div>

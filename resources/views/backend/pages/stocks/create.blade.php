@@ -1,7 +1,7 @@
 @extends('backend.layouts.master')
 
 @section('title')
-    {{ localize('Add Stock') }} {{ getSetting('title_separator') }} {{ getSetting('system_title') }}
+    {{  ('Add Stock') }} {{ getSetting('title_separator') }} {{ getSetting('system_title') }}
 @endsection
 
 
@@ -13,7 +13,7 @@
                     <div class="card tt-page-header">
                         <div class="card-body d-lg-flex align-items-center justify-content-lg-between">
                             <div class="tt-page-title">
-                                <h2 class="h5 mb-lg-0">{{ localize('Add Stock') }}</h2>
+                                <h2 class="h5 mb-lg-0">{{  ('Add Stock') }}</h2>
                             </div>
 
                         </div>
@@ -30,12 +30,12 @@
                         <!--basic information start-->
                         <div class="card mb-4" id="section-1">
                             <div class="card-body">
-                                <h5 class="mb-3">{{ localize('Basic Information') }}</h5>
+                                <h5 class="mb-3">{{  ('Basic Information') }}</h5>
 
                                 <div class="mb-3">
-                                    <label for="name" class="form-label">{{ localize('Location') }}</label>
+                                    <label for="name" class="form-label">{{  ('Location') }}</label>
                                     <select class="select2 form-control" name="location_id" required>
-                                        <option value="">{{ localize('Select location') }}</option>
+                                        <option value="">{{  ('Select location') }}</option>
                                         @foreach ($locations as $location)
                                             <option value="{{ $location->id }}">
                                                 {{ $location->name }}</option>
@@ -44,9 +44,9 @@
                                 </div>
 
                                 <div class="mb-3">
-                                    <label class="form-label">{{ localize('Select Product') }}</label>
+                                    <label class="form-label">{{  ('Select Product') }}</label>
                                     <select class="select2 form-control" name="product_id" required disabled>
-                                        <option value="">{{ localize('Select product') }}</option>
+                                        <option value="">{{  ('Select product') }}</option>
                                         @foreach ($products as $product)
                                             <option value="{{ $product->id }}">
                                                 {{ $product->collectLocalization('name') }}</option>
@@ -67,7 +67,7 @@
                             <div class="col-12">
                                 <div class="mb-3">
                                     <button class="btn btn-primary" type="submit">
-                                        <i data-feather="save" class="me-1"></i> {{ localize('Save Stock') }}
+                                        <i data-feather="save" class="me-1"></i> {{  ('Save Stock') }}
                                     </button>
                                 </div>
                             </div>
@@ -80,11 +80,11 @@
                 <div class="col-xl-3 order-1 order-md-1 order-lg-1 order-xl-2">
                     <div class="card tt-sticky-sidebar d-none d-xl-block">
                         <div class="card-body">
-                            <h5 class="mb-3">{{ localize('Stock Information') }}</h5>
+                            <h5 class="mb-3">{{  ('Stock Information') }}</h5>
                             <div class="tt-vertical-step">
                                 <ul class="list-unstyled">
                                     <li>
-                                        <a href="#section-1" class="active">{{ localize('Stock Information') }}</a>
+                                        <a href="#section-1" class="active">{{  ('Stock Information') }}</a>
                                     </li>
                                 </ul>
                             </div>
@@ -115,7 +115,7 @@
             }
         });
 
-        // get getVariationStocks 
+        // get getVariationStocks
         $(document).on('change', '[name=product_id]', function() {
             $('.add-stock-input').empty();
             var product_id = $(this).val();

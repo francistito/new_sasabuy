@@ -1,7 +1,7 @@
 @extends('backend.layouts.master')
 
 @section('title')
-    {{ localize('Shipping States') }} {{ getSetting('title_separator') }} {{ getSetting('system_title') }}
+    {{  ('Shipping States') }} {{ getSetting('title_separator') }} {{ getSetting('system_title') }}
 @endsection
 
 @section('contents')
@@ -14,7 +14,7 @@
                             <div class="row justify-content-between align-items-center g-3">
                                 <div class="col-auto flex-grow-1">
                                     <div class="tt-page-title">
-                                        <h2 class="h5 mb-0">{{ localize('Shipping States') }}</h2>
+                                        <h2 class="h5 mb-0">{{  ('Shipping States') }}</h2>
                                     </div>
                                 </div>
                                 <div class="col-auto">
@@ -24,7 +24,7 @@
                                 <div class="col-auto">
                                     @can('add_shipping_states')
                                         <a href="{{ route('admin.states.create') }}" class="btn btn-primary"><i
-                                                data-feather="plus"></i>{{ localize('Add State') }}</a>
+                                                data-feather="plus"></i>{{  ('Add State') }}</a>
                                     @endcan
                                 </div>
                             </div>
@@ -45,7 +45,7 @@
                                                 <span class="position-absolute top-50 start-0 translate-middle-y ms-2">
                                                     <i data-feather="search"></i></span>
                                                 <input class="form-control rounded-start w-100" type="text"
-                                                    id="search" name="search" placeholder="{{ localize('Search') }}"
+                                                    id="search" name="search" placeholder="{{  ('Search') }}"
                                                     @isset($searchKey)
                             value="{{ $searchKey }}"
                         @endisset>
@@ -56,7 +56,7 @@
                                     <div class="col-auto">
                                         <div class="input-group">
                                             <select class="form-select select2" name="searchCountry">
-                                                <option value="">{{ localize('Select a country') }}</option>
+                                                <option value="">{{  ('Select a country') }}</option>
                                                 @foreach (\App\Models\Country::where('is_active', 1)->get() as $country)
                                                     <option value="{{ $country->id }}"
                                                         @if ($searchCountry == $country->id) selected @endif>
@@ -69,7 +69,7 @@
                                     <div class="col-auto">
                                         <button type="submit" class="btn btn-secondary">
                                             <i data-feather="search" width="18"></i>
-                                            {{ localize('Search') }}
+                                            {{  ('Search') }}
                                         </button>
                                     </div>
                                 </div>
@@ -79,11 +79,11 @@
                         <table class="table tt-footable border-top" data-use-parent-width="true">
                             <thead>
                                 <tr>
-                                    <th class="text-center">{{ localize('S/L') }}</th>
-                                    <th>{{ localize('Name') }}</th>
-                                    <th>{{ localize('Country') }}</th>
-                                    <th data-breakpoints="xs sm">{{ localize('Active') }}</th>
-                                    <th data-breakpoints="xs sm" class="text-end">{{ localize('Action') }}
+                                    <th class="text-center">{{  ('S/L') }}</th>
+                                    <th>{{  ('Name') }}</th>
+                                    <th>{{  ('Country') }}</th>
+                                    <th data-breakpoints="xs sm">{{  ('Active') }}</th>
+                                    <th data-breakpoints="xs sm" class="text-end">{{  ('Action') }}
                                     </th>
                                 </tr>
                             </thead>
@@ -122,8 +122,8 @@
                                                 <div class="dropdown-menu dropdown-menu-end shadow">
                                                     @can('edit_shipping_states')
                                                         <a class="dropdown-item"
-                                                            href="{{ route('admin.states.edit', ['id' => $state->id, 'lang_key' => env('DEFAULT_LANGUAGE')]) }}&localize">
-                                                            <i data-feather="edit-3" class="me-2"></i>{{ localize('Edit') }}
+                                                            href="{{ route('admin.states.edit', ['id' => $state->id, 'lang_key' => env('DEFAULT_LANGUAGE')]) }}& ">
+                                                            <i data-feather="edit-3" class="me-2"></i>{{  ('Edit') }}
                                                         </a>
                                                     @endcan
                                                 </div>
@@ -135,10 +135,10 @@
                         </table>
                         <!--pagination start-->
                         <div class="d-flex align-items-center justify-content-between px-4 pb-4">
-                            <span>{{ localize('Showing') }}
+                            <span>{{  ('Showing') }}
                                 {{ $states->firstItem() }}-{{ $states->lastItem() }}
-                                {{ localize('of') }}
-                                {{ $states->total() }} {{ localize('results') }}</span>
+                                {{  ('of') }}
+                                {{ $states->total() }} {{  ('results') }}</span>
                             <nav>
                                 {{ $states->appends(request()->input())->links() }}
                             </nav>
@@ -169,9 +169,9 @@
                 },
                 function(data) {
                     if (data == 1) {
-                        notifyMe('success', '{{ localize('Status updated successfully') }}');
+                        notifyMe('success', '{{  ('Status updated successfully') }}');
                     } else {
-                        notifyMe('danger', '{{ localize('Something went wrong') }}');
+                        notifyMe('danger', '{{  ('Something went wrong') }}');
                     }
                 });
         }

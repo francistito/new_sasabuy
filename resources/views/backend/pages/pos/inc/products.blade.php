@@ -4,17 +4,17 @@
         $stock = 0;
         $code = null;
         $product_variation = null;
-        
+
         if ($product->variations()->count() > 1) {
             $isVariantProduct = 1;
         } else {
             $product_variation = $product->variations[0];
-        
+
             $product_variation_stock = $product->variations[0]->product_variation_stock;
             if ($product_variation_stock) {
                 $stock = $product_variation_stock->stock_qty;
             }
-        
+
             $code = $product_variation->code;
         }
     @endphp
@@ -29,7 +29,7 @@
 
                 @if (!$isVariantProduct)
                     @if ($code != null)
-                        <small class="text-muted">{{ localize('Code') }}: {{ $code }}</small>
+                        <small class="text-muted">{{  ('Code') }}: {{ $code }}</small>
                     @endif
                 @endif
 

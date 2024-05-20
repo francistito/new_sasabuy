@@ -39,13 +39,13 @@
             style="border-right: 1px solid #e4e4e4; width: 300px; font-family: 'Open Sans', sans-serif; color: #323232; line-height: 1.5; vertical-align: top;">
             <p
                 style="font-size: 15px; font-family: 'Open Sans', sans-serif; color: #5b5b5b; font-weight: bold; line-height: 1; vertical-align: top; ">
-                {{ localize('INVOICE') }}</p>
+                {{  ('INVOICE') }}</p>
             <br>
             <p
                 style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #5b5b5b; line-height: 24px; vertical-align: top;">
-                {{ localize('Invoice No') }} : {{ getSetting('order_code_prefix') }}
+                {{  ('Invoice No') }} : {{ getSetting('order_code_prefix') }}
                 {{ $order->orderGroup->order_code }}<br>
-                {{ localize('Order Date') }} : {{ date('d M, Y', strtotime($order->created_at)) }}
+                {{  ('Order Date') }} : {{ date('d M, Y', strtotime($order->created_at)) }}
             </p>
 
             @if ($order->location_id != null)
@@ -63,7 +63,7 @@
             <p
                 style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #5b5b5b; line-height: 24px; vertical-align: top;">
                 {{ getSetting('topbar_location') }}<br>
-                {{ localize('Phone') }}: {{ getSetting('navbar_contact_number') }}
+                {{  ('Phone') }}: {{ getSetting('navbar_contact_number') }}
             </p>
         </td>
     </tr>
@@ -86,7 +86,7 @@
             <td colspan="4" style="width: 300px;">
                 <p
                     style="font-size: 12px; font-family: 'Open Sans', sans-serif; font-weight: bold; color: #5b5b5b; line-height: 1; vertical-align: top; ">
-                    {{ localize('SHIPPING INFORMATION') }}</p>
+                    {{  ('SHIPPING INFORMATION') }}</p>
 
                 @php
                     $shippingAddress = $order->orderGroup->shippingAddress;
@@ -104,16 +104,16 @@
                     @endif
                     @if ($order->orderGroup->alternative_phone_no)
                         <br>
-                        {{ localize('Alternative Phone') }}: {{ $order->orderGroup->alternative_phone_no }}
+                        {{  ('Alternative Phone') }}: {{ $order->orderGroup->alternative_phone_no }}
                     @endif
                     <br>
-                    {{ localize('Logistic') }}: {{ $order->logistic_name }}
+                    {{  ('Logistic') }}: {{ $order->logistic_name }}
                     <br>
                     @php
                         $deliveryInfo = json_decode($order->scheduled_delivery_info);
                     @endphp
 
-                <p class="mb-0">{{ localize('Delivery Type') }}:
+                <p class="mb-0">{{  ('Delivery Type') }}:
                     <span
                         class="badge bg-primary">{{ Str::title(Str::replace('_', ' ', $order->shipping_delivery_type)) }}</span>
 
@@ -122,7 +122,7 @@
 
                 @if ($order->shipping_delivery_type == getScheduledDeliveryType())
                     <p class="mb-0">
-                        {{ localize('Delivery Time') }}:
+                        {{  ('Delivery Time') }}:
                         {{ date('d F', $deliveryInfo->scheduled_date) }},
                         {{ $deliveryInfo->timeline }}</p>
                 @endif
@@ -135,7 +135,7 @@
                 <td colspan="4" style="width: 300px;">
                     <p
                         style="font-size: 11px; font-family: 'Open Sans', sans-serif; font-weight: bold; color: #5b5b5b; line-height: 1; vertical-align: top; ">
-                        {{ localize('BILLING INFORMATION') }}</p>
+                        {{  ('BILLING INFORMATION') }}</p>
                     @php
                         $billingAddress = $order->orderGroup->billingAddress;
                     @endphp
@@ -176,22 +176,22 @@
                                             <th style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #000000; font-weight: normal;
                   line-height: 1; vertical-align: top; padding: 0 10px 7px 0;"
                                                 width="52%" align="left">
-                                                {{ localize('Item') }}
+                                                {{  ('Item') }}
                                             </th>
                                             <th style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #000000; font-weight: normal;
                   line-height: 1; vertical-align: top; padding: 0 0 7px;"
                                                 align="left">
-                                                {{ localize('Price') }}
+                                                {{  ('Price') }}
                                             </th>
                                             <th style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #000000; font-weight: normal;
                   line-height: 1; vertical-align: top; padding: 0 0 7px; text-align: center; "
                                                 align="center">
-                                                {{ localize('Qty') }}
+                                                {{  ('Qty') }}
                                             </th>
                                             <th style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #000000; font-weight:
                   normal; line-height: 1; vertical-align: top; padding: 0 0 7px; text-align: right; "
                                                 align="right">
-                                                {{ localize('Subtotal') }}
+                                                {{  ('Subtotal') }}
                                             </th>
                                         </tr>
                                         <tr>
@@ -270,7 +270,7 @@
                                         <tr>
                                             <td
                                                 style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #646a6e; line-height: 22px; vertical-align: top; text-align:right; ">
-                                                {{ localize('Subtotal') }}
+                                                {{  ('Subtotal') }}
                                             </td>
                                             <td style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #646a6e; line-height: 22px; vertical-align: top; text-align:right; white-space:nowrap;"
                                                 width="80">
@@ -280,7 +280,7 @@
                                         <tr>
                                             <td
                                                 style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #646a6e; line-height: 22px; vertical-align: top; text-align:right; ">
-                                                {{ localize('Shipping Cost') }}
+                                                {{  ('Shipping Cost') }}
                                             </td>
                                             <td
                                                 style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #646a6e; line-height: 22px; vertical-align: top; text-align:right; ">
@@ -292,7 +292,7 @@
                                             <tr>
                                                 <td
                                                     style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #646a6e; line-height: 22px; vertical-align: top; text-align:right; ">
-                                                    {{ localize('Coupon Discount') }}
+                                                    {{  ('Coupon Discount') }}
                                                 </td>
                                                 <td
                                                     style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #646a6e; line-height: 22px; vertical-align: top; text-align:right; ">
@@ -304,7 +304,7 @@
                                         <tr>
                                             <td
                                                 style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #646a6e; line-height: 22px; vertical-align: top; text-align:right; ">
-                                                {{ localize('Tax') }}
+                                                {{  ('Tax') }}
                                             </td>
                                             <td
                                                 style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #646a6e; line-height: 22px; vertical-align: top; text-align:right; ">
@@ -316,7 +316,7 @@
                                             <tr>
                                                 <td
                                                     style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #646a6e; line-height: 22px; vertical-align: top; text-align:right; ">
-                                                    {{ localize('Discount') }}
+                                                    {{  ('Discount') }}
                                                 </td>
                                                 <td
                                                     style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #646a6e; line-height: 22px; vertical-align: top; text-align:right; ">
@@ -327,7 +327,7 @@
                                         <tr>
                                             <td
                                                 style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #000; line-height: 22px; vertical-align: top; text-align:right; ">
-                                                <strong>{{ localize('Grand Total') }}</strong>
+                                                <strong>{{  ('Grand Total') }}</strong>
                                             </td>
                                             <td
                                                 style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #000; line-height: 22px; vertical-align: top; text-align:right; ">
@@ -371,17 +371,17 @@
                                     style="font-size: 12px; color: #5b5b5b; font-family: 'Open Sans', sans-serif; line-height: 18px; vertical-align: top; text-align: left;">
                                     <p
                                         style="font-size: 12px; color: #5b5b5b; font-family: 'Open Sans', sans-serif; line-height: 18px; vertical-align: top; text-align: left;">
-                                        {{ localize('Hello') }} <strong>{{ optional($order->user)->name }},</strong>
+                                        {{  ('Hello') }} <strong>{{ optional($order->user)->name }},</strong>
                                         <br>
                                         {{ getSetting('invoice_thanksgiving') }}
                                     </p>
                                     <br><br>
                                     <p
                                         style="font-size: 12px; color: #5b5b5b; font-family: 'Open Sans', sans-serif; line-height: 18px; vertical-align: top; text-align: left;">
-                                        {{ localize('Best Regards') }},
+                                        {{  ('Best Regards') }},
                                         <br>{{ getSetting('system_title') }} <br>
-                                        {{ localize('Email') }}: {{ getSetting('topbar_email') }}<br>
-                                        {{ localize('Website') }}: {{ env('APP_URL') }}
+                                        {{  ('Email') }}: {{ getSetting('topbar_email') }}<br>
+                                        {{  ('Website') }}: {{ env('APP_URL') }}
                                     </p>
 
                                 </td>

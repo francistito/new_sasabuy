@@ -40,7 +40,7 @@
                                 @isset($searchKey)
                                     value="{{ $searchKey }}"
                                 @endisset
-                                placeholder="{{ localize('Search') }}...">
+                                placeholder="{{  ('Search') }}...">
                         </div>
                     </form>
                 </div>
@@ -55,7 +55,7 @@
                     <li class="nav-item">
                         <a href="{{ url('/') }}" class="nav-link tt-visit-store" target="_blank">
                             <i data-feather="eye" class="me-2"></i>
-                            {{ localize('Visit Store') }}
+                            {{  ('Visit Store') }}
                         </a>
                     </li>
 
@@ -157,7 +157,7 @@
                                                     class="d-flex align-items-center">
                                                     <h4 class="fs-md mb-0"><i data-feather="shopping-cart"
                                                             class="me-1 text-accent" width="18"></i>
-                                                        {{ localize('New Order Placed') }} ({{ $newOrdersCount }})</h4>
+                                                        {{  ('New Order Placed') }} ({{ $newOrdersCount }})</h4>
                                                 </a>
                                             </div>
                                         @endif
@@ -171,7 +171,7 @@
                                                     class="d-flex align-items-center">
                                                     <h4 class="fs-md mb-0"><i data-feather="mail" width="18"
                                                             class="me-1 text-success"></i>
-                                                        {{ localize('New Contact Message') }} ({{ $newMsgCount }})</h4>
+                                                        {{  ('New Contact Message') }} ({{ $newMsgCount }})</h4>
                                                 </a>
                                             </div>
                                         @endif
@@ -181,7 +181,7 @@
                                         <div class="p-3 position-relative border-bottom">
                                             <h4 class="fs-md mb-0 text-muted fw-normal"><i data-feather="info"
                                                     width="18"
-                                                    class="me-1 text-danger"></i>{{ localize('No New Notification') }}
+                                                    class="me-1 text-danger"></i>{{  ('No New Notification') }}
                                             </h4>
                                         </div>
                                     @endif
@@ -208,21 +208,21 @@
                                         <li class="nav-item">
                                             <a class="nav-link px-0" href="{{ route('admin.profile') }}">
                                                 <i data-feather="user" class="me-1 fs-sm"></i>
-                                                {{ localize('My Account') }}
+                                                {{  ('My Account') }}
                                             </a>
                                         </li>
                                         @can('general_settings')
                                             <li class="nav-item">
                                                 <a class="nav-link px-0" href="{{ route('admin.generalSettings') }}">
                                                     <i data-feather="settings" class="me-1 fs-sm"></i>
-                                                    {{ localize('Settings') }}
+                                                    {{  ('Settings') }}
                                                 </a>
                                             </li>
                                         @endcan
                                         <li class="nav-item">
                                             <a class="nav-link px-0" href="{{ route('logout') }}">
                                                 <i data-feather="log-out"
-                                                    class="me-1 fs-sm"></i>{{ localize('Sign out') }}
+                                                    class="me-1 fs-sm"></i>{{  ('Sign out') }}
                                             </a>
                                         </li>
                                     </ul>

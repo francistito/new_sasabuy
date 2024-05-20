@@ -1,7 +1,7 @@
 @extends('backend.layouts.master')
 
 @section('title')
-    {{ localize('Logistics') }} {{ getSetting('title_separator') }} {{ getSetting('system_title') }}
+    {{  ('Logistics') }} {{ getSetting('title_separator') }} {{ getSetting('system_title') }}
 @endsection
 
 @section('contents')
@@ -12,7 +12,7 @@
                     <div class="card tt-page-header">
                         <div class="card-body d-lg-flex align-items-center justify-content-lg-between">
                             <div class="tt-page-title">
-                                <h2 class="h5 mb-lg-0">{{ localize('Logistics') }}</h2>
+                                <h2 class="h5 mb-lg-0">{{  ('Logistics') }}</h2>
                             </div>
                         </div>
                     </div>
@@ -36,7 +36,7 @@
                                                             <i data-feather="search"></i></span>
                                                         <input class="form-control rounded-start w-100" type="text"
                                                             id="search" name="search"
-                                                            placeholder="{{ localize('Search') }}"
+                                                            placeholder="{{  ('Search') }}"
                                                             @isset($searchKey)
                                         value="{{ $searchKey }}"
                                     @endisset>
@@ -46,7 +46,7 @@
                                             <div class="col-auto">
                                                 <button type="submit" class="btn btn-primary">
                                                     <i data-feather="search" width="18"></i>
-                                                    {{ localize('Search') }}
+                                                    {{  ('Search') }}
                                                 </button>
                                             </div>
                                         </div>
@@ -56,10 +56,10 @@
                                 <table class="table tt-footable border-top" data-use-parent-width="true">
                                     <thead>
                                         <tr>
-                                            <th class="text-center">{{ localize('S/L') }}</th>
-                                            <th>{{ localize('Name') }}</th>
-                                            <th data-breakpoints="xs sm">{{ localize('Active') }}</th>
-                                            <th data-breakpoints="xs sm" class="text-end">{{ localize('Action') }}
+                                            <th class="text-center">{{  ('S/L') }}</th>
+                                            <th>{{  ('Name') }}</th>
+                                            <th data-breakpoints="xs sm">{{  ('Active') }}</th>
+                                            <th data-breakpoints="xs sm" class="text-end">{{  ('Action') }}
                                             </th>
                                         </tr>
                                     </thead>
@@ -103,18 +103,18 @@
                                                         <div class="dropdown-menu dropdown-menu-end shadow">
                                                             @can('edit_logistics')
                                                                 <a class="dropdown-item"
-                                                                    href="{{ route('admin.logistics.edit', ['id' => $logistic->id, 'lang_key' => env('DEFAULT_LANGUAGE')]) }}&localize">
+                                                                    href="{{ route('admin.logistics.edit', ['id' => $logistic->id, 'lang_key' => env('DEFAULT_LANGUAGE')]) }}& ">
                                                                     <i data-feather="edit-3"
-                                                                        class="me-2"></i>{{ localize('Edit') }}
+                                                                        class="me-2"></i>{{  ('Edit') }}
                                                                 </a>
                                                             @endcan
 
                                                             @can('delete_logistics')
                                                                 <a href="#" class="dropdown-item confirm-delete"
                                                                     data-href="{{ route('admin.logistics.delete', $logistic->id) }}"
-                                                                    title="{{ localize('Delete') }}">
+                                                                    title="{{  ('Delete') }}">
                                                                     <i data-feather="trash-2" class="me-2"></i>
-                                                                    {{ localize('Delete') }}
+                                                                    {{  ('Delete') }}
                                                                 </a>
                                                             @endcan
                                                         </div>
@@ -126,9 +126,9 @@
                                 </table>
                                 <!--pagination start-->
                                 <div class="d-flex align-items-center justify-content-between px-4 pb-4">
-                                    <span>{{ localize('Showing') }}
-                                        {{ $logistics->firstItem() }}-{{ $logistics->lastItem() }} {{ localize('of') }}
-                                        {{ $logistics->total() }} {{ localize('results') }}</span>
+                                    <span>{{  ('Showing') }}
+                                        {{ $logistics->firstItem() }}-{{ $logistics->lastItem() }} {{  ('of') }}
+                                        {{ $logistics->total() }} {{  ('results') }}</span>
                                     <nav>
                                         {{ $logistics->appends(request()->input())->links() }}
                                     </nav>
@@ -143,18 +143,18 @@
                                 <!-- Logistic info start-->
                                 <div class="card mb-4" id="section-2">
                                     <div class="card-body">
-                                        <h5 class="mb-4">{{ localize('Add New Logistic') }}</h5>
+                                        <h5 class="mb-4">{{  ('Add New Logistic') }}</h5>
 
                                         <div class="mb-4">
-                                            <label for="name" class="form-label">{{ localize('Logistic Name') }}</label>
+                                            <label for="name" class="form-label">{{  ('Logistic Name') }}</label>
                                             <input class="form-control" type="text" id="name" name="name"
-                                                placeholder="{{ localize('Type logistic name') }}" required>
+                                                placeholder="{{  ('Type logistic name') }}" required>
                                         </div>
 
                                         <div class="mb-4">
-                                            <label class="form-label">{{ localize('Logistic Image') }}</label>
+                                            <label class="form-label">{{  ('Logistic Image') }}</label>
                                             <div class="tt-image-drop rounded">
-                                                <span class="fw-semibold">{{ localize('Choose Logistic Thumbnail') }}</span>
+                                                <span class="fw-semibold">{{  ('Choose Logistic Thumbnail') }}</span>
                                                 <!-- choose media -->
                                                 <div class="tt-product-thumb show-selected-files mt-3">
                                                     <div class="avatar avatar-xl cursor-pointer choose-media"
@@ -178,7 +178,7 @@
                                     <div class="col-12">
                                         <div class="mb-4">
                                             <button class="btn btn-primary" type="submit">
-                                                <i data-feather="save" class="me-1"></i> {{ localize('Save Logistic') }}
+                                                <i data-feather="save" class="me-1"></i> {{  ('Save Logistic') }}
                                             </button>
                                         </div>
                                     </div>
@@ -231,9 +231,9 @@
                 },
                 function(data) {
                     if (data == 1) {
-                        notifyMe('success', '{{ localize('Status updated successfully') }}');
+                        notifyMe('success', '{{  ('Status updated successfully') }}');
                     } else {
-                        notifyMe('danger', '{{ localize('Something went wrong') }}');
+                        notifyMe('danger', '{{  ('Something went wrong') }}');
                     }
                 });
         }

@@ -1,7 +1,7 @@
 @extends('backend.layouts.master')
 
 @section('title')
-    {{ localize('Dashboard') }} {{ getSetting('title_separator') }} {{ getSetting('system_title') }}
+    {{  ('Dashboard') }} {{ getSetting('title_separator') }} {{ getSetting('system_title') }}
 @endsection
 
 @section('contents')
@@ -13,19 +13,19 @@
                         <div class="card tt-page-header">
                             <div class="card-body d-lg-flex align-items-center justify-content-lg-between">
                                 <div class="tt-page-title">
-                                    <h2 class="h5 mb-lg-0">{{ localize('Admin Dashboard') }}</h2>
+                                    <h2 class="h5 mb-lg-0">{{  ('Admin Dashboard') }}</h2>
                                 </div>
                                 <div class="tt-action">
 
                                     @can('manage_orders')
                                         <a href="{{ route('admin.orders.index') }}" class="btn btn-secondary"><i
-                                                data-feather="shopping-cart" class="me-2"></i>{{ localize('Manage Sales') }}</a>
+                                                data-feather="shopping-cart" class="me-2"></i>{{  ('Manage Sales') }}</a>
                                     @endcan
 
                                     @can('add_products')
                                         <a href="{{ route('admin.products.create') }}" class="btn btn-primary ms-2"><i
                                                 data-feather="plus" class="me-2"></i>
-                                            {{ localize('Add Product') }}</a>
+                                            {{  ('Add Product') }}</a>
                                     @endcan
                                 </div>
                             </div>
@@ -41,23 +41,23 @@
                                 <div class="card h-100 flex-column">
                                     <div class="card-body">
                                         <div class="d-flex align-items-center justify-content-between">
-                                            <span class="text-muted">{{ localize('Total Earning') }}</span>
+                                            <span class="text-muted">{{  ('Total Earning') }}</span>
                                             <div class="dropdown tt-tb-dropdown fs-sm">
                                                 <a class="dropdown-toggle text-muted" href="#" data-bs-toggle="dropdown"
                                                     aria-haspopup="true" aria-expanded="false">
                                                     @if (isset($timelineText))
                                                         {{ $timelineText }}
                                                     @else
-                                                        {{ localize('Last 7 days') }}
+                                                        {{  ('Last 7 days') }}
                                                     @endif
                                                 </a>
                                                 <div class="dropdown-menu dropdown-menu-end shadow">
                                                     <a class="dropdown-item"
-                                                        href="{{ route('admin.dashboard') }}">{{ localize('Last 7 days') }}</a>
+                                                        href="{{ route('admin.dashboard') }}">{{  ('Last 7 days') }}</a>
                                                     <a class="dropdown-item"
-                                                        href="{{ route('admin.dashboard') }}?&timeline=30">{{ localize('Last 30 days') }}</a>
+                                                        href="{{ route('admin.dashboard') }}?&timeline=30">{{  ('Last 30 days') }}</a>
                                                     <a class="dropdown-item"
-                                                        href="{{ route('admin.dashboard') }}?&timeline=90">{{ localize('Last 3 months') }}</a>
+                                                        href="{{ route('admin.dashboard') }}?&timeline=90">{{  ('Last 3 months') }}</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -73,7 +73,7 @@
                             <div class="col-sm-6 col-md-4 col-lg-4">
                                 <div class="card h-100 flex-column">
                                     <div class="card-body d-flex flex-column h-100">
-                                        <span class="text-muted">{{ localize('Top 5 Category Sales') }}</span>
+                                        <span class="text-muted">{{  ('Top 5 Category Sales') }}</span>
                                         <h4 class="fw-bold">{{ $totalCatSalesData->totalCategorySalesCount }}</h4>
                                         <div id="topFive"></div>
                                     </div>
@@ -85,7 +85,7 @@
                             <div class="col-sm-6 col-md-4 col-lg-4 d-none d-lg-block d-md-block">
                                 <div class="card h-100 flex-column">
                                     <div class="card-body">
-                                        <span class="text-muted">{{ localize('Last 30 Days Orders') }}</span>
+                                        <span class="text-muted">{{  ('Last 30 Days Orders') }}</span>
                                         <h4 class="fw-bold">{{ $totalOrdersData->totalOrders }}</h4>
                                     </div>
                                     <div id="last30DaysOrders"></div>
@@ -98,7 +98,7 @@
                                 <div class="card">
                                     <div class="card-body pb-0">
                                         <div class="d-flex align-items-center justify-content-between">
-                                            <span class="text-muted">{{ localize('Sales This Months') }}</span>
+                                            <span class="text-muted">{{  ('Sales This Months') }}</span>
                                         </div>
                                         <h4 class="fw-bold mb-0">{{ formatPrice($thisMonthSaleData->totalEarning) }}</h4>
                                     </div>
@@ -115,9 +115,9 @@
                         <div class="card h-100 flex-column">
                             <div class="card-body px-0">
                                 <div class="px-3">
-                                    <h5 class="fw-bold mb-1">{{ localize('Top Selling Products') }}</h5>
+                                    <h5 class="fw-bold mb-1">{{  ('Top Selling Products') }}</h5>
                                     <span class="text-muted">
-                                        {{ localize('We have listed ' . \App\Models\Product::count() . ' total products.') }}</span>
+                                        {{  ('We have listed ' . \App\Models\Product::count() . ' total products.') }}</span>
                                 </div>
                                 <div class="tt-top-selling mt-3 h-25rem" data-simplebar>
                                     <ul class="tt-top-selling-list list-unstyled mb-0 px-3">
@@ -139,14 +139,14 @@
                                                         <h6 class="fs-md mb-0 tt-line-clamp tt-clamp-1">
                                                             {{ $product->collectLocalization('name') }}
                                                         </h6>
-                                                        <span class="text-muted fs-sm">{{ localize('Brand') }}:
+                                                        <span class="text-muted fs-sm">{{  ('Brand') }}:
                                                             {{ optional($product->brand)->name }}
                                                         </span>
                                                     </div>
                                                 </div>
                                                 <span class="fw-bold heading-font text-end  cursor-pointer"
                                                     data-bs-toggle="tooltip" data-bs-placement="top"
-                                                    title="{{ localize('Total Sales') }}">({{ $product->total_sale_count }})</span>
+                                                    title="{{  ('Total Sales') }}">({{ $product->total_sale_count }})</span>
                                             </li>
                                         @endforeach
                                     </ul>
@@ -170,7 +170,7 @@
                                         </div>
                                         <div class="ms-3">
                                             <h4 class="mb-1">{{ \App\Models\Order::count() }}</h4>
-                                            <span class="text-muted">{{ localize('Total Orders') }}</span>
+                                            <span class="text-muted">{{  ('Total Orders') }}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -188,7 +188,7 @@
                                         </div>
                                         <div class="ms-3">
                                             <h4 class="mb-1">{{ \App\Models\Order::isPlacedOrPending()->count() }}</h4>
-                                            <span class="text-muted">{{ localize('Order Pending') }}</span>
+                                            <span class="text-muted">{{  ('Order Pending') }}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -206,7 +206,7 @@
                                         </div>
                                         <div class="ms-3">
                                             <h4 class="mb-1">{{ \App\Models\Order::isProcessing()->count() }}</h4>
-                                            <span class="text-muted">{{ localize('Order Processing') }}</span>
+                                            <span class="text-muted">{{  ('Order Processing') }}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -224,7 +224,7 @@
                                         </div>
                                         <div class="ms-3">
                                             <h4 class="mb-1">{{ \App\Models\Order::isDelivered()->count() }}</h4>
-                                            <span class="text-muted">{{ localize('Total Delivered') }}</span>
+                                            <span class="text-muted">{{  ('Total Delivered') }}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -240,15 +240,15 @@
                                 <div class="card-header border-bottom-0">
                                     <div class="row justify-content-between g-3">
                                         <div class="col-auto flex-grow-1">
-                                            <h5 class="mb-1">{{ localize('Recent Orders') }}</h5>
-                                            <span class="text-muted">{{ localize('Your 10 Most Recent Orders') }}</span>
+                                            <h5 class="mb-1">{{  ('Recent Orders') }}</h5>
+                                            <span class="text-muted">{{  ('Your 10 Most Recent Orders') }}</span>
                                         </div>
 
                                         <div class="col-auto">
                                             @can('manage_orders')
                                                 <a href="{{ route('admin.orders.index') }}" class="btn btn-primary">
                                                     <i data-feather="eye" width="18"></i>
-                                                    {{ localize('View All') }}
+                                                    {{  ('View All') }}
                                                 </a>
                                             @endcan
                                         </div>
@@ -263,14 +263,14 @@
                                 <table class="table tt-footable border-top align-middle" data-use-parent-width="true">
                                     <thead>
                                         <tr>
-                                            <th class="ps-4">{{ localize('Order Code') }}</th>
-                                            <th data-breakpoints="xs sm md">{{ localize('Customer') }}</th>
-                                            <th>{{ localize('Placed On') }}</th>
-                                            <th data-breakpoints="xs">{{ localize('Items') }}</th>
-                                            <th data-breakpoints="xs">{{ localize('Payment Status') }}</th>
-                                            <th data-breakpoints="xs">{{ localize('Delivery Status') }}</th>
-                                            <th data-breakpoints="xs">{{ localize('Delivery Type') }}</th>
-                                            <th data-breakpoints="xs" class="text-end">{{ localize('Action') }}</th>
+                                            <th class="ps-4">{{  ('Order Code') }}</th>
+                                            <th data-breakpoints="xs sm md">{{  ('Customer') }}</th>
+                                            <th>{{  ('Placed On') }}</th>
+                                            <th data-breakpoints="xs">{{  ('Items') }}</th>
+                                            <th data-breakpoints="xs">{{  ('Payment Status') }}</th>
+                                            <th data-breakpoints="xs">{{  ('Delivery Status') }}</th>
+                                            <th data-breakpoints="xs">{{  ('Delivery Type') }}</th>
+                                            <th data-breakpoints="xs" class="text-end">{{  ('Action') }}</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -330,11 +330,11 @@
                                                         </span>
                                                     @elseif($order->delivery_status == orderCancelledStatus())
                                                         <span class="badge bg-soft-danger rounded-pill text-capitalize">
-                                                            {{ localize(Str::title(Str::replace('_', ' ', $order->delivery_status))) }}
+                                                            {{  (Str::title(Str::replace('_', ' ', $order->delivery_status))) }}
                                                         </span>
                                                     @else
                                                         <span class="badge bg-soft-info rounded-pill text-capitalize">
-                                                            {{ localize(Str::title(Str::replace('_', ' ', $order->delivery_status))) }}
+                                                            {{  (Str::title(Str::replace('_', ' ', $order->delivery_status))) }}
                                                         </span>
                                                     @endif
                                                 </td>
@@ -377,7 +377,7 @@
                                         </div>
                                         <div class="ms-3">
                                             <h4 class="mb-1">{{ \App\Models\Order::isPickedUp()->count() }}</h4>
-                                            <span class="text-muted">{{ localize('Picked Up Orders') }}</span>
+                                            <span class="text-muted">{{  ('Picked Up Orders') }}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -396,7 +396,7 @@
                                         </div>
                                         <div class="ms-3">
                                             <h4 class="mb-1">{{ \App\Models\Order::isCancelled()->count() }}</h4>
-                                            <span class="text-muted">{{ localize('Cancelled Orders') }}</span>
+                                            <span class="text-muted">{{  ('Cancelled Orders') }}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -415,7 +415,7 @@
                                         </div>
                                         <div class="ms-3">
                                             <h4 class="mb-1">{{ \App\Models\Order::isOutForDelivery()->count() }}</h4>
-                                            <span class="text-muted">{{ localize('Out For Delivery') }}</span>
+                                            <span class="text-muted">{{  ('Out For Delivery') }}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -434,7 +434,7 @@
                                         </div>
                                         <div class="ms-3">
                                             <h4 class="mb-1">{{ \App\Models\Order::isPaid()->count() }}</h4>
-                                            <span class="text-muted">{{ localize('Paid Orders') }}</span>
+                                            <span class="text-muted">{{  ('Paid Orders') }}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -453,7 +453,7 @@
                                         </div>
                                         <div class="ms-3">
                                             <h4 class="mb-1">{{ \App\Models\Order::isUnpaid()->count() }}</h4>
-                                            <span class="text-muted">{{ localize('Unpaid Orders') }}</span>
+                                            <span class="text-muted">{{  ('Unpaid Orders') }}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -472,7 +472,7 @@
                                     </div>
                                     <div class="ms-3">
                                         <h4 class="mb-1">{{ formatPrice($todayEarning) }}</h4>
-                                        <span class="text-muted">{{ localize("Today's Earning") }}</span>
+                                        <span class="text-muted">{{  ("Today's Earning") }}</span>
                                     </div>
                                 </div>
                             </div>
@@ -490,7 +490,7 @@
                                     </div>
                                     <div class="ms-3">
                                         <h4 class="mb-1">{{ formatPrice($todayPendingEarning) }}</h4>
-                                        <span class="text-muted">{{ localize("Today's Pending Earning") }}</span>
+                                        <span class="text-muted">{{  ("Today's Pending Earning") }}</span>
                                     </div>
                                 </div>
                             </div>
@@ -508,7 +508,7 @@
                                     </div>
                                     <div class="ms-3">
                                         <h4 class="mb-1">{{ formatPrice($thisYearEarning) }}</h4>
-                                        <span class="text-muted">{{ localize('This Year Earning') }}</span>
+                                        <span class="text-muted">{{  ('This Year Earning') }}</span>
                                     </div>
                                 </div>
                             </div>
@@ -527,7 +527,7 @@
                                     </div>
                                     <div class="ms-3">
                                         <h4 class="mb-1">{{ formatPrice($totalEarning) }}</h4>
-                                        <span class="text-muted">{{ localize('Total Earning') }}</span>
+                                        <span class="text-muted">{{  ('Total Earning') }}</span>
                                     </div>
                                 </div>
                             </div>
@@ -545,7 +545,7 @@
                                     </div>
                                     <div class="ms-3">
                                         <h4 class="mb-1">{{ \App\Models\Product::sum('total_sale_count') }}</h4>
-                                        <span class="text-muted">{{ localize('Total Product Sale') }}</span>
+                                        <span class="text-muted">{{  ('Total Product Sale') }}</span>
                                     </div>
                                 </div>
                             </div>
@@ -563,7 +563,7 @@
                                     </div>
                                     <div class="ms-3">
                                         <h4 class="mb-1">{{ $todaySaleCount }}</h4>
-                                        <span class="text-muted">{{ localize("Today's Product Sale") }}</span>
+                                        <span class="text-muted">{{  ("Today's Product Sale") }}</span>
                                     </div>
                                 </div>
                             </div>
@@ -581,7 +581,7 @@
                                     </div>
                                     <div class="ms-3">
                                         <h4 class="mb-1">{{ $monthSaleCount }}</h4>
-                                        <span class="text-muted">{{ localize("This Month's Product Sale") }}</span>
+                                        <span class="text-muted">{{  ("This Month's Product Sale") }}</span>
                                     </div>
                                 </div>
                             </div>
@@ -598,7 +598,7 @@
                                     </div>
                                     <div class="ms-3">
                                         <h4 class="mb-1">{{ $yearSaleCount }}</h4>
-                                        <span class="text-muted">{{ localize("This Year's Product Sale") }}</span>
+                                        <span class="text-muted">{{  ("This Year's Product Sale") }}</span>
                                     </div>
                                 </div>
                             </div>
@@ -617,7 +617,7 @@
                                     <div class="ms-3">
                                         <h4 class="mb-1">{{ \App\Models\User::where('user_type', 'customer')->count() }}
                                         </h4>
-                                        <span class="text-muted">{{ localize('Total Customers') }}</span>
+                                        <span class="text-muted">{{  ('Total Customers') }}</span>
                                     </div>
                                 </div>
                             </div>
@@ -635,7 +635,7 @@
                                     </div>
                                     <div class="ms-3">
                                         <h4 class="mb-1">{{ \App\Models\SubscribedUser::count() }}</h4>
-                                        <span class="text-muted">{{ localize('Total Subscribers') }}</span>
+                                        <span class="text-muted">{{  ('Total Subscribers') }}</span>
                                     </div>
                                 </div>
                             </div>
@@ -653,7 +653,7 @@
                                     </div>
                                     <div class="ms-3">
                                         <h4 class="mb-1">{{ \App\Models\Category::count() }}</h4>
-                                        <span class="text-muted">{{ localize('Total Categories') }}</span>
+                                        <span class="text-muted">{{  ('Total Categories') }}</span>
                                     </div>
                                 </div>
                             </div>
@@ -671,7 +671,7 @@
                                     </div>
                                     <div class="ms-3">
                                         <h4 class="mb-1">{{ \App\Models\Brand::count() }}</h4>
-                                        <span class="text-muted">{{ localize('Total Brands') }}</span>
+                                        <span class="text-muted">{{  ('Total Brands') }}</span>
                                     </div>
                                 </div>
                             </div>
@@ -705,7 +705,7 @@
                 opacity: 1,
             },
             series: [{
-                name: '{{ localize('Earning') }}',
+                name: '{{  ('Earning') }}',
                 data: [{!! $totalSalesData->amount !!}],
             }, ],
             labels: [{!! $totalSalesData->labels !!}],

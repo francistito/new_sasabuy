@@ -1,7 +1,7 @@
 @extends('backend.layouts.master')
 
 @section('title')
-    {{ localize('About Us Configuration') }} {{ getSetting('title_separator') }} {{ getSetting('system_title') }}
+    {{  ('About Us Configuration') }} {{ getSetting('title_separator') }} {{ getSetting('system_title') }}
 @endsection
 
 @section('contents')
@@ -12,7 +12,7 @@
                     <div class="card tt-page-header">
                         <div class="card-body d-lg-flex align-items-center justify-content-lg-between">
                             <div class="tt-page-title">
-                                <h2 class="h5 mb-lg-0">{{ localize('Update Feature') }}</h2>
+                                <h2 class="h5 mb-lg-0">{{  ('Update Feature') }}</h2>
                             </div>
                         </div>
                     </div>
@@ -43,23 +43,23 @@
 
 
                                 <div class="mb-4">
-                                    <label for="title" class="form-label">{{ localize('Title') }}</label>
+                                    <label for="title" class="form-label">{{  ('Title') }}</label>
                                     <input type="text" name="title" id="title"
-                                        placeholder="{{ localize('Type title') }}" class="form-control"
+                                        placeholder="{{  ('Type title') }}" class="form-control"
                                         value="{{ $each_why_choose_us->title }}" required>
                                 </div>
 
                                 <div class="mb-4">
-                                    <label for="text" class="form-label">{{ localize('Text') }}</label>
+                                    <label for="text" class="form-label">{{  ('Text') }}</label>
                                     <input type="text" name="text" id="text"
-                                        placeholder="{{ localize('Type text') }}" class="form-control"
+                                        placeholder="{{  ('Type text') }}" class="form-control"
                                         value="{{ $each_why_choose_us->text }}" required>
                                 </div>
 
                                 <div class="mb-4">
-                                    <label class="form-label">{{ localize('Icon Image') }}</label>
+                                    <label class="form-label">{{  ('Icon Image') }}</label>
                                     <div class="tt-image-drop rounded">
-                                        <span class="fw-semibold">{{ localize('Choose Icon Image') }}</span>
+                                        <span class="fw-semibold">{{  ('Choose Icon Image') }}</span>
                                         <!-- choose media -->
                                         <div class="tt-product-thumb show-selected-files mt-3">
                                             <div class="avatar avatar-xl cursor-pointer choose-media"
@@ -84,7 +84,7 @@
                             <div class="col-12">
                                 <div class="mb-4">
                                     <button class="btn btn-primary" type="submit">
-                                        <i data-feather="save" class="me-1"></i> {{ localize('Save Changes') }}
+                                        <i data-feather="save" class="me-1"></i> {{  ('Save Changes') }}
                                     </button>
                                 </div>
                             </div>
@@ -96,11 +96,11 @@
                 <div class="col-xl-3 order-1 order-md-1 order-lg-1 order-xl-2">
                     <div class="card tt-sticky-sidebar">
                         <div class="card-body">
-                            <h5 class="mb-4">{{ localize('Why Choose Us Configuration') }}</h5>
+                            <h5 class="mb-4">{{  ('Why Choose Us Configuration') }}</h5>
                             <div class="tt-vertical-step">
                                 <ul class="list-unstyled">
                                     <li>
-                                        <a href="#section-1" class="active">{{ localize('Update Widget') }}</a>
+                                        <a href="#section-1" class="active">{{  ('Update Widget') }}</a>
                                     </li>
                                 </ul>
                             </div>

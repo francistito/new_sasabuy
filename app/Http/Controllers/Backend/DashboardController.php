@@ -17,18 +17,18 @@ class DashboardController extends Controller
     # admin dashboard
     public function index(Request $request)
     {
-        # total sales chart 
+        # total sales chart
         $totalSalesChart = $this->totalSalesChart($request->timeline);
         $totalSalesData  = $totalSalesChart[0];
         $timelineText    = $totalSalesChart[1];
 
-        # top 5 category sales  
+        # top 5 category sales
         $totalCatSalesData = $this->topFiveCategoryChart();
 
-        # last 30 days orders  
+        # last 30 days orders
         $totalOrdersData = $this->last30DaysOrderChart();
 
-        # this month sales  
+        # this month sales
         $thisMonthSaleData  = $this->thisMonthSaleChart();
 
         # --------------------------------------------------------------counters
@@ -36,11 +36,11 @@ class DashboardController extends Controller
         $monthStart = Carbon::now()->startOfMonth();
         $yearStart = Carbon::now()->startOfYear();
 
-        // today's earning 
+        // today's earning
         $orderGroupIds = Order::where('delivery_status', '!=', orderCancelledStatus())->where('created_at', '>=', $dayStart)->pluck('order_group_id');
         $todayEarning =  OrderGroup::whereIn('id', $orderGroupIds)->sum('grand_total_amount');
 
-        // today's pending earning 
+        // today's pending earning
         $orderGroupIds = Order::where('delivery_status', '!=', orderDeliveredStatus())->where('delivery_status', '!=', orderCancelledStatus())->where('created_at', '>=', $dayStart)->pluck('order_group_id');
         $todayPendingEarning =  OrderGroup::whereIn('id', $orderGroupIds)->sum('grand_total_amount');
 
@@ -108,7 +108,7 @@ class DashboardController extends Controller
 
         if ($request->has('password') && $request->password != '') {
             if ($request->password != $request->password_confirmation) {
-                flash(localize('Password confirmation does not match'))->error();
+                flash( ('Password confirmation does not match'))->error();
                 return back();
             }
             $user->password = Hash::make($request->password);
@@ -116,22 +116,22 @@ class DashboardController extends Controller
 
         $user->save();
 
-        flash(localize('Profile has been updated'))->success();
+        flash( ('Profile has been updated'))->success();
         return back();
     }
 
     # total sales chart
     private function totalSalesChart($time)
     {
-        $timeline                   = 7; // 7, 30 or 90 days 
-        $timelineText               = localize('Last 7 days');
+        $timeline                   = 7; // 7, 30 or 90 days
+        $timelineText               =  ('Last 7 days');
 
         if ((int)$time > 7) {
             $timeline = (int) $time;
             if ($timeline == 30) {
-                $timelineText               = localize('Last 30 days');
+                $timelineText               =  ('Last 30 days');
             } else {
-                $timelineText               = localize('Last 3 months');
+                $timelineText               =  ('Last 3 months');
             }
         }
 
@@ -194,7 +194,7 @@ class DashboardController extends Controller
     # last 30 days order
     private function last30DaysOrderChart()
     {
-        $timelineOrder                    = 30; // 7, 30 or 90 days   
+        $timelineOrder                    = 30; // 7, 30 or 90 days
         $totalOrdersTimelineInString      = '';
         $totalOrdersAmountInString        = '';
         $ordersQuery = Order::where('created_at', '>=', Carbon::now()->subDays($timelineOrder))->oldest();

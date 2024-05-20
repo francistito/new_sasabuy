@@ -27,7 +27,7 @@ class VariationValuesController extends Controller
         $searchKey = null;
         $variation = Variation::find($id);
         if (!$variation) {
-            flash(localize('Variation not found'))->error();
+            flash( ('Variation not found'))->error();
             return redirect()->route('admin.variations.index');
         }
         $variationValues = VariationValue::where('variation_id', $variation->id)->oldest();
@@ -57,7 +57,7 @@ class VariationValuesController extends Controller
 
         $variationValueLocalization->save();
 
-        flash(localize('Variation value has been inserted successfully'))->success();
+        flash( ('Variation value has been inserted successfully'))->success();
         return redirect()->route('admin.variationValues.index', $request->variation_id);
     }
 
@@ -67,7 +67,7 @@ class VariationValuesController extends Controller
         $lang_key = $request->lang_key;
         $language = Language::where('is_active', 1)->where('code', $lang_key)->first();
         if (!$language) {
-            flash(localize('Language you are trying to translate is not available or not active'))->error();
+            flash( ('Language you are trying to translate is not available or not active'))->error();
             return redirect()->route('admin.variationValues.index');
         }
         $variationValue = VariationValue::findOrFail($id);
@@ -94,11 +94,11 @@ class VariationValuesController extends Controller
         $variationValue->save();
         $variationValueLocalization->save();
 
-        flash(localize('Variation value has been updated successfully'))->success();
+        flash( ('Variation value has been updated successfully'))->success();
         return back();
     }
 
-    # update status 
+    # update status
     public function updateStatus(Request $request)
     {
         $variationValue = VariationValue::findOrFail($request->id);
@@ -115,7 +115,7 @@ class VariationValuesController extends Controller
         $variationValue = VariationValue::findOrFail($id);
         $variationValue->delete();
 
-        flash(localize('Variation value has been deleted successfully'))->success();
+        flash( ('Variation value has been deleted successfully'))->success();
         return back();
     }
 }

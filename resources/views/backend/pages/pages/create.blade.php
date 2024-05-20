@@ -1,7 +1,7 @@
 @extends('backend.layouts.master')
 
 @section('title')
-    {{ localize('Add New Page') }} {{ getSetting('title_separator') }} {{ getSetting('system_title') }}
+    {{  ('Add New Page') }} {{ getSetting('title_separator') }} {{ getSetting('system_title') }}
 @endsection
 
 @section('contents')
@@ -12,7 +12,7 @@
                     <div class="card tt-page-header">
                         <div class="card-body d-lg-flex align-items-center justify-content-lg-between">
                             <div class="tt-page-title">
-                                <h2 class="h5 mb-lg-0">{{ localize('Add New Page') }}</h2>
+                                <h2 class="h5 mb-lg-0">{{  ('Add New Page') }}</h2>
                             </div>
 
                         </div>
@@ -29,16 +29,16 @@
                         <!--basic information start-->
                         <div class="card mb-4" id="section-1">
                             <div class="card-body">
-                                <h5 class="mb-4">{{ localize('Basic Information') }}</h5>
+                                <h5 class="mb-4">{{  ('Basic Information') }}</h5>
 
                                 <div class="mb-4">
-                                    <label for="title" class="form-label">{{ localize('Page Title') }}</label>
+                                    <label for="title" class="form-label">{{  ('Page Title') }}</label>
                                     <input class="form-control" type="text" id="title"
-                                        placeholder="{{ localize('Type page title') }}" name="title" required>
+                                        placeholder="{{  ('Type page title') }}" name="title" required>
                                 </div>
 
                                 <div class="mb-4">
-                                    <label for="content" class="form-label">{{ localize('Page Description') }}</label>
+                                    <label for="content" class="form-label">{{  ('Page Description') }}</label>
                                     <textarea class="form-control editor" id="content" name="content"></textarea>
                                 </div>
                             </div>
@@ -48,27 +48,27 @@
                         <!--seo meta description start-->
                         <div class="card mb-4" id="section-2">
                             <div class="card-body">
-                                <h5 class="mb-4">{{ localize('SEO Meta Configuration') }}</h5>
+                                <h5 class="mb-4">{{  ('SEO Meta Configuration') }}</h5>
 
                                 <div class="mb-4">
-                                    <label for="meta_title" class="form-label">{{ localize('Meta Title') }}</label>
+                                    <label for="meta_title" class="form-label">{{  ('Meta Title') }}</label>
                                     <input type="text" name="meta_title" id="meta_title"
-                                        placeholder="{{ localize('Type meta title') }}" class="form-control">
+                                        placeholder="{{  ('Type meta title') }}" class="form-control">
                                     <span class="fs-sm text-muted">
-                                        {{ localize('Set a meta tag title. Recommended to be simple and unique.') }}
+                                        {{  ('Set a meta tag title. Recommended to be simple and unique.') }}
                                     </span>
                                 </div>
 
                                 <div class="mb-4">
                                     <label for="meta_description"
-                                        class="form-label">{{ localize('Meta Description') }}</label>
+                                        class="form-label">{{  ('Meta Description') }}</label>
                                     <textarea class="form-control" name="meta_description" id="meta_description" rows="4"
-                                        placeholder="{{ localize('Type your meta description') }}"></textarea>
+                                        placeholder="{{  ('Type your meta description') }}"></textarea>
                                 </div>
                                 <div class="mb-4">
-                                    <label class="form-label">{{ localize('Meta Image') }}</label>
+                                    <label class="form-label">{{  ('Meta Image') }}</label>
                                     <div class="tt-image-drop rounded">
-                                        <span class="fw-semibold">{{ localize('Choose Meta Image') }}</span>
+                                        <span class="fw-semibold">{{  ('Choose Meta Image') }}</span>
                                         <!-- choose media -->
                                         <div class="tt-product-thumb show-selected-files mt-3">
                                             <div class="avatar avatar-xl cursor-pointer choose-media"
@@ -93,7 +93,7 @@
                             <div class="col-12">
                                 <div class="mb-4">
                                     <button class="btn btn-primary" type="submit">
-                                        <i data-feather="save" class="me-1"></i> {{ localize('Save Page') }}
+                                        <i data-feather="save" class="me-1"></i> {{  ('Save Page') }}
                                     </button>
                                 </div>
                             </div>
@@ -106,14 +106,14 @@
                 <div class="col-xl-3 order-1 order-md-1 order-lg-1 order-xl-2">
                     <div class="card tt-sticky-sidebar d-none d-xl-block">
                         <div class="card-body">
-                            <h5 class="mb-4">{{ localize('Page Information') }}</h5>
+                            <h5 class="mb-4">{{  ('Page Information') }}</h5>
                             <div class="tt-vertical-step">
                                 <ul class="list-unstyled">
                                     <li>
-                                        <a href="#section-1" class="active">{{ localize('Basic Information') }}</a>
+                                        <a href="#section-1" class="active">{{  ('Basic Information') }}</a>
                                     </li>
                                     <li>
-                                        <a href="#section-2" class="">{{ localize('SEO Meta Options') }}</a>
+                                        <a href="#section-2" class="">{{  ('SEO Meta Options') }}</a>
                                     </li>
                                 </ul>
                             </div>

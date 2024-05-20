@@ -86,7 +86,7 @@ class ProductsPageController extends Controller
             $productPageWidget->save();
         }
         cacheClear();
-        flash(localize('Widget added successfully'))->success();
+        flash( ('Widget added successfully'))->success();
         return back();
     }
 
@@ -119,7 +119,7 @@ class ProductsPageController extends Controller
         $widget->value = json_encode($tempWidgets);
         $widget->save();
         cacheClear();
-        flash(localize('Widget updated successfully'))->success();
+        flash( ('Widget updated successfully'))->success();
         return redirect()->route('admin.appearance.products.details');
     }
 
@@ -141,7 +141,7 @@ class ProductsPageController extends Controller
         $widget->save();
 
         cacheClear();
-        flash(localize('Widget deleted successfully'))->success();
+        flash( ('Widget deleted successfully'))->success();
         return redirect()->route('admin.appearance.products.details');
     }
 }

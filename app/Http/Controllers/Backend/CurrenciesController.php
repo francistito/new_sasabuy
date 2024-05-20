@@ -31,7 +31,7 @@ class CurrenciesController extends Controller
         $request->session()->put('currency_symbol', $currency->symbol);
         $request->session()->put('currency_symbol_alignment', $currency->alignment);
 
-        flash(localize('Currency changed to ') . ' ' . $currency->name)->success();
+        flash( ('Currency changed to ') . ' ' . $currency->name)->success();
         return true;
     }
 
@@ -53,7 +53,7 @@ class CurrenciesController extends Controller
     public function store(Request $request)
     {
         if (Currency::where('code', $request->code)->first()) {
-            flash(localize('This code is already used for another currency'))->error();
+            flash( ('This code is already used for another currency'))->error();
             return back();
         }
 
@@ -66,7 +66,7 @@ class CurrenciesController extends Controller
         $currency->save();
 
         Cache::forget('currencies');
-        flash(localize('Currency has been inserted successfully'))->success();
+        flash( ('Currency has been inserted successfully'))->success();
         return back();
     }
 
@@ -87,7 +87,7 @@ class CurrenciesController extends Controller
             $checkCurrency &&
             $checkCurrency->id != $currency->id
         ) {
-            flash(localize('This code is already used for another currency'))->error();
+            flash( ('This code is already used for another currency'))->error();
             return back();
         }
 
@@ -99,27 +99,27 @@ class CurrenciesController extends Controller
         $currency->save();
 
         Cache::forget('currencies');
-        flash(localize('Currency has been updated successfully'))->success();
+        flash( ('Currency has been updated successfully'))->success();
         return back();
     }
 
-    # update status 
+    # update status
     public function updateStatus(Request $request)
     {
         $currency = Currency::findOrFail($request->id);
         $activatedCurrencies = Currency::where('is_active', 1)->count();
 
         if (getSetting('default_currency') == $currency->code && $request->is_active == 0) {
-            flash(localize('Default currency can not be disabled'))->error();
+            flash( ('Default currency can not be disabled'))->error();
             return 2;
         } elseif ($activatedCurrencies <= 1 && $request->is_active == 0) {
-            flash(localize('Minimum 1 currency need to be enabled'))->error();
+            flash( ('Minimum 1 currency need to be enabled'))->error();
             return 1;
         }
 
         $currency->is_active = $request->is_active;
         if ($currency->save()) {
-            flash(localize('Status updated successfully'))->success();
+            flash( ('Status updated successfully'))->success();
             return 1;
         }
         return 0;

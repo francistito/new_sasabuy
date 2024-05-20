@@ -2,14 +2,14 @@
       // to calculate grand total
       $shipping = 0;
       $discount = 0;
-      
+
       // to show in input value of summary
       $shippingInputValue = 0;
       $discountInputValue = 0;
-      
+
       $discountType = 'flat';
       $subtotal = getSubTotal($carts, false, '', false) + getTotalTax($carts);
-      
+
       // to convert input price to base price
       if (Session::has('currency_code')) {
           $currency_code = Session::get('currency_code', Config::get('app.currency_code'));
@@ -17,19 +17,19 @@
           $currency_code = env('DEFAULT_CURRENCY');
       }
       $currentCurrency = \App\Models\Currency::where('code', $currency_code)->first();
-      
+
       // calculate shipping amount
       if (isset($shippingAmount)) {
           $shippingInputValue = $shippingAmount;
           $shippingAmount = $shippingAmount / $currentCurrency->rate; // convert to base price
           $shipping = $shippingAmount;
       }
-      
+
       // check discount type
       if (isset($discountTypeOption)) {
           $discountType = $discountTypeOption; //flat or percent
       }
-      
+
       if (isset($discountAmount)) {
           $discountInputValue = $discountAmount;
           if ($discountType == 'flat') {
@@ -38,23 +38,23 @@
               $discount = ($subtotal * $discountAmount) / 100;
           }
       }
-      
+
       $total = $subtotal + $shipping - $discount;
   @endphp
 
   <div class="tt-pos-calculation mb-3">
       <div class="tt-pos-cal">
-          <p class="mb-0">{{ localize('Subtotal') }}</p>
+          <p class="mb-0">{{  ('Subtotal') }}</p>
           <strong>{{ formatPrice(getSubTotal($carts, false, '', false)) }}</strong>
       </div>
       <div class="tt-pos-cal">
-          <p class="mb-0">{{ localize('Tax') }}</p>
+          <p class="mb-0">{{  ('Tax') }}</p>
           <strong>{{ formatPrice(getTotalTax($carts)) }}</strong>
       </div>
 
       <div class="tt-pos-cal">
-          <p class="mb-0">{{ localize('Shipping Charge') }}</p>
-          <input class="form-control col-6" type="number" placeholder="{{ localize('Type discount amount') }}"
+          <p class="mb-0">{{  ('Shipping Charge') }}</p>
+          <input class="form-control col-6" type="number" placeholder="{{  ('Type discount amount') }}"
               id="total_shipping_cost" value="{{ $shippingInputValue }}" step="0.001" min="0"
               name="total_shipping_cost">
       </div>
@@ -62,10 +62,10 @@
       <div class="tt-pos-cal">
           <div class="row g-3">
               <div class="col-12">
-                  <label for="discount_value" class="form-label">{{ localize('Additional Discount') }}</label>
+                  <label for="discount_value" class="form-label">{{  ('Additional Discount') }}</label>
                   <div class="input-group row g-0">
                       <input class="form-control col-6 rounded-end-0" type="number"
-                          placeholder="{{ localize('Type discount amount') }}" id="additional_discount_value"
+                          placeholder="{{  ('Type discount amount') }}" id="additional_discount_value"
                           value="{{ $discountInputValue }}" step="0.001" min="0"
                           name="additional_discount_value">
 
@@ -73,9 +73,9 @@
                           id="additional_discount_type" name="additional_discount_type"
                           onchange="calculatePosSummary()">
                           <option value="flat" @if ($discountType == 'flat') selected @endif>
-                              {{ localize('Fixed') }}</option>
+                              {{  ('Fixed') }}</option>
                           <option value="percent" @if ($discountType == 'percent') selected @endif>
-                              {{ localize('Percent %') }}</option>
+                              {{  ('Percent %') }}</option>
                       </select>
                   </div>
               </div>
@@ -89,17 +89,17 @@
       <div class="tt-single-pos-payment">
           <input type="radio" class="tt-custom-radio" name="payment" id="cashPayment" value="cash" checked />
           <label for="cashPayment"
-              class="tt-payment btn btn-sm btn-secondary fw-semibold d-block">{{ localize('Cash') }}</label>
+              class="tt-payment btn btn-sm btn-secondary fw-semibold d-block">{{  ('Cash') }}</label>
       </div>
       <div class="tt-single-pos-payment">
           <input type="radio" class="tt-custom-radio" name="payment" id="cardPayment" value="card">
           <label for="cardPayment" class="tt-payment btn btn-sm btn-secondary fw-semibold d-block"
-              data-bs-toggle="modal" data-bs-target="#cardModal">{{ localize('Card') }}</label>
+              data-bs-toggle="modal" data-bs-target="#cardModal">{{  ('Card') }}</label>
       </div>
       <div class="tt-single-pos-payment">
           <input type="radio" class="tt-custom-radio" name="payment" id="cod" value="cod">
           <label for="cod"
-              class="tt-payment btn btn-sm btn-secondary fw-semibold d-block">{{ localize('COD') }}</label>
+              class="tt-payment btn btn-sm btn-secondary fw-semibold d-block">{{  ('COD') }}</label>
       </div>
   </div>
   <!-- payment -->
@@ -110,6 +110,6 @@
 
   <button type="submit"
       class="btn btn-primary btn-lg d-flex justify-content-between btn-block w-100 fw-semibold complete-order-btn">
-      <span>{{ localize('Complete Order') }}</span>
+      <span>{{  ('Complete Order') }}</span>
       <strong>{{ formatPrice($total) }}</strong>
   </button>

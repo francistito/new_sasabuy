@@ -1,7 +1,7 @@
 @extends('backend.layouts.master')
 
 @section('title')
-    {{ localize('Order Details') }} {{ getSetting('title_separator') }} {{ getSetting('system_title') }}
+    {{  ('Order Details') }} {{ getSetting('title_separator') }} {{ getSetting('system_title') }}
 @endsection
 
 @section('contents')
@@ -12,7 +12,7 @@
                     <div class="card tt-page-header">
                         <div class="card-body d-lg-flex align-items-center justify-content-lg-between">
                             <div class="tt-page-title">
-                                <h2 class="h5 mb-lg-0">{{ localize('Order Details') }}</h2>
+                                <h2 class="h5 mb-lg-0">{{  ('Order Details') }}</h2>
                             </div>
                         </div>
                     </div>
@@ -28,12 +28,12 @@
                             <!--order status-->
                             <div class="row justify-content-between align-items-center g-3">
                                 <div class="col-auto flex-grow-1">
-                                    <h5 class="mb-0">{{ localize('Invoice') }}
+                                    <h5 class="mb-0">{{  ('Invoice') }}
                                         <span
                                             class="text-accent">{{ getSetting('order_code_prefix') }}{{ $order->orderGroup->order_code }}
                                         </span>
                                     </h5>
-                                    <span class="text-muted">{{ localize('Order Date') }}:
+                                    <span class="text-muted">{{  ('Order Date') }}:
                                         {{ date('d M, Y', strtotime($order->created_at)) }}
                                     </span>
 
@@ -52,12 +52,12 @@
                                         <select class="form-select select2" name="payment_status"
                                             data-minimum-results-for-search="Infinity" id="update_payment_status">
                                             <option value="" disabled>
-                                                {{ localize('Payment Status') }}
+                                                {{  ('Payment Status') }}
                                             </option>
                                             <option value="paid" @if ($order->payment_status == 'paid') selected @endif>
-                                                {{ localize('Paid') }}</option>
+                                                {{  ('Paid') }}</option>
                                             <option value="unpaid" @if ($order->payment_status == 'unpaid') selected @endif>
-                                                {{ localize('Unpaid') }}
+                                                {{  ('Unpaid') }}
                                             </option>
                                         </select>
                                     </div>
@@ -66,17 +66,17 @@
                                     <div class="input-group">
                                         <select class="form-select select2" name="delivery_status"
                                             data-minimum-results-for-search="Infinity" id="update_delivery_status">
-                                            <option value="" disabled>{{ localize('Delivery Status') }}</option>
+                                            <option value="" disabled>{{  ('Delivery Status') }}</option>
                                             <option value="order_placed" @if ($order->delivery_status == orderPlacedStatus()) selected @endif>
-                                                {{ localize('Order Placed') }}</option>
+                                                {{  ('Order Placed') }}</option>
                                             <option value="pending" @if ($order->delivery_status == orderPendingStatus()) selected @endif>
-                                                {{ localize('Pending') }}
+                                                {{  ('Pending') }}
                                             <option value="processing" @if ($order->delivery_status == orderProcessingStatus()) selected @endif>
-                                                {{ localize('Processing') }}
+                                                {{  ('Processing') }}
                                             <option value="delivered" @if ($order->delivery_status == orderDeliveredStatus()) selected @endif>
-                                                {{ localize('Delivered') }}
+                                                {{  ('Delivered') }}
                                             <option value="cancelled" @if ($order->delivery_status == orderCancelledStatus()) selected @endif>
-                                                {{ localize('Cancelled') }}
+                                                {{  ('Cancelled') }}
                                             </option>
                                         </select>
                                     </div>
@@ -85,7 +85,7 @@
                                     <a href="{{ route('admin.orders.downloadInvoice', $order->id) }}"
                                         class="btn btn-primary">
                                         <i data-feather="download" width="18"></i>
-                                        {{ localize('Download Invoice') }}
+                                        {{  ('Download Invoice') }}
                                     </a>
                                 </div>
                             </div>
@@ -96,16 +96,16 @@
                             <div class="row justify-content-between g-3">
                                 <div class="col-xl-7 col-lg-6">
                                     <div class="welcome-message">
-                                        <h6 class="mb-2">{{ localize('Customer Info') }}</h6>
-                                        <p class="mb-0">{{ localize('Name') }}: {{ optional($order->user)->name }}</p>
-                                        <p class="mb-0">{{ localize('Email') }}: {{ optional($order->user)->email }}</p>
-                                        <p class="mb-0">{{ localize('Phone') }}: {{ optional($order->user)->phone }}</p>
+                                        <h6 class="mb-2">{{  ('Customer Info') }}</h6>
+                                        <p class="mb-0">{{  ('Name') }}: {{ optional($order->user)->name }}</p>
+                                        <p class="mb-0">{{  ('Email') }}: {{ optional($order->user)->email }}</p>
+                                        <p class="mb-0">{{  ('Phone') }}: {{ optional($order->user)->phone }}</p>
 
                                         @php
                                             $deliveryInfo = json_decode($order->scheduled_delivery_info);
                                         @endphp
 
-                                        <p class="mb-0">{{ localize('Delivery Type') }}:
+                                        <p class="mb-0">{{  ('Delivery Type') }}:
                                             <span
                                                 class="badge bg-primary">{{ Str::title(Str::replace('_', ' ', $order->shipping_delivery_type)) }}</span>
 
@@ -113,7 +113,7 @@
                                         </p>
                                         @if ($order->shipping_delivery_type == getScheduledDeliveryType())
                                             <p class="mb-0">
-                                                {{ localize('Delivery Time') }}:
+                                                {{  ('Delivery Time') }}:
                                                 {{ date('d F', $deliveryInfo->scheduled_date) }},
                                                 {{ $deliveryInfo->timeline }}</p>
                                         @endif
@@ -122,7 +122,7 @@
                                 <div class="col-xl-5 col-lg-6">
                                     <div class="shipping-address d-flex justify-content-md-end">
                                         <div class="border-end pe-2">
-                                            <h6 class="mb-2">{{ localize('Shipping Address') }}</h6>
+                                            <h6 class="mb-2">{{  ('Shipping Address') }}</h6>
                                             @php
                                                 $shippingAddress = $order->orderGroup->shippingAddress;
                                             @endphp
@@ -139,7 +139,7 @@
                                         </div>
                                         @if (!$order->orderGroup->is_pos_order)
                                             <div class="ms-4">
-                                                <h6 class="mb-2">{{ localize('Billing Address') }}</h6>
+                                                <h6 class="mb-2">{{  ('Billing Address') }}</h6>
                                                 @php
                                                     $billingAddress = $order->orderGroup->billingAddress;
                                                 @endphp
@@ -162,11 +162,11 @@
                         <table class="table tt-footable border-top" data-use-parent-width="true">
                             <thead>
                                 <tr>
-                                    <th class="text-center" width="7%">{{ localize('S/L') }}</th>
-                                    <th>{{ localize('Products') }}</th>
-                                    <th data-breakpoints="xs sm">{{ localize('Unit Price') }}</th>
-                                    <th data-breakpoints="xs sm">{{ localize('QTY') }}</th>
-                                    <th data-breakpoints="xs sm" class="text-end">{{ localize('Total Price') }}</th>
+                                    <th class="text-center" width="7%">{{  ('S/L') }}</th>
+                                    <th>{{  ('Products') }}</th>
+                                    <th data-breakpoints="xs sm">{{  ('Unit Price') }}</th>
+                                    <th data-breakpoints="xs sm">{{  ('QTY') }}</th>
+                                    <th data-breakpoints="xs sm" class="text-end">{{  ('Total Price') }}</th>
                                 </tr>
                             </thead>
 
@@ -226,33 +226,33 @@
                             <div class="card-footer border-top-0 px-4 py-3 rounded">
                                 <div class="row g-4">
                                     <div class="col-auto">
-                                        <h6 class="mb-1">{{ localize('Payment Method') }}</h6>
+                                        <h6 class="mb-1">{{  ('Payment Method') }}</h6>
                                         <span>{{ ucwords(str_replace('_', ' ', $order->orderGroup->payment_method)) }}</span>
                                     </div>
 
                                     <div class="col-auto flex-grow-1">
-                                        <h6 class="mb-1">{{ localize('Logistic') }}</h6>
+                                        <h6 class="mb-1">{{  ('Logistic') }}</h6>
                                         <span>{{ $order->logistic_name }}</span>
                                     </div>
 
                                     <div class="col-auto">
-                                        <h6 class="mb-1">{{ localize('Sub Total') }}</h6>
+                                        <h6 class="mb-1">{{  ('Sub Total') }}</h6>
                                         <strong>{{ formatPrice($order->orderGroup->sub_total_amount) }}</strong>
                                     </div>
                                     <div class="col-auto ps-lg-5">
-                                        <h6 class="mb-1">{{ localize('Shipping Cost') }}</h6>
+                                        <h6 class="mb-1">{{  ('Shipping Cost') }}</h6>
                                         <strong>{{ formatPrice($order->orderGroup->total_shipping_cost) }}</strong>
                                     </div>
 
                                     @if ($order->orderGroup->total_coupon_discount_amount > 0)
                                         <div class="col-auto ps-lg-5">
-                                            <h6 class="mb-1">{{ localize('Coupon Discount') }}</h6>
+                                            <h6 class="mb-1">{{  ('Coupon Discount') }}</h6>
                                             <strong>{{ formatPrice($order->orderGroup->total_coupon_discount_amount) }}</strong>
                                         </div>
                                     @endif
 
                                     <div class="col-auto text-lg-end ps-lg-5">
-                                        <h6 class="mb-1">{{ localize('Grand Total') }}</h6>
+                                        <h6 class="mb-1">{{  ('Grand Total') }}</h6>
                                         <strong
                                             class="text-accent">{{ formatPrice($order->orderGroup->grand_total_amount) }}</strong>
                                     </div>
@@ -267,7 +267,7 @@
                     <div class="tt-sticky-sidebar">
                         <div class="card mb-4">
                             <div class="card-body">
-                                <h5 class="mb-4">{{ localize('Order Logs') }}</h5>
+                                <h5 class="mb-4">{{  ('Order Logs') }}</h5>
                                 <div class="tt-vertical-step">
                                     <ul class="list-unstyled">
 
@@ -282,7 +282,7 @@
                                             </li>
                                         @empty
                                             <li>
-                                                <a class="active">{{ localize('No logs found') }}</a>
+                                                <a class="active">{{  ('No logs found') }}</a>
                                             </li>
                                         @endforelse
                                     </ul>
@@ -309,12 +309,12 @@
                 order_id: order_id,
                 status: status
             }, function(data) {
-                notifyMe('success', '{{ localize('Payment status has been updated') }}');
+                notifyMe('success', '{{  ('Payment status has been updated') }}');
                 window.location.reload();
             });
         });
 
-        // delivery status 
+        // delivery status
         $('#update_delivery_status').on('change', function() {
             var order_id = {{ $order->id }};
             var status = $('#update_delivery_status').val();
@@ -323,7 +323,7 @@
                 order_id: order_id,
                 status: status
             }, function(data) {
-                notifyMe('success', '{{ localize('Delivery status has been updated') }}');
+                notifyMe('success', '{{  ('Delivery status has been updated') }}');
                 window.location.reload();
             });
         });

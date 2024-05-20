@@ -1,7 +1,7 @@
 @extends('backend.layouts.master')
 
 @section('title')
-    {{ localize('Queries') }} {{ getSetting('title_separator') }} {{ getSetting('system_title') }}
+    {{  ('Queries') }} {{ getSetting('title_separator') }} {{ getSetting('system_title') }}
 @endsection
 
 @section('contents')
@@ -12,7 +12,7 @@
                     <div class="card tt-page-header">
                         <div class="card-body d-lg-flex align-items-center justify-content-lg-between">
                             <div class="tt-page-title">
-                                <h2 class="h5 mb-lg-0">{{ localize('Queries') }}</h2>
+                                <h2 class="h5 mb-lg-0">{{  ('Queries') }}</h2>
                             </div>
                         </div>
                     </div>
@@ -26,13 +26,13 @@
                         <table class="table tt-footable border-top align-middle" data-use-parent-width="true">
                             <thead>
                                 <tr>
-                                    <th class="text-center">{{ localize('S/L') }}</th>
-                                    <th>{{ localize('Name') }}</th>
-                                    <th data-breakpoints="xs sm">{{ localize('Email') }}</th>
-                                    <th data-breakpoints="xs sm">{{ localize('Phone') }}</th>
-                                    <th data-breakpoints="xs sm">{{ localize('Issue') }}</th>
-                                    <th data-breakpoints="xs sm md lg xl">{{ localize('Message') }}</th>
-                                    <th data-breakpoints="xs sm" class="text-end">{{ localize('Action') }}
+                                    <th class="text-center">{{  ('S/L') }}</th>
+                                    <th>{{  ('Name') }}</th>
+                                    <th data-breakpoints="xs sm">{{  ('Email') }}</th>
+                                    <th data-breakpoints="xs sm">{{  ('Phone') }}</th>
+                                    <th data-breakpoints="xs sm">{{  ('Issue') }}</th>
+                                    <th data-breakpoints="xs sm md lg xl">{{  ('Message') }}</th>
+                                    <th data-breakpoints="xs sm" class="text-end">{{  ('Action') }}
                                     </th>
                                 </tr>
                             </thead>
@@ -51,7 +51,7 @@
                                         </td>
 
                                         <td>
-                                            {{ $message->phone ?? localize('n/a') }}
+                                            {{ $message->phone ??  ('n/a') }}
                                         </td>
 
                                         <td>
@@ -73,14 +73,14 @@
                                                 <div class="dropdown-menu dropdown-menu-end shadow">
 
                                                     <a class="dropdown-item"
-                                                        href="{{ route('admin.queries.markRead', ['id' => $message->id, 'lang_key' => env('DEFAULT_LANGUAGE')]) }}&localize">
+                                                        href="{{ route('admin.queries.markRead', ['id' => $message->id, 'lang_key' => env('DEFAULT_LANGUAGE')]) }}& ">
                                                         <i data-feather="check"
-                                                            class="me-2"></i>{{ $message->is_seen == 0 ? localize('Mark As Read') : localize('Mark As Unread') }}
+                                                            class="me-2"></i>{{ $message->is_seen == 0 ?  ('Mark As Read') :  ('Mark As Unread') }}
                                                     </a>
 
                                                     <a class="dropdown-item" href="mailto:{{ $message->email }}">
                                                         <i data-feather="message-circle"
-                                                            class="me-2"></i>{{ localize('Reply in Email') }}
+                                                            class="me-2"></i>{{  ('Reply in Email') }}
                                                     </a>
                                                 </div>
                                             </div>
@@ -91,9 +91,9 @@
                         </table>
                         <!--pagination start-->
                         <div class="d-flex align-items-center justify-content-between px-4 pb-4">
-                            <span>{{ localize('Showing') }}
-                                {{ $messages->firstItem() }}-{{ $messages->lastItem() }} {{ localize('of') }}
-                                {{ $messages->total() }} {{ localize('results') }}</span>
+                            <span>{{  ('Showing') }}
+                                {{ $messages->firstItem() }}-{{ $messages->lastItem() }} {{  ('of') }}
+                                {{ $messages->total() }} {{  ('results') }}</span>
                             <nav>
                                 {{ $messages->appends(request()->input())->links() }}
                             </nav>
@@ -124,10 +124,10 @@
                 },
                 function(data) {
                     if (data == 1) {
-                        notifyMe('success', '{{ localize('Status updated successfully') }}');
+                        notifyMe('success', '{{  ('Status updated successfully') }}');
 
                     } else {
-                        notifyMe('danger', '{{ localize('Something went wrong') }}');
+                        notifyMe('danger', '{{  ('Something went wrong') }}');
                     }
                 });
         }

@@ -71,7 +71,7 @@ class BrandsController extends Controller
         $brandLocalization->save();
 
         $brand->save();
-        flash(localize('Brand has been inserted successfully'))->success();
+        flash( ('Brand has been inserted successfully'))->success();
         return redirect()->route('admin.brands.index');
     }
 
@@ -81,7 +81,7 @@ class BrandsController extends Controller
         $lang_key = $request->lang_key;
         $language = Language::isActive()->where('code', $lang_key)->first();
         if (!$language) {
-            flash(localize('Language you are trying to translate is not available or not active'))->error();
+            flash( ('Language you are trying to translate is not available or not active'))->error();
             return redirect()->route('admin.brands.index');
         }
         $brand = Brand::findOrFail($id);
@@ -111,7 +111,7 @@ class BrandsController extends Controller
         $brand->save();
         $brandLocalization->save();
 
-        flash(localize('Brand has been updated successfully'))->success();
+        flash( ('Brand has been updated successfully'))->success();
         return back();
     }
 
@@ -140,7 +140,7 @@ class BrandsController extends Controller
         }
 
         $brand->delete();
-        flash(localize('Brand has been deleted successfully'))->success();
+        flash( ('Brand has been deleted successfully'))->success();
         return back();
     }
 }

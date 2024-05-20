@@ -1,7 +1,7 @@
 @extends('backend.layouts.master')
 
 @section('title')
-    {{ localize('Localizations') }} {{ getSetting('title_separator') }} {{ getSetting('system_title') }}
+    {{  ('Localizations') }} {{ getSetting('title_separator') }} {{ getSetting('system_title') }}
 @endsection
 
 @section('contents')
@@ -31,7 +31,7 @@
                                                 <span class="position-absolute top-50 start-0 translate-middle-y ms-2"> <i
                                                         data-feather="search"></i></span>
                                                 <input class="form-control rounded-start w-100" type="text"
-                                                    id="search" name="search" placeholder="{{ localize('Search') }}"
+                                                    id="search" name="search" placeholder="{{  ('Search') }}"
                                                     @isset($searchKey)
                                         value="{{ $searchKey }}"
                                         @endisset>
@@ -41,7 +41,7 @@
                                     <div class="col-auto">
                                         <button type="submit" class="btn btn-primary">
                                             <i data-feather="search" width="18"></i>
-                                            {{ localize('Search') }}
+                                            {{  ('Search') }}
                                         </button>
                                     </div>
                                 </div>
@@ -56,10 +56,10 @@
                                 id="localization-table">
                                 <thead class="py-3">
                                     <tr>
-                                        <th class="text-center py-3" width="5%">{{ localize('S/L') }}
+                                        <th class="text-center py-3" width="5%">{{  ('S/L') }}
                                         </th>
-                                        <th width="40%" class="py-3">{{ localize('Lang Key') }}</th>
-                                        <th data-breakpoints="xs sm" class="py-3">{{ localize('Localizations') }}</th>
+                                        <th width="40%" class="py-3">{{  ('Lang Key') }}</th>
+                                        <th data-breakpoints="xs sm" class="py-3">{{  ('Localizations') }}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -77,7 +77,7 @@
                                             <td class="align-middle">
                                                 <input type="text" class="form-control value w-100"
                                                     name="values[{{ $localization->t_key }}]"
-                                                    placeholder="{{ localize('Type localization here') }}"
+                                                    placeholder="{{  ('Type localization here') }}"
                                                     @if (($localization_lang = \App\Models\Localization::where('lang_key', $language->code)->where('t_key', $localization->t_key)->latest()->first()) != null) value="{{ $localization_lang->t_value }}" @endif>
                                             </td>
 
@@ -94,8 +94,8 @@
                                 </nav>
                                 <div>
                                     <button type="button" class="btn btn-secondary"
-                                        onclick="copyLocalizations()">{{ localize('Copy Localizations') }}</button>
-                                    <button type="submit" class="btn btn-primary">{{ localize('Save') }}</button>
+                                        onclick="copyLocalizations()">{{  ('Copy Localizations') }}</button>
+                                    <button type="submit" class="btn btn-primary">{{  ('Save') }}</button>
                                 </div>
                             </div>
                             <!--pagination end-->
@@ -111,7 +111,7 @@
     <script type="text/javascript">
         "use strict";
 
-        //localize in one click
+        //  in one click
         function copyLocalizations() {
             $('#localization-table > tbody  > tr').each(function(index, tr) {
                 $(tr).find('.value').val($(tr).find('.key').text());

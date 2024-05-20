@@ -4,20 +4,20 @@
             <thead>
                 <tr>
                     <th>
-                        <label for="" class="control-label">{{ localize('Variation') }}</label>
+                        <label for="" class="control-label">{{  ('Variation') }}</label>
                     </th>
                     <th data-breakpoints="xs sm">
-                        <label for="" class="control-label">{{ localize('Price') }}</label>
+                        <label for="" class="control-label">{{  ('Price') }}</label>
                     </th>
                     <th data-breakpoints="xs sm">
-                        <label for="" class="control-label">{{ localize('Stock') }} <small
-                                class="text-warning">({{ localize('Default Location') }})</small></label>
+                        <label for="" class="control-label">{{  ('Stock') }} <small
+                                class="text-warning">({{  ('Default Location') }})</small></label>
                     </th>
                     <th data-breakpoints="xs sm">
-                        <label for="" class="control-label">{{ localize('SKU') }}</label>
+                        <label for="" class="control-label">{{  ('SKU') }}</label>
                     </th>
                     <th data-breakpoints="xs sm">
-                        <label for="" class="control-label">{{ localize('Code') }}</label>
+                        <label for="" class="control-label">{{  ('Code') }}</label>
                     </th>
                 </tr>
             </thead>
@@ -28,14 +28,14 @@
                         $name = '';
                         $variation_key = '';
                         $lstKey = array_key_last($combination);
-                        
+
                         foreach ($combination as $option_id => $choice_id) {
                             $option_name = \App\Models\Variation::find($option_id)->collectLocalization('name');
                             $choice_name = \App\Models\VariationValue::find($choice_id)->collectLocalization('name');
-                        
+
                             $name .= $choice_name;
                             $variation_key .= $option_id . ':' . $choice_id . '/';
-                        
+
                             if ($lstKey != $option_id) {
                                 $name .= '-';
                             }

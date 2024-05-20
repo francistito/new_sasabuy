@@ -1,7 +1,7 @@
 @extends('backend.layouts.master')
 
 @section('title')
-    {{ localize('Website Homepage Configuration') }} {{ getSetting('title_separator') }} {{ getSetting('system_title') }}
+    {{  ('Website Homepage Configuration') }} {{ getSetting('title_separator') }} {{ getSetting('system_title') }}
 @endsection
 
 @section('contents')
@@ -12,7 +12,7 @@
                     <div class="card tt-page-header">
                         <div class="card-body d-lg-flex align-items-center justify-content-lg-between">
                             <div class="tt-page-title">
-                                <h2 class="h5 mb-lg-0">{{ localize('Update Feedback') }}</h2>
+                                <h2 class="h5 mb-lg-0">{{  ('Update Feedback') }}</h2>
                             </div>
                         </div>
                     </div>
@@ -41,14 +41,14 @@
                         <div class="card mb-4">
                             <div class="card-body">
                                 <div class="mb-3">
-                                    <label for="name" class="form-label">{{ localize('Name') }}</label>
+                                    <label for="name" class="form-label">{{  ('Name') }}</label>
                                     <input type="text" name="name" id="name"
-                                        placeholder="{{ localize('Type reviewer name') }}" class="form-control"
+                                        placeholder="{{  ('Type reviewer name') }}" class="form-control"
                                         value="{{ $singleFeedback->name }}" required>
                                 </div>
 
                                 <div class="mb-3">
-                                    <label class="form-label">{{ localize('Rating') }}</label>
+                                    <label class="form-label">{{  ('Rating') }}</label>
                                     <select class="select2 form-control" name="rating"
                                         data-minimum-results-for-search="Infinity">
                                         <option value="1" @if ($singleFeedback->rating == 1) selected @endif>1</option>
@@ -61,15 +61,15 @@
 
 
                                 <div class="mb-3">
-                                    <label for="review" class="form-label">{{ localize('Review') }}</label>
-                                    <textarea name="review" id="review" placeholder="{{ localize('Type review') }}" class="form-control" required>{{ $singleFeedback->review }}</textarea>
+                                    <label for="review" class="form-label">{{  ('Review') }}</label>
+                                    <textarea name="review" id="review" placeholder="{{  ('Type review') }}" class="form-control" required>{{ $singleFeedback->review }}</textarea>
                                 </div>
 
 
                                 <div class="mb-3">
-                                    <label class="form-label">{{ localize('Avatar Image') }}</label>
+                                    <label class="form-label">{{  ('Avatar Image') }}</label>
                                     <div class="tt-image-drop rounded">
-                                        <span class="fw-semibold">{{ localize('Choose Avatar Image') }}</span>
+                                        <span class="fw-semibold">{{  ('Choose Avatar Image') }}</span>
                                         <!-- choose media -->
                                         <div class="tt-product-thumb show-selected-files mt-3">
                                             <div class="avatar avatar-xl cursor-pointer choose-media"
@@ -93,7 +93,7 @@
                             <div class="col-12">
                                 <div class="mb-4">
                                     <button class="btn btn-primary" type="submit">
-                                        <i data-feather="save" class="me-1"></i> {{ localize('Save Changes') }}
+                                        <i data-feather="save" class="me-1"></i> {{  ('Save Changes') }}
                                     </button>
                                 </div>
                             </div>
@@ -105,11 +105,11 @@
                 <div class="col-xl-3 order-1 order-md-1 order-lg-1 order-xl-2">
                     <div class="card tt-sticky-sidebar">
                         <div class="card-body">
-                            <h5 class="mb-4">{{ localize('Client Feedback Configuration') }}</h5>
+                            <h5 class="mb-4">{{  ('Client Feedback Configuration') }}</h5>
                             <div class="tt-vertical-step">
                                 <ul class="list-unstyled">
                                     <li>
-                                        <a href="#section-1" class="active">{{ localize('Update Feedback') }}</a>
+                                        <a href="#section-1" class="active">{{  ('Update Feedback') }}</a>
                                     </li>
                                 </ul>
                             </div>

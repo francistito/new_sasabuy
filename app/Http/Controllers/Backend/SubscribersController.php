@@ -10,13 +10,13 @@ class SubscribersController extends Controller
 {
     # construct
     public function __construct()
-    { 
-        $this->middleware(['permission:subscribers'])->only(['index']);   
+    {
+        $this->middleware(['permission:subscribers'])->only(['index']);
     }
-    
+
     # get subscribers
     public function index(Request $request)
-    { 
+    {
         $searchKey = null;
         $subscribers = SubscribedUser::latest();
         if ($request->search != null) {
@@ -30,9 +30,9 @@ class SubscribersController extends Controller
 
     # delete subscribers
     public function delete($id)
-    {  
-        SubscribedUser::destroy($id);  
-        flash(localize('Subscriber has been deleted successfully'))->success();
+    {
+        SubscribedUser::destroy($id);
+        flash( ('Subscriber has been deleted successfully'))->success();
         return back();
     }
 }

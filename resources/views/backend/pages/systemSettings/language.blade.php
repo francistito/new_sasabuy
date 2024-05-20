@@ -2,7 +2,7 @@
 
 
 @section('title')
-    {{ localize('Languages') }} {{ getSetting('title_separator') }} {{ getSetting('system_title') }}
+    {{  ('Languages') }} {{ getSetting('title_separator') }} {{ getSetting('system_title') }}
 @endsection
 
 
@@ -14,7 +14,7 @@
                     <div class="card tt-page-header">
                         <div class="card-body d-lg-flex align-items-center justify-content-lg-between">
                             <div class="tt-page-title">
-                                <h2 class="h5 mb-lg-0">{{ localize('Languages') }}</h2>
+                                <h2 class="h5 mb-lg-0">{{  ('Languages') }}</h2>
                             </div>
                         </div>
                     </div>
@@ -38,7 +38,7 @@
                                                             <i data-feather="search"></i></span>
                                                         <input class="form-control rounded-start w-100" type="text"
                                                             id="search" name="search"
-                                                            placeholder="{{ localize('Search') }}"
+                                                            placeholder="{{  ('Search') }}"
                                                             @isset($searchKey)
                                         value="{{ $searchKey }}"
                                     @endisset>
@@ -48,7 +48,7 @@
                                             <div class="col-auto">
                                                 <button type="submit" class="btn btn-primary">
                                                     <i data-feather="search" width="18"></i>
-                                                    {{ localize('Search') }}
+                                                    {{  ('Search') }}
                                                 </button>
                                             </div>
                                         </div>
@@ -58,11 +58,11 @@
                                 <table class="table tt-footable border-top" data-use-parent-width="true">
                                     <thead>
                                         <tr>
-                                            <th class="text-center">{{ localize('S/L') }}</th>
-                                            <th>{{ localize('Name') }}</th>
-                                            <th data-breakpoints="xs sm">{{ localize('ISO 639-1 Code') }}</th>
-                                            <th data-breakpoints="xs sm">{{ localize('Active') }}</th>
-                                            <th data-breakpoints="xs sm" class="text-end">{{ localize('Action') }}
+                                            <th class="text-center">{{  ('S/L') }}</th>
+                                            <th>{{  ('Name') }}</th>
+                                            <th data-breakpoints="xs sm">{{  ('ISO 639-1 Code') }}</th>
+                                            <th data-breakpoints="xs sm">{{  ('Active') }}</th>
+                                            <th data-breakpoints="xs sm" class="text-end">{{  ('Action') }}
                                             </th>
                                         </tr>
                                     </thead>
@@ -113,7 +113,7 @@
                                                                 <a class="dropdown-item"
                                                                     href="{{ route('admin.languages.edit', $language->id) }}">
                                                                     <i data-feather="edit-3"
-                                                                        class="me-2"></i>{{ localize('Edit') }}
+                                                                        class="me-2"></i>{{  ('Edit') }}
                                                                 </a>
                                                             @endcan
 
@@ -121,7 +121,7 @@
                                                                 <a class="dropdown-item"
                                                                     href="{{ route('admin.languages.localizations', $language->id) }}">
                                                                     <i data-feather="globe"
-                                                                        class="me-2"></i>{{ localize('Localizations') }}
+                                                                        class="me-2"></i>{{  ('Localizations') }}
                                                                 </a>
                                                             @endcan
                                                         </div>
@@ -139,22 +139,22 @@
                                 <!--language info start-->
                                 <div class="card mb-4" id="section-2">
                                     <div class="card-body">
-                                        <h5 class="mb-4">{{ localize('Add New Language') }}</h5>
+                                        <h5 class="mb-4">{{  ('Add New Language') }}</h5>
 
                                         <div class="mb-4">
-                                            <label for="name" class="form-label">{{ localize('Language Name') }}</label>
+                                            <label for="name" class="form-label">{{  ('Language Name') }}</label>
                                             <input type="text" name="name" id="name"
-                                                placeholder="{{ localize('Type language name') }}" class="form-control"
+                                                placeholder="{{  ('Type language name') }}" class="form-control"
                                                 required>
                                         </div>
 
                                         <div class="mb-4">
-                                            <label for="code" class="form-label">{{ localize('ISO 639-1 Code') }}</label>
+                                            <label for="code" class="form-label">{{  ('ISO 639-1 Code') }}</label>
                                             <input type="text" name="code" id="code"
-                                                placeholder="{{ localize('en/bn') }}" class="form-control" required>
+                                                placeholder="{{  ('en/bn') }}" class="form-control" required>
                                         </div>
                                         <div class="mb-4">
-                                            <label for="symbol" class="form-label">{{ localize('Flag') }}</label>
+                                            <label for="symbol" class="form-label">{{  ('Flag') }}</label>
                                             <select id="flag" class="form-control country-flag-select" name="flag"
                                                 data-toggle="select2">
                                                 @foreach (\File::files(base_path('public/backend/assets/img/flags')) as $path)
@@ -167,14 +167,14 @@
                                         </div>
 
                                         <div class="mb-4">
-                                            <label for="symbol" class="form-label">{{ localize('RTL') }}</label>
+                                            <label for="symbol" class="form-label">{{  ('RTL') }}</label>
                                             <select id="is_rtl" class="form-control select2" name="is_rtl"
                                                 data-toggle="select2">
                                                 <option value="0">
-                                                    {{ localize('Disable') }}
+                                                    {{  ('Disable') }}
                                                 </option>
                                                 <option value="1">
-                                                    {{ localize('Active') }}
+                                                    {{  ('Active') }}
                                                 </option>
                                             </select>
                                         </div>
@@ -186,7 +186,7 @@
                                     <div class="col-12">
                                         <div class="mb-4">
                                             <button class="btn btn-primary" type="submit">
-                                                <i data-feather="save" class="me-1"></i> {{ localize('Save Language') }}
+                                                <i data-feather="save" class="me-1"></i> {{  ('Save Language') }}
                                             </button>
                                         </div>
                                     </div>
@@ -199,10 +199,10 @@
                             <div class="pb-650 mt-3">
                                 <div class="card mb-4" id="section-3">
                                     <div class="card-body">
-                                        <h5 class="mb-4">{{ localize('Set Default Language') }}</h5>
+                                        <h5 class="mb-4">{{  ('Set Default Language') }}</h5>
                                         <div class="mb-4">
                                             <label for="symbol"
-                                                class="form-label">{{ localize('Default Language') }}</label>
+                                                class="form-label">{{  ('Default Language') }}</label>
                                             <select id="DEFAULT_LANGUAGE" class="form-control country-flag-select"
                                                 name="DEFAULT_LANGUAGE" data-toggle="select2"
                                                 onchange="handleDefaultLangSubmit(this)">
@@ -227,19 +227,19 @@
                 <div class="col-xl-3 order-1 order-md-1 order-lg-1 order-xl-2">
                     <div class="card tt-sticky-sidebar">
                         <div class="card-body">
-                            <h5 class="mb-4">{{ localize('Language Information') }}</h5>
+                            <h5 class="mb-4">{{  ('Language Information') }}</h5>
                             <div class="tt-vertical-step">
                                 <ul class="list-unstyled">
                                     <li>
-                                        <a href="#section-1" class="active">{{ localize('All Languages') }}</a>
+                                        <a href="#section-1" class="active">{{  ('All Languages') }}</a>
                                     </li>
                                     <li>
-                                        <a href="#section-2">{{ localize('Add New Language') }}</a>
+                                        <a href="#section-2">{{  ('Add New Language') }}</a>
                                     </li>
 
                                     @can('default_language')
                                         <li>
-                                            <a href="#section-3">{{ localize('Set Default Language') }}</a>
+                                            <a href="#section-3">{{  ('Set Default Language') }}</a>
                                         </li>
                                     @endcan
                                 </ul>

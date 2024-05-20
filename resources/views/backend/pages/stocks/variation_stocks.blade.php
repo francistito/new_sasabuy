@@ -4,10 +4,10 @@
             <thead>
                 <tr>
                     <th>
-                        <label for="" class="control-label">{{ localize('Variation') }}</label>
+                        <label for="" class="control-label">{{  ('Variation') }}</label>
                     </th>
                     <th data-breakpoints="xs sm">
-                        <label for="" class="control-label">{{ localize('Stock') }}</label>
+                        <label for="" class="control-label">{{  ('Stock') }}</label>
                     </th>
                 </tr>
             </thead>
@@ -18,15 +18,15 @@
                         $name = '';
                         $code_array = array_filter(explode('/', $variation->variation_key));
                         $lstKey = array_key_last($code_array);
-                        
+
                         foreach ($code_array as $key2 => $comb) {
                             $comb = explode(':', $comb);
-                        
+
                             $option_name = \App\Models\Variation::find($comb[0])->collectLocalization('name');
                             $choice_name = \App\Models\VariationValue::find($comb[1])->collectLocalization('name');
-                        
+
                             $name .= $choice_name;
-                        
+
                             if ($lstKey != $key2) {
                                 $name .= '-';
                             }
@@ -62,7 +62,7 @@
                 ->product_variation_stock_without_location()
                 ->where('location_id', $location_id)
                 ->first();
-            
+
             $price = $first_variation->price;
             $stock_qty = 0;
             if ($first_variation_stock) {
@@ -75,8 +75,8 @@
             <input type="hidden" name="product_variation_id" value="{{ $first_variation->id }}">
             <div class="col-lg-12">
                 <div class="mb-3">
-                    <label for="stock" class="form-label">{{ localize('Stock') }}</label>
-                    <input type="number" id="stock" placeholder="{{ localize('Stock qty') }}" name="stock"
+                    <label for="stock" class="form-label">{{  ('Stock') }}</label>
+                    <input type="number" id="stock" placeholder="{{  ('Stock qty') }}" name="stock"
                         class="form-control" value="{{ $stock_qty }}" required>
                 </div>
             </div>

@@ -90,7 +90,7 @@ class BlogsController extends Controller
         $blogLocalization->save();
 
         $blog->save();
-        flash(localize('Blog has been inserted successfully'))->success();
+        flash( ('Blog has been inserted successfully'))->success();
         return redirect()->route('admin.blogs.index');
     }
 
@@ -100,7 +100,7 @@ class BlogsController extends Controller
         $lang_key = $request->lang_key;
         $language = Language::isActive()->where('code', $lang_key)->first();
         if (!$language) {
-            flash(localize('Language you are trying to translate is not available or not active'))->error();
+            flash( ('Language you are trying to translate is not available or not active'))->error();
             return redirect()->route('admin.blogs.index');
         }
 
@@ -146,11 +146,11 @@ class BlogsController extends Controller
         $blog->save();
         $blogLocalization->save();
 
-        flash(localize('Blog has been updated successfully'))->success();
+        flash( ('Blog has been updated successfully'))->success();
         return back();
     }
 
-    # update popular 
+    # update popular
     public function updatePopular(Request $request)
     {
         $blog = Blog::findOrFail($request->id);
@@ -161,7 +161,7 @@ class BlogsController extends Controller
         return 0;
     }
 
-    # update status 
+    # update status
     public function updateStatus(Request $request)
     {
         $blog = Blog::findOrFail($request->id);
@@ -178,7 +178,7 @@ class BlogsController extends Controller
         $blog = Blog::findOrFail($id);
         BlogTag::where('blog_id', $blog->id)->delete();
         $blog->delete();
-        flash(localize('Blog has been deleted successfully'))->success();
+        flash( ('Blog has been deleted successfully'))->success();
         return back();
     }
 }

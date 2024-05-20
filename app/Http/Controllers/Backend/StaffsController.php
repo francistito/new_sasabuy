@@ -56,10 +56,10 @@ class StaffsController extends Controller
             $user->save();
             $user->assignRole(Role::findOrFail($request->role_id)->name);
 
-            flash(localize('Staff has been inserted successfully'))->success();
+            flash( ('Staff has been inserted successfully'))->success();
             return redirect()->route('admin.staffs.index');
         }
-        flash(localize('Email already used'))->error();
+        flash( ('Email already used'))->error();
         return back();
     }
 
@@ -71,7 +71,7 @@ class StaffsController extends Controller
         return view('backend.pages.staffs.edit', compact('user', 'roles'));
     }
 
-    # update staff 
+    # update staff
     public function update(Request $request)
     {
         $user             = User::findOrFail($request->id);
@@ -87,15 +87,15 @@ class StaffsController extends Controller
         $user->save();
         $user->assignRole(Role::findOrFail($request->role_id)->name);
 
-        flash(localize('Staff has been updated successfully'))->success();
+        flash( ('Staff has been updated successfully'))->success();
         return redirect()->route('admin.staffs.index');
     }
 
-    # delete staff  
+    # delete staff
     public function delete($id)
     {
         User::destroy($id);
-        flash(localize('Staff has been deleted successfully'))->success();
+        flash( ('Staff has been deleted successfully'))->success();
         return redirect()->route('admin.staffs.index');
     }
 }

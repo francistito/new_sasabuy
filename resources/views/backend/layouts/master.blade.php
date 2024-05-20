@@ -88,13 +88,13 @@
         'use strict';
 
         var TT = TT || {};
-        TT.localize = {
-            no_data_found: '{{ localize('No data found') }}',
-            selected_file: '{{ localize('Selected File') }}',
-            selected_files: '{{ localize('Selected Files') }}',
-            file_added: '{{ localize('File added') }}',
-            files_added: '{{ localize('Files added') }}',
-            no_file_chosen: '{{ localize('No file chosen') }}',
+        TT.  = {
+            no_data_found: '{{  ('No data found') }}',
+            selected_file: '{{  ('Selected File') }}',
+            selected_files: '{{  ('Selected Files') }}',
+            file_added: '{{  ('File added') }}',
+            files_added: '{{  ('Files added') }}',
+            no_file_chosen: '{{  ('No file chosen') }}',
         };
         TT.baseUrl = '{{ \Request::root() }}';
 
@@ -320,7 +320,7 @@
 
         {{--// change location--}}
         {{--function changeLocation(e) {--}}
-        {{--    var text = '{{ localize('If you change the location your cart will be cleared. Do you want to proceed?') }}'--}}
+        {{--    var text = '{{  ('If you change the location your cart will be cleared. Do you want to proceed?') }}'--}}
         {{--    var confirm = window.confirm(text);--}}
         {{--    if (confirm) {--}}
         {{--        var location_id = e.dataset.location;--}}
@@ -333,9 +333,9 @@
         {{--    }--}}
         {{--}--}}
 
-        {{--// localize data--}}
-        {{--function localizeData(langKey) {--}}
-        {{--    window.location = '{{ url()->current() }}?lang_key=' + langKey + '&localize';--}}
+        {{--//   data--}}
+        {{--function  Data(langKey) {--}}
+        {{--    window.location = '{{ url()->current() }}?lang_key=' + langKey + '& ';--}}
         {{--}--}}
 
         {{--// ajax toast--}}

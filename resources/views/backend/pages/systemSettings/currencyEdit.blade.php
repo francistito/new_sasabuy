@@ -1,7 +1,7 @@
 @extends('backend.layouts.master')
 
 @section('title')
-    {{ localize('Update Currency') }} {{ getSetting('title_separator') }} {{ getSetting('system_title') }}
+    {{  ('Update Currency') }} {{ getSetting('title_separator') }} {{ getSetting('system_title') }}
 @endsection
 
 @section('contents')
@@ -12,7 +12,7 @@
                     <div class="card tt-page-header">
                         <div class="card-body d-lg-flex align-items-center justify-content-lg-between">
                             <div class="tt-page-title">
-                                <h2 class="h5 mb-lg-0">{{ localize('Update Currency') }}</h2>
+                                <h2 class="h5 mb-lg-0">{{  ('Update Currency') }}</h2>
                             </div>
                         </div>
                     </div>
@@ -29,27 +29,27 @@
                         <!--currency info start-->
                         <div class="card mb-4" id="section-2">
                             <div class="card-body">
-                                <h5 class="mb-4">{{ localize('Basic Information') }}</h5>
+                                <h5 class="mb-4">{{  ('Basic Information') }}</h5>
 
                                 <div class="mb-4">
-                                    <label for="name" class="form-label">{{ localize('Currency Name') }}</label>
+                                    <label for="name" class="form-label">{{  ('Currency Name') }}</label>
                                     <input type="text" name="name" id="name"
-                                        placeholder="{{ localize('Type currency name') }}" class="form-control" required
+                                        placeholder="{{  ('Type currency name') }}" class="form-control" required
                                         value="{{ $currency->name }}">
                                 </div>
 
                                 <div class="mb-4">
-                                    <label for="symbol" class="form-label">{{ localize('Currency Symbol') }}</label>
+                                    <label for="symbol" class="form-label">{{  ('Currency Symbol') }}</label>
                                     <input type="text" name="symbol" id="symbol"
-                                        placeholder="{{ localize('Type symbol') }}" class="form-control" required
+                                        placeholder="{{  ('Type symbol') }}" class="form-control" required
                                         value="{{ $currency->symbol }}">
                                 </div>
 
                                 @if ($currency->code != 'usd')
                                     <div class="mb-4">
-                                        <label for="code" class="form-label">{{ localize('Currency Code') }}</label>
+                                        <label for="code" class="form-label">{{  ('Currency Code') }}</label>
                                         <input type="text" name="code" id="code"
-                                            placeholder="{{ localize('Type code') }}" class="form-control" required
+                                            placeholder="{{  ('Type code') }}" class="form-control" required
                                             value="{{ $currency->code }}">
                                     </div>
                                 @else
@@ -57,22 +57,22 @@
                                 @endif
 
                                 <div class="mb-4">
-                                    <label for="rate" class="form-label">{{ localize('Rate') }} <small>(
-                                            {{ localize('1 USD = ?') }} )</small></label>
+                                    <label for="rate" class="form-label">{{  ('Rate') }} <small>(
+                                            {{  ('1 USD = ?') }} )</small></label>
                                     <input type="number" step="0.001" min="0" name="rate" id="rate"
-                                        placeholder="{{ localize('Rate') }}" class="form-control" required
+                                        placeholder="{{  ('Rate') }}" class="form-control" required
                                         value="{{ $currency->rate }}">
                                 </div>
 
                                 <div class="mb-4">
-                                    <label for="symbol" class="form-label">{{ localize('Alignment') }}</label>
+                                    <label for="symbol" class="form-label">{{  ('Alignment') }}</label>
                                     <select id="alignment" class="form-control text-uppercase select2" name="alignment"
                                         data-toggle="select2">
                                         <option value="0" {{ $currency->alignment == 0 ? 'selected' : '' }}>
-                                            {{ localize('[symbol][amount]') }}
+                                            {{  ('[symbol][amount]') }}
                                         </option>
                                         <option value="1" {{ $currency->alignment == 1 ? 'selected' : '' }}>
-                                            {{ localize('[amount][symbol]') }}
+                                            {{  ('[amount][symbol]') }}
                                         </option>
                                     </select>
                                 </div>
@@ -84,7 +84,7 @@
                             <div class="col-12">
                                 <div class="mb-4">
                                     <button class="btn btn-primary" type="submit">
-                                        <i data-feather="save" class="me-1"></i> {{ localize('Save Changes') }}
+                                        <i data-feather="save" class="me-1"></i> {{  ('Save Changes') }}
                                     </button>
                                 </div>
                             </div>
@@ -98,11 +98,11 @@
                 <div class="col-xl-3 order-1 order-md-1 order-lg-1 order-xl-2">
                     <div class="card tt-sticky-sidebar d-none d-xl-block">
                         <div class="card-body">
-                            <h5 class="mb-4">{{ localize('Currency Information') }}</h5>
+                            <h5 class="mb-4">{{  ('Currency Information') }}</h5>
                             <div class="tt-vertical-step">
                                 <ul class="list-unstyled">
                                     <li>
-                                        <a href="#section-1" class="active">{{ localize('Basic Information') }}</a>
+                                        <a href="#section-1" class="active">{{  ('Basic Information') }}</a>
                                     </li>
                                 </ul>
                             </div>

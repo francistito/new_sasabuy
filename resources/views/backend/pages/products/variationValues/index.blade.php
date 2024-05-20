@@ -1,7 +1,7 @@
 @extends('backend.layouts.master')
 
 @section('title')
-    {{ localize('Variation values') }} {{ getSetting('title_separator') }} {{ getSetting('system_title') }}
+    {{  ('Variation values') }} {{ getSetting('title_separator') }} {{ getSetting('system_title') }}
 @endsection
 
 @section('contents')
@@ -12,7 +12,7 @@
                     <div class="card tt-page-header">
                         <div class="card-body d-lg-flex align-items-center justify-content-lg-between">
                             <div class="tt-page-title">
-                                <h2 class="h5 mb-lg-0">{{ localize('Values') }} -
+                                <h2 class="h5 mb-lg-0">{{  ('Values') }} -
                                     {{ $variation->collectLocalization('name') }}</h2>
                             </div>
                         </div>
@@ -37,7 +37,7 @@
                                                             <i data-feather="search"></i></span>
                                                         <input class="form-control rounded-start w-100" type="text"
                                                             id="search" name="search"
-                                                            placeholder="{{ localize('Search') }}"
+                                                            placeholder="{{  ('Search') }}"
                                                             @isset($searchKey)
                                                 value="{{ $searchKey }}"
                                                 @endisset>
@@ -47,7 +47,7 @@
                                             <div class="col-auto">
                                                 <button type="submit" class="btn btn-primary">
                                                     <i data-feather="search" width="18"></i>
-                                                    {{ localize('Search') }}
+                                                    {{  ('Search') }}
                                                 </button>
                                             </div>
                                         </div>
@@ -56,14 +56,14 @@
                                 <table class="table tt-footable border-top" data-use-parent-width="true">
                                     <thead>
                                         <tr>
-                                            <th class="text-center" width="7%">{{ localize('S/L') }}</th>
-                                            <th class="all">{{ localize('Name') }}</th>
+                                            <th class="text-center" width="7%">{{  ('S/L') }}</th>
+                                            <th class="all">{{  ('Name') }}</th>
                                             @if ($variation->id == 2)
-                                                <th class="all">{{ localize('Code') }}</th>
+                                                <th class="all">{{  ('Code') }}</th>
                                             @endif
-                                            <th data-breakpoints="xs sm">{{ localize('Active') }}</th>
+                                            <th data-breakpoints="xs sm">{{  ('Active') }}</th>
                                             <th data-breakpoints="xs sm" class="text-end">
-                                                {{ localize('Action') }}
+                                                {{  ('Action') }}
                                             </th>
                                         </tr>
                                     </thead>
@@ -106,9 +106,9 @@
                                                         <div class="dropdown-menu dropdown-menu-end shadow">
                                                             @can('edit_variation_values')
                                                                 <a class="dropdown-item"
-                                                                    href="{{ route('admin.variationValues.edit', ['id' => $variationValue->id, 'lang_key' => env('DEFAULT_LANGUAGE')]) }}&localize">
+                                                                    href="{{ route('admin.variationValues.edit', ['id' => $variationValue->id, 'lang_key' => env('DEFAULT_LANGUAGE')]) }}& ">
                                                                     <i data-feather="edit-3"
-                                                                        class="me-2"></i>{{ localize('Edit') }}
+                                                                        class="me-2"></i>{{  ('Edit') }}
                                                                 </a>
                                                             @endcan
                                                         </div>
@@ -120,10 +120,10 @@
                                 </table>
                                 <!--pagination start-->
                                 <div class="d-flex align-items-center justify-content-between px-4 pb-4">
-                                    <span>{{ localize('Showing') }}
+                                    <span>{{  ('Showing') }}
                                         {{ $variationValues->firstItem() }}-{{ $variationValues->lastItem() }}
-                                        {{ localize('of') }}
-                                        {{ $variationValues->total() }} {{ localize('results') }}</span>
+                                        {{  ('of') }}
+                                        {{ $variationValues->total() }} {{  ('results') }}</span>
                                     <nav>
                                         {{ $variationValues->appends(request()->input())->links() }}
                                     </nav>
@@ -141,17 +141,17 @@
                             <!--variation value info start-->
                             <div class="card mb-4" id="section-2">
                                 <div class="card-body">
-                                    <h5 class="mb-4">{{ localize('Add New Variation Value') }}</h5>
+                                    <h5 class="mb-4">{{  ('Add New Variation Value') }}</h5>
 
                                     <div class="mb-4">
-                                        <label for="name" class="form-label">{{ localize('Variation Value Name') }}</label>
+                                        <label for="name" class="form-label">{{  ('Variation Value Name') }}</label>
                                         <input class="form-control" type="text" id="name" name="name"
-                                            placeholder="{{ localize('Type variation value name') }}" required>
+                                            placeholder="{{  ('Type variation value name') }}" required>
                                     </div>
 
                                     @if ($variation->id == 2)
                                         <div class="mb-4">
-                                            <label for="name" class="form-label">{{ localize('Color Code') }}</label>
+                                            <label for="name" class="form-label">{{  ('Color Code') }}</label>
                                             <input type="color" name="color_code" id="color_code" class="form-control">
                                         </div>
                                     @endif
@@ -164,7 +164,7 @@
                                 <div class="col-12">
                                     <div class="mb-4">
                                         <button class="btn btn-primary" type="submit">
-                                            <i data-feather="save" class="me-1"></i> {{ localize('Save Value') }}
+                                            <i data-feather="save" class="me-1"></i> {{  ('Save Value') }}
                                         </button>
                                     </div>
                                 </div>
@@ -177,16 +177,16 @@
                 <div class="col-xl-3 order-1 order-md-1 order-lg-1 order-xl-2">
                     <div class="card tt-sticky-sidebar">
                         <div class="card-body">
-                            <h5 class="mb-4">{{ localize('Variation Value Information') }}</h5>
+                            <h5 class="mb-4">{{  ('Variation Value Information') }}</h5>
                             <div class="tt-vertical-step">
                                 <ul class="list-unstyled">
                                     <li>
-                                        <a href="#section-1" class="active">{{ localize('All Variation Values') }}</a>
+                                        <a href="#section-1" class="active">{{  ('All Variation Values') }}</a>
                                     </li>
 
                                     @can('add_variation_values')
                                         <li>
-                                            <a href="#section-2">{{ localize('Add New Variation Value') }}</a>
+                                            <a href="#section-2">{{  ('Add New Variation Value') }}</a>
                                         </li>
                                     @endcan
                                 </ul>
@@ -217,9 +217,9 @@
                 },
                 function(data) {
                     if (data == 1) {
-                        notifyMe('success', '{{ localize('Status updated successfully') }}');
+                        notifyMe('success', '{{  ('Status updated successfully') }}');
                     } else {
-                        notifyMe('danger', '{{ localize('Something went wrong') }}');
+                        notifyMe('danger', '{{  ('Something went wrong') }}');
                     }
                 });
         }
