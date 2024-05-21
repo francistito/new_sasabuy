@@ -81,7 +81,7 @@
                                     <div class="d-flex align-items-center">
                                         <!-- Discount Price -->
                                         <strong class="fs-16 fw-700 text-primary">
-                                            {{formatPrice($product->price)}}
+                                            {{currency_code()}} {{formatPrice($product->max_price)}}
                                         </strong>
 
                                     </div>
