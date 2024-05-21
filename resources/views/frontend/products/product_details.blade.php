@@ -43,7 +43,7 @@
                             <!-- Brand Logo & Name -->
                             <div class="d-flex flex-wrap align-items-center mb-3">
                                 <span class="text-secondary fs-14 fw-400 mr-4 w-80px">Brand</span><br>
-                                <a href="#" class="text-reset hov-text-primary fs-14 fw-700">{{$product->brand->name}}</a>
+                                <a href="#" class="text-reset hov-text-primary fs-14 fw-700">{{$product->brand->name??null}}</a>
                             </div>
 
                             <!-- Seller Info -->
