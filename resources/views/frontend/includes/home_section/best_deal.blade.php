@@ -32,14 +32,14 @@
                                                         <div
                                                             class="position-relative h-140px h-md-200px img-fit overflow-hidden">
                                                             <!-- Image -->
-                                                            <a href="https://demo.activeitzone.com/ecommerce/product/like-dreams-large-sherpa-tote-bag-inner-pocket-vegan-leather-large-tote-hand-bags-for-women"
+                                                            <a href="{{route('product.details',$product->slug)}}"
                                                                class="d-block h-100" tabindex="0">
                                                                 <img
                                                                     class="mx-auto img-fit has-transition ls-is-cached lazyloaded"
                                                                     src="{{url(product_image($product))}}"
                                                                     alt="Like Dreams Large Sherpa Tote Bag, Inner Pocket Vegan Leather, Large Tote Hand bags for Women"
                                                                     title="Like Dreams Large Sherpa Tote Bag, Inner Pocket Vegan Leather, Large Tote Hand bags for Women"
-                                                                    onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder.jpg';">
+                                                                    onerror="this.onerror=null;this.src='{{url(product_image($product))}}';">
                                                             </a>
                                                             <!-- Discount percentage tag -->
                                                             <!-- Wholesale tag -->
