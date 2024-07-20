@@ -63,7 +63,7 @@
         @include('frontend.includes.home_section.reviewed_product')
         <!-- End Recently viewed -->
         <!-- Brand Carousel -->
-        @include('frontend.includes.home_section.list_of_brands')
+{{--        @include('frontend.includes.home_section.list_of_brands')--}}
         <!-- End Brand Carousel -->
     </div>
 

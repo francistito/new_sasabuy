@@ -6,7 +6,8 @@
             <div class="product-item__outer h-100">
                 <div class="product-item__inner px-xl-4 p-3">
                     <div class="product-item__body pb-xl-2">
-                        <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
+{{--                        <div class="mb-2">--}}
+{{--                                <a href="#" class="font-size-12 text-gray-5">{{$product->categories()->get()->first()->name}}</a></div>--}}
                         <h5 class="mb-1 product-item__title"><a href="{{route('product.details',$product->slug)}}" class="text-blue font-weight-bold">{{$product->name}}</a></h5>
                         <div class="mb-2">
                             <a href="{{route('product.details',$product->slug)}}" class="d-block text-center"><img class="img-fluid" src="{{url(product_image($product))}}" alt="Image Description"></a>

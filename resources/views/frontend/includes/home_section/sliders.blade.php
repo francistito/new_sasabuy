@@ -15,7 +15,7 @@
                                 data-scs-animation-delay="200">PRODUCTS IN GOOD CONDITION
                             </h6>
 
-                            <a href="../shop/single-product-fullwidth.html" class="btn btn-primary transition-3d-hover rounded-lg font-weight-normal  py-2 px-md-7 px-3 font-size-16" style="color:#ffffff;"
+                            <a href="{{route('product.products')}}" class="btn btn-primary transition-3d-hover rounded-lg font-weight-normal  py-2 px-md-7 px-3 font-size-16" style="color:#ffffff;"
                                data-scs-animation-in="fadeInUp"
                                data-scs-animation-delay="400">
                                 Start Buying
