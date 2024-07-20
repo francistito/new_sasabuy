@@ -2633,6 +2633,15 @@ if (!function_exists('formatPrice')) {
         }
         return $price . $symbol;
     }
+
+
+
+    if (!function_exists('product_categories')) {
+        function product_categories()
+        {
+            return \App\Models\Category::query()->orderBy('name')->get();
+        }
+    }
 }
 
 

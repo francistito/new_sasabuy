@@ -1,105 +1,167 @@
-<!-- footer subscription & icons -->
-<section class="py-3 text-light footer-widget border-bottom" style="border-color: #3d3d46 !important; background-color: #212129 !important;">
-    <div class="container">
-        <!-- footer logo -->
-        <div class="row">
-            <!-- about & subscription -->
-            <div class="col-xl-6 col-lg-7">
-                <div class="mt-3 mb-4">
-                    <a href="{{url('/')}}" class="d-block">
-                        <img class="lazyload h-45px" src="{{asset('assets/img/sasab.png')}}" data-src="{{asset('assets/img/sasab.png')}}" alt="Active eCommerce CMS" height="45">
-                    </a>
-                </div>
-                <div class="mb-4 text-secondary text-justify">
-                    <span style="">Complete system for your eCommerce business</span>
-                </div>
-                <div class="mb-3">
-{{--                    <form method="POST" action="https://demo.activeitzone.com/ecommerce/subscribers">--}}
-{{--                        <input type="hidden" name="_token" value="mQKitohuD7H7LCiy18pKm0W2qRfSfROkb2tIsfEf">                        <div class="row gutters-10">--}}
-{{--                            <div class="col-8">--}}
-{{--                                <input type="email" class="form-control border-secondary rounded-0 text-white w-100 bg-transparent" placeholder="Your Email Address" name="email" required>--}}
-{{--                            </div>--}}
-{{--                            <div class="col-4">--}}
-{{--                                <button type="submit" class="btn btn-primary rounded-0 w-100">Subscribe</button>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </form>--}}
-                </div>
-            </div>
+<footer>
+    <!-- Footer-top-widget -->
 
-            <div class="col d-none d-lg-block"></div>
-
-            <!-- Follow & Apps -->
-            <div class="col-xxl-3 col-xl-4 col-lg-4">
-                <!-- Social -->
-                <h5 class="fs-14 fw-700 text-secondary text-uppercase mt-3 mt-lg-0">Follow Us</h5>
-                <ul class="list-inline social colored mb-4">
-                    <li class="list-inline-item ml-2 mr-2">
-                        <a href="https://facebook.com/" target="_blank"
-                           class="facebook"><i class="lab la-facebook-f"></i></a>
-                    </li>
-                    <li class="list-inline-item ml-2 mr-2">
-                        <a href="https://twitter.com/" target="_blank"
-                           class="twitter"><i class="lab la-twitter"></i></a>
-                    </li>
-                    <li class="list-inline-item ml-2 mr-2">
-                        <a href="https://www.instagram.com/" target="_blank"
-                           class="instagram"><i class="lab la-instagram"></i></a>
-                    </li>
-                    <li class="list-inline-item ml-2 mr-2">
-                        <a href="https://youtube.com/" target="_blank"
-                           class="youtube"><i class="lab la-youtube"></i></a>
-                    </li>
-                    <li class="list-inline-item ml-2 mr-2">
-                        <a href="https://linkedin.com/" target="_blank"
-                           class="linkedin"><i class="lab la-linkedin-in"></i></a>
-                    </li>
-                </ul>
-
-                <!-- Apps link -->
-                <h5 class="fs-14 fw-700 text-secondary text-uppercase mt-3">Mobile Apps</h5>
-                <div class="d-flex mt-3">
-                    <div class="">
-                        <a href="https://play.google.com/store/apps" target="_blank" class="mr-2 mb-2 overflow-hidden hov-scale-img">
-                            <img class="lazyload has-transition" src="https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder-rect.jpg" data-src="https://demo.activeitzone.com/ecommerce/public/assets/img/play.png" alt="Active eCommerce CMS" height="44">
-                        </a>
-                    </div>
-                    <div class="">
-                        <a href="https://www.apple.com/app-store/" target="_blank" class="overflow-hidden hov-scale-img">
-                            <img class="lazyload has-transition" src="https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder-rect.jpg" data-src="https://demo.activeitzone.com/ecommerce/public/assets/img/app.png" alt="Active eCommerce CMS" height="44">
-                        </a>
+    <!-- End Footer-top-widget -->
+    <!-- Footer-newsletter -->
+    <div class="bg-primary py-3">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7 mb-md-3 mb-lg-0">
+                    <div class="row align-items-center">
+                        <div class="col-auto flex-horizontal-center">
+                            <i class="ec ec-newsletter font-size-40"></i>
+                            <h2 class="font-size-20 mb-0 ml-3">Sign up to Newsletter</h2>
+                        </div>
+                        <div class="col my-4 my-md-0">
+                            <h5 class="font-size-15 ml-4 mb-0">...and receive <strong>$20 coupon for first shopping.</strong></h5>
+                        </div>
                     </div>
                 </div>
-
-            </div>
-        </div>
-    </div>
-</section>
-
-
-
-<!-- FOOTER -->
-<footer class="pt-3 pb-7 pb-xl-3 bg-black text-soft-light">
-    <div class="container">
-        <div class="row align-items-center py-3">
-            <!-- Copyright -->
-            <div class="col-lg-6 order-1 order-lg-0">
-                <div class="text-center text-lg-left fs-14" current-verison="8.8">
-                    SASABUY {{\Carbon\Carbon::today()->format('Y')}}
-                </div>
-            </div>
-
-            <!-- Payment Method Images -->
-            <div class="col-lg-6 mb-4 mb-lg-0">
-                <div class="text-center text-lg-right">
-                    <ul class="list-inline mb-0">
-                        <li class="list-inline-item mr-3">
-                            <img src="https://demo.activeitzone.com/ecommerce/public/uploads/all/NankP5emHOKcdCWqX6Bks1Qa63iDgoLA6WPGn7oe.webp" height="20" class="mw-100 h-auto" style="max-height: 20px" alt="Payment method">
-                        </li>
-                    </ul>
+                <div class="col-lg-5">
+                    <!-- Subscribe Form -->
+                    <form class="js-validate js-form-message">
+                        <label class="sr-only" for="subscribeSrEmail">Email address</label>
+                        <div class="input-group input-group-pill">
+                            <input type="email" class="form-control border-0 height-40" name="email" id="subscribeSrEmail" placeholder="Email address" aria-label="Email address" aria-describedby="subscribeButton" required
+                                   data-msg="Please enter a valid email address.">
+                            <div class="input-group-append">
+                                <button type="submit" class="btn btn-dark btn-sm-wide height-40 py-2" id="subscribeButton">Sign Up</button>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- End Subscribe Form -->
                 </div>
             </div>
         </div>
     </div>
+    <!-- End Footer-newsletter -->
+    <!-- Footer-bottom-widgets -->
+    <div class="pt-8 pb-4 bg-gray-13">
+        <div class="container mt-1">
+            <div class="row">
+                <div class="col-lg-5">
+                    <div class="mb-6">
+                        <a class="order-1 order-xl-0 navbar-brand u-header__navbar-brand u-header__navbar-brand-center" href="{{url('/')}}" aria-label="Sasabuy">
+                            <img src="{{url('assets/img/bws.png')}}" alt=""  style="margin-bottom: 0;height: 79.52px;width: auto" />
+                        </a>
+                    </div>
+                    <div class="mb-4">
+                        <div class="row no-gutters">
+                            <div class="col-auto">
+                                <i class="ec ec-support text-primary font-size-56"></i>
+                            </div>
+                            <div class="col pl-3">
+                                <div class="font-size-13 font-weight-light">Got questions? Call us 24/7!</div>
+                                <a href="tel:+255 (757) 888 110" class="font-size-20 text-gray-90">+255 (757) 888 110</a>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <h6 class="mb-1 font-weight-bold">Contact info</h6>
+                        <address class="">
+
+                            Chabruma Street, Ali Hassan Mwinyi Road, ALFA Plaza, 3rd Floor, Room no. 303
+                        </address>
+                    </div>
+                    <div class="my-4 my-md-4">
+                        <ul class="list-inline mb-0 opacity-7">
+                            <li class="list-inline-item mr-0">
+                                <a class="btn font-size-20 btn-icon btn-soft-dark btn-bg-transparent rounded-circle" href="#">
+                                    <span class="fab fa-facebook-f btn-icon__inner"></span>
+                                </a>
+                            </li>
+                            <li class="list-inline-item mr-0">
+                                <a class="btn font-size-20 btn-icon btn-soft-dark btn-bg-transparent rounded-circle" href="#">
+                                    <span class="fab fa-google btn-icon__inner"></span>
+                                </a>
+                            </li>
+                            <li class="list-inline-item mr-0">
+                                <a class="btn font-size-20 btn-icon btn-soft-dark btn-bg-transparent rounded-circle" href="#">
+                                    <span class="fab fa-twitter btn-icon__inner"></span>
+                                </a>
+                            </li>
+                            <li class="list-inline-item mr-0">
+                                <a class="btn font-size-20 btn-icon btn-soft-dark btn-bg-transparent rounded-circle" href="#">
+                                    <span class="fab fa-github btn-icon__inner"></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="row">
+                        <div class="col-12 col-md mb-4 mb-md-0">
+                            <h6 class="mb-3 font-weight-bold">Find it Fast</h6>
+                            <!-- List Group -->
+                            <ul class="list-group list-group-flush list-group-borderless mb-0 list-group-transparent">
+{{--                                <li><a class="list-group-item list-group-item-action" href="../shop/product-categories-5-column-sidebar.html">Laptops & Computers</a></li>--}}
+{{--                                <li><a class="list-group-item list-group-item-action" href="../shop/product-categories-5-column-sidebar.html">Cameras & Photography</a></li>--}}
+{{--                                <li><a class="list-group-item list-group-item-action" href="../shop/product-categories-5-column-sidebar.html">Smart Phones & Tablets</a></li>--}}
+{{--                                <li><a class="list-group-item list-group-item-action" href="../shop/product-categories-5-column-sidebar.html">Video Games & Consoles</a></li>--}}
+{{--                                <li><a class="list-group-item list-group-item-action" href="../shop/product-categories-5-column-sidebar.html">TV & Audio</a></li>--}}
+{{--                                <li><a class="list-group-item list-group-item-action" href="../shop/product-categories-5-column-sidebar.html">Gadgets</a></li>--}}
+{{--                                <li><a class="list-group-item list-group-item-action" href="../shop/product-categories-5-column-sidebar.html">Car Electronic & GPS</a></li>--}}
+                            </ul>
+                            <!-- End List Group -->
+                        </div>
+
+                        <div class="col-12 col-md mb-4 mb-md-0">
+                            <!-- List Group -->
+                            <ul class="list-group list-group-flush list-group-borderless mb-0 list-group-transparent mt-md-6">
+{{--                                <li><a class="list-group-item list-group-item-action" href="../shop/product-categories-5-column-sidebar.html">Printers & Ink</a></li>--}}
+{{--                                <li><a class="list-group-item list-group-item-action" href="../shop/product-categories-5-column-sidebar.html">Software</a></li>--}}
+{{--                                <li><a class="list-group-item list-group-item-action" href="../shop/product-categories-5-column-sidebar.html">Office Supplies</a></li>--}}
+{{--                                <li><a class="list-group-item list-group-item-action" href="../shop/product-categories-5-column-sidebar.html">Computer Components</a></li>--}}
+{{--                                <li><a class="list-group-item list-group-item-action" href="../shop/product-categories-5-column-sidebar.html">Accesories</a></li>--}}
+                            </ul>
+                            <!-- End List Group -->
+                        </div>
+
+                        <div class="col-12 col-md mb-4 mb-md-0">
+                            <h6 class="mb-3 font-weight-bold">Customer Care</h6>
+                            <!-- List Group -->
+                            <ul class="list-group list-group-flush list-group-borderless mb-0 list-group-transparent">
+                                <li><a class="list-group-item list-group-item-action" href="#">My Account</a></li>
+                                <li><a class="list-group-item list-group-item-action" href="#">Order Tracking</a></li>
+                                <li><a class="list-group-item list-group-item-action" href="#">Wish List</a></li>
+                                <li><a class="list-group-item list-group-item-action" href="#">Customer Service</a></li>
+                                <li><a class="list-group-item list-group-item-action" href="#">Returns / Exchange</a></li>
+                                <li><a class="list-group-item list-group-item-action" href="#">FAQs</a></li>
+                                <li><a class="list-group-item list-group-item-action" href="#">Product Support</a></li>
+                            </ul>
+                            <!-- End List Group -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Footer-bottom-widgets -->
+    <!-- Footer-copy-right -->
+    <div class="bg-gray-14 py-2">
+        <div class="container">
+            <div class="flex-center-between d-block d-md-flex">
+                <div class="mb-3 mb-md-0">© <a href="#" class="font-weight-bold text-gray-90">Sasabuy</a> - All rights Reserved</div>
+{{--                <div class="text-md-right">--}}
+{{--                            <span class="d-inline-block bg-white border rounded p-1">--}}
+{{--                                <img class="max-width-5" src="assets/img/100X60/img1.jpg" alt="Image Description">--}}
+{{--                            </span>--}}
+{{--                    <span class="d-inline-block bg-white border rounded p-1">--}}
+{{--                                <img class="max-width-5" src="assets/img/100X60/img2.jpg" alt="Image Description">--}}
+{{--                            </span>--}}
+{{--                    <span class="d-inline-block bg-white border rounded p-1">--}}
+{{--                                <img class="max-width-5" src="assets/img/100X60/img3.jpg" alt="Image Description">--}}
+{{--                            </span>--}}
+{{--                    <span class="d-inline-block bg-white border rounded p-1">--}}
+{{--                                <img class="max-width-5" src="assets/img/100X60/img4.jpg" alt="Image Description">--}}
+{{--                            </span>--}}
+{{--                    <span class="d-inline-block bg-white border rounded p-1">--}}
+{{--                                <img class="max-width-5" src="assets/img/100X60/img5.jpg" alt="Image Description">--}}
+{{--                            </span>--}}
+{{--                </div>--}}
+            </div>
+        </div>
+    </div>
+    </div>
+    <!-- End Footer-copy-right -->
 </footer>
-

@@ -11,9 +11,12 @@ class ProductsController extends Controller
 {
 
     # delete product
-    public function delete($id)
+    public function products()
     {
-        #
+
+        $products = Product::all();
+        return view('frontend.products.all_products')
+            ->with('products', $products);
     }
 
     # delete product

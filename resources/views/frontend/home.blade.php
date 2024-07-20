@@ -1,11 +1,5 @@
 
-@extends('frontend.layouts.main', ['title' => __('SASABUY') , 'header' => __('SASABUY')])
-
-
-@section('content')
-
-
-    @include('frontend.includes.home_section.sliders')
+@include('frontend.includes.home_section.sliders')
 
 <!-- End Slider Section -->
 <div class="container">
@@ -66,5 +60,3 @@
     @include('frontend.includes.home_section.list_of_brands')
     <!-- End Brand Carousel -->
 </div>
-
-@endsection

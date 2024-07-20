@@ -91,8 +91,8 @@
             <i class="text-primary ec ec-transport font-size-46"></i>
         </div>
         <div class="media-body text-center">
-            <span class="d-block font-weight-bold text-dark">Free Delivery</span>
-            <div class=" text-secondary">from $50</div>
+            <span class="d-block font-weight-bold text-dark">Delivery</span>
+            <div class=" text-secondary">Available</div>
         </div>
     </div>
     <!-- End Feature List -->
