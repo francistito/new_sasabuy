@@ -23,7 +23,6 @@
                 <!-- Content -->
                 <div class="js-scrollbar u-sidebar__body">
                     <div class="u-sidebar__content u-header-sidebar__content">
-                        <form class="js-validate">
                             <!-- Login -->
                             <div id="login" data-target-group="idForm">
                                 <!-- Title -->
@@ -50,8 +49,6 @@
                                         </div>
 
                                         <input type="hidden" name="country_code" value="1">
-
-
 
                                         <!-- password -->
                                         <div class="form-group">
@@ -145,7 +142,9 @@
                             </div>
 
                             <!-- Signup -->
-                            <div id="signup" style="display: none; opacity: 0;" data-target-group="idForm">
+                        <form class="js-validate">
+
+                        <div id="signup" style="display: none; opacity: 0;" data-target-group="idForm">
                                 <!-- Title -->
                                 <header class="text-center mb-7">
                                     <h2 class="h4 mb-0">Welcome to Electro.</h2>
@@ -241,9 +240,11 @@
                                 <!-- End Login Buttons -->
                             </div>
                             <!-- End Signup -->
-
+                        </form>
                             <!-- Forgot Password -->
-                            <div id="forgotPassword" style="display: none; opacity: 0;" data-target-group="idForm">
+                        <form class="js-validate">
+
+                        <div id="forgotPassword" style="display: none; opacity: 0;" data-target-group="idForm">
                                 <!-- Title -->
                                 <header class="text-center mb-7">
                                     <h2 class="h4 mb-0">Recover Password.</h2>

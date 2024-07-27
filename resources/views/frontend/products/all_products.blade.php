@@ -35,7 +35,7 @@
                                 <!-- Menu List -->
                                 @foreach(product_categories() as $category)
 
-                                    <li><a class="dropdown-item" href="#"><strong>{{$category->name}}</strong></a></li>
+                                    <li><a class="dropdown-item" href="{{route('product.category',$category->id)}}"><strong>{{$category->name}}</strong></a></li>
 
                                 @endforeach
                                 <!-- End Menu List -->

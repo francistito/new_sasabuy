@@ -12,6 +12,7 @@ Route::group([
         Route::get('/category/{category_id}', [ProductsController::class, 'getByCategory'])->name('category');
         Route::get('/search', [ProductsController::class, 'search'])->name('search');
         Route::get('/products', [ProductsController::class, 'products'])->name('products');
+        Route::get('/category_search', [ProductsController::class, 'searchCategory'])->name('category_search');
 
 
 

@@ -160,22 +160,22 @@
                     <!-- Search Bar -->
                     <!-- Search Bar -->
                     <div class="col d-none d-xl-block">
-                        <form class="js-focus-state">
+                        <form class="js-focus-state" action="{{route('product.category_search')}}">
                             <label class="sr-only" for="searchproduct">Search</label>
                             <div class="input-group">
-                                <input type="email" class="form-control py-2 pl-5 font-size-15 border-right-0 height-42 border-width-0 rounded-left-pill border-primary" name="email" id="searchproduct-item" placeholder="Search for Products" aria-label="Search for Products" aria-describedby="searchProduct1" required>
+                                <input type="text" class="form-control py-2 pl-5 font-size-15 border-right-0 height-42 border-width-0 rounded-left-pill border-primary" name="product" id="searchproduct-item" placeholder="Search for Products" aria-label="Search for Products" aria-describedby="searchProduct1">
                                 <div class="input-group-append">
                                     <!-- Select -->
-                                    <select class="js-select selectpicker dropdown-select custom-search-categories-select bg-white"
+
+
+                                    <select name="category" class="js-select selectpicker dropdown-select custom-search-categories-select bg-white"
                                             data-style="btn height-42 text-gray-60 font-weight-normal border-top border-bottom border-left-0 rounded-0 border-primary border-width-0 pl-0 pr-5 py-2">
                                         @foreach(product_categories() as $category)
-                                            <option value="one" selected>{{$category->name}}</option>
-
+                                            <option  value="{{$category->id}}">{{$category->name}}</option>
                                         @endforeach
-
                                     </select>
                                     <!-- End Select -->
-                                    <button class="btn btn-dark height-42 py-2 px-3 rounded-right-pill" type="button" id="searchProduct1">
+                                    <button class="btn btn-dark height-42 py-2 px-3 rounded-right-pill" type="submit" id="searchProduct1">
                                         <span class="ec ec-search font-size-20"></span>
                                     </button>
                                 </div>
@@ -208,7 +208,6 @@
 
                                     <!-- Input -->
                                     <div id="searchClassic" class="dropdown-menu dropdown-unfold dropdown-menu-right left-0 mx-2" aria-labelledby="searchClassicInvoker">
-                                        <form class="js-focus-state input-group px-3">
                                             <input class="form-control" type="search" placeholder="Search Product">
                                             <div class="input-group-append">
                                                 <button class="btn btn-primary px-3" type="button"><i class="font-size-18 ec ec-search"></i></button>
@@ -219,71 +218,31 @@
                                 </li>
                                 <!-- End Search -->
 
+                                @auth()
 
                                 <li class="col pr-xl-0 px-2 px-sm-3">
-                                    @auth()
-                                        <div class="hover-user-top-menu position-absolute top-100 left-0 right-0 z-3">
-                                            <div class="container">
-                                                <div class="position-static float-right">
-                                                    <div class="aiz-user-top-menu bg-white rounded-0 border-top shadow-sm" style="width:220px;">
-                                                        <ul class="list-unstyled no-scrollbar mb-0 text-left">
-                                                            <li class="user-top-nav-element border border-top-0" data-id="1">
-                                                                <a href="{{url('/')}}"
-                                                                   class="text-truncate text-dark px-4 fs-14 d-flex align-items-center hov-column-gap-1">
-                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                                         viewBox="0 0 16 16">
-                                                                        <path id="Path_2916" data-name="Path 2916"
-                                                                              d="M15.3,5.4,9.561.481A2,2,0,0,0,8.26,0H7.74a2,2,0,0,0-1.3.481L.7,5.4A2,2,0,0,0,0,6.92V14a2,2,0,0,0,2,2H14a2,2,0,0,0,2-2V6.92A2,2,0,0,0,15.3,5.4M10,15H6V9A1,1,0,0,1,7,8H9a1,1,0,0,1,1,1Zm5-1a1,1,0,0,1-1,1H11V9A2,2,0,0,0,9,7H7A2,2,0,0,0,5,9v6H2a1,1,0,0,1-1-1V6.92a1,1,0,0,1,.349-.76l5.74-4.92A1,1,0,0,1,7.74,1h.52a1,1,0,0,1,.651.24l5.74,4.92A1,1,0,0,1,15,6.92Z"
-                                                                              fill="#b5b5c0"/>
-                                                                    </svg>
-                                                                    <span class="user-top-menu-name has-transition ml-3">Dashboard</span>
-                                                                </a>
-                                                            </li>
-
-                                                            <li class="user-top-nav-element border border-top-0" data-id="1">
-                                                                <a href="{{url('/logout')}}"
-                                                                   class="text-truncate text-dark px-4 fs-14 d-flex align-items-center hov-column-gap-1">
-                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="15.999"
-                                                                         viewBox="0 0 16 15.999">
-                                                                        <g id="Group_25503" data-name="Group 25503"
-                                                                           transform="translate(-24.002 -377)">
-                                                                            <g id="Group_25265" data-name="Group 25265"
-                                                                               transform="translate(-216.534 -160)">
-                                                                                <path id="Subtraction_192" data-name="Subtraction 192"
-                                                                                      d="M12052.535,2920a8,8,0,0,1-4.569-14.567l.721.72a7,7,0,1,0,7.7,0l.721-.72a8,8,0,0,1-4.567,14.567Z"
-                                                                                      transform="translate(-11803.999 -2367)" fill="#d43533"/>
-                                                                            </g>
-                                                                            <rect id="Rectangle_19022" data-name="Rectangle 19022" width="1"
-                                                                                  height="8" rx="0.5" transform="translate(31.5 377)"
-                                                                                  fill="#d43533"/>
-                                                                        </g>
-                                                                    </svg>
-                                                                    <span
-                                                                        class="user-top-menu-name text-primary has-transition ml-3">Logout</span>
-                                                                </a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    @endauth
-
-                                        <a id="sidebarNavToggler" href="javascript:;" role="button" class="u-header-topbar__nav-link"
-                                           aria-controls="sidebarContent"
-                                           aria-haspopup="true"
-                                           aria-expanded="false"
-                                           data-unfold-event="click"
-                                           data-unfold-hide-on-scroll="false"
-                                           data-unfold-target="#sidebarContent"
-                                           data-unfold-type="css-animation"
-                                           data-unfold-animation-in="fadeInRight"
-                                           data-unfold-animation-out="fadeOutRight"
-                                           data-unfold-duration="500">
-                                            <i class="ec ec-user mr-1"></i> Register <span class="text-primary-darken-5">or</span> Sign in
-
-                                        </a>
+                                    <a title="My Account" href="{{url('/dashboard')}}" style="color: #fff"><i class="ec ec-user"></i>My Account</a>
                                 </li>
+                                @else
+
+                                <li class="col pr-xl-0 px-2 px-sm-3">
+                                    <a id="sidebarNavToggler" href="javascript:;" role="button" class="u-header-topbar__nav-link"
+                                       aria-controls="sidebarContent"
+                                       aria-haspopup="true"
+                                       aria-expanded="false"
+                                       data-unfold-event="click"
+                                       data-unfold-hide-on-scroll="false"
+                                       data-unfold-target="#sidebarContent"
+                                       data-unfold-type="css-animation"
+                                       data-unfold-animation-in="fadeInRight"
+                                       data-unfold-animation-out="fadeOutRight"
+                                       data-unfold-duration="500">
+                                        <i class="ec ec-user mr-1"></i> Register <span class="text-primary-darken-5">or</span> Sign in
+
+                                    </a>
+                                </li>
+                                @endauth
+
                             </ul>
                         </div>
                     </div>
@@ -342,7 +301,6 @@
                                                 @foreach(\App\Models\Category::where('parent_id',$category->id)->get() as $sub_category)
                                                     <div class="col-md-3">
                                                         <span class="u-header__sub-menu-title">{{$sub_category->title}}</span>
-
                                                     </div>
                                                 @endforeach
 

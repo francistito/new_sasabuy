@@ -39,7 +39,7 @@
 
                         <!-- Tab Content -->
                         <div class="tab-content" id="pills-tabContent">
-                            @include('frontend.includes.home_section.tabs.tab1')
+{{--                            @include('frontend.includes.home_section.tabs.tab1')--}}
                             {{--                            @include('frontend.includes.home_section.tabs.tab2')--}}
                             {{--                            @include('frontend.includes.home_section.tabs.tab3')--}}
                         </div>
@@ -59,7 +59,7 @@
         @include('frontend.includes.home_section.middle_banner')
         <!-- End Full banner -->
         <!-- Recently viewed -->
-        @include('frontend.includes.home_section.reviewed_product')
+{{--        @include('frontend.includes.home_section.reviewed_product')--}}
         <!-- End Recently viewed -->
         <!-- Brand Carousel -->
         @include('frontend.includes.home_section.list_of_brands')
