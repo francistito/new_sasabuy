@@ -28,6 +28,7 @@
     <!-- CSS Electro Template -->
     <link rel="stylesheet" href="{{url('assets/css/theme.css')}}">
 
+    @stack('after-styles')
     <style>
         .sasabuy_text_color{
             color: #ffffff;
@@ -120,7 +121,29 @@
 <script src="{{url('assets/js/components/hs.svg-injector.js')}}"></script>
 <script src="{{url('assets/js/components/hs.go-to.js')}}"></script>
 <script src="{{url('assets/js/components/hs.selectpicker.js')}}"></script>
+@stack('after-scripts')
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const tabContents = document.querySelectorAll('.tab-content');
 
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const tab = button.getAttribute('data-tab');
+
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                tabContents.forEach(content => {
+                    content.classList.remove('active');
+                    if (content.getAttribute('id') === tab) {
+                        content.classList.add('active');
+                    }
+                });
+            });
+        });
+    });
+</script>
 <!-- JS Plugins Init. -->
 <script>
     $(window).on('load', function () {
