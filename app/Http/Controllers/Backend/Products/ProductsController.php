@@ -284,7 +284,7 @@ class ProductsController extends Controller
 
 
 //        flash( ('Product has been inserted successfully'))->success();
-        return redirect()->route('product.index');
+        return redirect()->back();
     }
 
     # return view of edit form

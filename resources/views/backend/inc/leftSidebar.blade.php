@@ -1,9 +1,9 @@
 <aside class="tt-sidebar bg-light-subtle" id="sidebar">
     <div class="tt-brand">
-        <a href="https://grostore.themetags.com/admin" class="tt-brand-link">
-            <img src="https://grostore.themetags.com/public/uploads/media/yqqPV512Gk5DMpvCj2UllKrCl52bam3yD6QvfiPP.png"
-                 class="tt-brand-favicon ms-1" alt="favicon">
-            <img src="https://grostore.themetags.com/public/uploads/media/LOa3BqX3ydhVC0V1fwYEyvEpM5N9NaoA0E7u3EQs.png"
+        <a href="{{url('/admin/profile')}}" class="tt-brand-link">
+{{--            <img src="{{url('assets/img/nobg.png')}}"--}}
+{{--                 class="tt-brand-favicon ms-1" alt="favicon">--}}
+            <img src="{{url('assets/img/bws.png')}}"
                  class="tt-brand-logo ms-2" alt="logo">
         </a>
         <a href="javascript:void(0);" class="tt-toggle-sidebar">
@@ -24,23 +24,23 @@
                          aria-label="scrollable content" style="height: 100%; overflow: hidden scroll;">
                         <div class="simplebar-content show" style="padding: 24px 0px 64px;">
 
-                            <ul class="tt-side-nav">
-                                <li class="side-nav-item nav-item tt-sidebar-user">
-                                    <div class="side-nav-link bg-secondary-subtle mx-2 rounded-3 px-2">
-                                        <div class="tt-user-avatar lh-1">
-                                            <div class="avatar avatar-md status-online">
-                                                <img class="rounded-circle"
-                                                     src="https://grostore.themetags.com/public/uploads/media/dtkoInw3SD3IF3Q2I1jFtEDiE96mDD46RHB9RdxN.jpg"
-                                                     alt="avatar">
-                                            </div>
-                                        </div>
-                                        <div class="tt-nav-link-text ms-2">
-                                            <h6 class="mb-0 lh-1 tt-line-clamp tt-clamp-1">Harshit</h6>
-                                            <span class="text-muted fs-sm">Super Admin</span>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
+{{--                            <ul class="tt-side-nav">--}}
+{{--                                <li class="side-nav-item nav-item tt-sidebar-user">--}}
+{{--                                    <div class="side-nav-link bg-secondary-subtle mx-2 rounded-3 px-2">--}}
+{{--                                        <div class="tt-user-avatar lh-1">--}}
+{{--                                            <div class="avatar avatar-md status-online">--}}
+{{--                                                <img class="rounded-circle"--}}
+{{--                                                     src="https://grostore.themetags.com/public/uploads/media/dtkoInw3SD3IF3Q2I1jFtEDiE96mDD46RHB9RdxN.jpg"--}}
+{{--                                                     alt="avatar">--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <div class="tt-nav-link-text ms-2">--}}
+{{--                                            <h6 class="mb-0 lh-1 tt-line-clamp tt-clamp-1">Harshit</h6>--}}
+{{--                                            <span class="text-muted fs-sm">Super Admin</span>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </li>--}}
+{{--                            </ul>--}}
                             <nav class="navbar navbar-vertical navbar-expand-lg">
                                 <div class="collapse navbar-collapse tt-menu-item-active" id="navbarVerticalCollapse">
                                     <div class="w-100 show" id="leftside-menu-container">
@@ -48,7 +48,7 @@
 
                                             <!-- dashboard -->
                                             <li class="side-nav-item nav-item tt-menu-item-active">
-                                                <a href="{{url('/dashboard')}}"
+                                                <a href="{{url('/admin/profile')}}"
                                                    class="side-nav-link active">
                                                     <span class="tt-nav-link-icon"><svg
                                                             xmlns="http://www.w3.org/2000/svg" width="24" height="24"

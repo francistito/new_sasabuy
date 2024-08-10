@@ -226,18 +226,13 @@
                                 @else
 
                                 <li class="col pr-xl-0 px-2 px-sm-3">
-                                    <a id="sidebarNavToggler" href="javascript:;" role="button" class="u-header-topbar__nav-link"
-                                       aria-controls="sidebarContent"
-                                       aria-haspopup="true"
-                                       aria-expanded="false"
-                                       data-unfold-event="click"
-                                       data-unfold-hide-on-scroll="false"
-                                       data-unfold-target="#sidebarContent"
-                                       data-unfold-type="css-animation"
-                                       data-unfold-animation-in="fadeInRight"
-                                       data-unfold-animation-out="fadeOutRight"
-                                       data-unfold-duration="500">
-                                        <i class="ec ec-user mr-1"></i> Register <span class="text-primary-darken-5">or</span> Sign in
+                                    <a id="" href="{{route('register')}}"  class="u-header-topbar__nav-link"
+                            >
+                                        <i class="ec ec-user mr-1"></i>Register <span class="text-primary-darken-5">or</span>
+
+                                    </a>
+                                    <a id="" href="{{url('/login')}}"  class="u-header-topbar__nav-link"
+              ><span class="text-primary-darken-5">or</span> Sign in
 
                                     </a>
                                 </li>

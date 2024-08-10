@@ -147,66 +147,60 @@
                         <div id="signup" style="display: none; opacity: 0;" data-target-group="idForm">
                                 <!-- Title -->
                                 <header class="text-center mb-7">
-                                    <h2 class="h4 mb-0">Welcome to Electro.</h2>
+                                    <h2 class="h4 mb-0">Welcome to SASABUY.</h2>
                                     <p>Fill out the form to get started.</p>
                                 </header>
                                 <!-- End Title -->
 
                                 <!-- Form Group -->
-                                <div class="form-group">
-                                    <div class="js-form-message js-focus-state">
-                                        <label class="sr-only" for="signupEmail">Email</label>
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="signupEmailLabel">
-                                                            <span class="fas fa-user"></span>
-                                                        </span>
-                                            </div>
-                                            <input type="email" class="form-control" name="email" id="signupEmail" placeholder="Email" aria-label="Email" aria-describedby="signupEmailLabel" required
-                                                   data-msg="Please enter a valid email address."
-                                                   data-error-class="u-has-error"
-                                                   data-success-class="u-has-success">
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End Input -->
+                            <form method="POST" action="{{ route('register') }}">
+                                @csrf
+                                {{--                                <input type="hidden" name="_token" value="W1g1TGjxhGvKa5gB7K7rXfjxe4LT3vq20QGdV45W">--}}
+                                <!-- Email or Phone -->
+                                <div class="form-group phone-form-group mb-1">
+                                    <label for="phone" class="fs-12 fw-700 text-soft-dark">Name</label>
+                                    <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
-                                <!-- Form Group -->
-                                <div class="form-group">
-                                    <div class="js-form-message js-focus-state">
-                                        <label class="sr-only" for="signupPassword">Password</label>
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="signupPasswordLabel">
-                                                            <span class="fas fa-lock"></span>
-                                                        </span>
-                                            </div>
-                                            <input type="password" class="form-control" name="password" id="signupPassword" placeholder="Password" aria-label="Password" aria-describedby="signupPasswordLabel" required
-                                                   data-msg="Your password is invalid. Please try again."
-                                                   data-error-class="u-has-error"
-                                                   data-success-class="u-has-success">
-                                        </div>
-                                    </div>
+                                    @error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
-                                <!-- End Input -->
+                                <div class="form-group phone-form-group mb-1">
+                                    <label for="phone" class="fs-12 fw-700 text-soft-dark">Email</label>
+                                    <input id="email" type="text" class="form-control @error('name') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="name" autofocus>
 
-                                <!-- Form Group -->
-                                <div class="form-group">
-                                    <div class="js-form-message js-focus-state">
-                                        <label class="sr-only" for="signupConfirmPassword">Confirm Password</label>
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="signupConfirmPasswordLabel">
-                                                        <span class="fas fa-key"></span>
-                                                    </span>
-                                            </div>
-                                            <input type="password" class="form-control" name="confirmPassword" id="signupConfirmPassword" placeholder="Confirm Password" aria-label="Confirm Password" aria-describedby="signupConfirmPasswordLabel" required
-                                                   data-msg="Password does not match the confirm password."
-                                                   data-error-class="u-has-error"
-                                                   data-success-class="u-has-success">
-                                        </div>
-                                    </div>
+                                    @error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
+
+                                <div class="form-group phone-form-group mb-1">
+                                    <label for="phone" class="fs-12 fw-700 text-soft-dark">Password</label>
+                                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+
+                                    @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+
+                                <div class="form-group phone-form-group mb-1">
+                                    <label for="phone" class="fs-12 fw-700 text-soft-dark">Confirm Password</label>
+                                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                                </div>
+
+                                <input type="hidden" name="country_code" value="1">
+
+                                <!-- Submit Button -->
+                                <div class="mb-4 mt-4">
+                                    <button type="submit" class="btn btn-primary btn-block fw-700 fs-14 rounded-0">Register</button>
+                                </div>
+                            </form>
                                 <!-- End Input -->
 
                                 <div class="mb-2">

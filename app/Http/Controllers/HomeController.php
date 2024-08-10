@@ -25,7 +25,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $products = Product::all();
+        $categories = Category::where('parent_id', 0)->get();
+        return view('home')
+            ->with('categories', $categories)
+            ->with('products', $products);
     }
 
     public function welcome()

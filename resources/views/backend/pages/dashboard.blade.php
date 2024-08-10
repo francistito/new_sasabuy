@@ -858,7 +858,7 @@
                 width: 2,
             },
 
-            colors: ["#4EB529"],
+            colors: ["#3250A0"],
             series: [{
                 name: "Sales",
                 data: [{!! $thisMonthSaleData->amount !!}],

@@ -67,7 +67,7 @@
                                 <!-- Size guide -->
                             </div>
 
-                            {{$product->description}}
+                           {!! $product->description !!}
                             <hr>
 
                             <!-- For auction product -->

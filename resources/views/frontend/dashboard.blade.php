@@ -97,28 +97,37 @@
 @section('content')
 
 
-
     <!-- End Slider Section -->
     <div class="container">
         <!-- Banner -->
+        <div class="row">
+            <div class="d-none d-xl-block col-xl-3 col-wd-2gdot5">
+                <div class="mb-8 border border-width-2 border-color-3 borders-radius-6">
+                    <!-- List -->
+                    @include('frontend.includes.dashbiard.aside')
 
-        <div class="dashboard-container">
+                    <!-- End List -->
+                </div>
+            </div>
+            <div class="col-xl-9 col-wd-9gdot5">
+                <!-- Single Product Body -->
+                <div class="dashboard-container">
+                    <main class="main-content">
+                        <section id="profile" class="dashboard-section">
+                            <h2>User Profile</h2>
+                            <div class="profile-info">
+                                <p><strong>Name:</strong> {{$user->name}}</p>
+                                <p><strong>Email:</strong>{{$user->email}}</p>
+                                <p><strong>Joined:</strong> {{day_month_date_format($user->created_at)}}</p>
+                            </div>
+                        </section>
 
-            @include('frontend.includes.dashbiard.aside')
+                    </main>
+                </div>
 
-
-            <main class="main-content">
-                <section id="profile" class="dashboard-section">
-                    <h2>User Profile</h2>
-                    <div class="profile-info">
-                        <p><strong>Name:</strong> {{$user->name}}</p>
-                        <p><strong>Email:</strong>{{$user->email}}</p>
-                        <p><strong>Joined:</strong> {{day_month_date_format($user->created_at)}}</p>
-                    </div>
-                </section>
-
-            </main>
+            </div>
         </div>
+
         <!-- End Banner -->
         <!-- Deals-and-tabs -->
 

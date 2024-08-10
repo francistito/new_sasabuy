@@ -3,8 +3,13 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Tag;
+use App\Models\Tax;
+use App\Models\Unit;
+use App\Models\Variation;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -26,7 +31,9 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('frontend.dashboard');
+        $user = auth()->user();
+        return view('frontend.dashboard')
+            ->with('user', $user);
     }
 
     public function welcome()
@@ -48,10 +55,27 @@ class DashboardController extends Controller
 
     public function product()
     {
-        $products = Product::all();
+        $products = Product::where('user_id', auth()->user()->id)->get();
         $categories = Category::where('parent_id', 0)->get();
+        $brands = Brand::latest()->get();
         return view('frontend.products.manage.product_list')
             ->with('categories', $categories)
+            ->with('brands', $brands)
             ->with('products', $products);
+    }
+
+
+    public function addProduct()
+    {
+        $categories = Category::where('parent_id', 0)
+            ->orderBy('sorting_order_level', 'desc')
+            ->with('childrenCategories')
+            ->get();
+        $brands = Brand::isActive()->get();
+        $units = Unit::isActive()->get();
+        $variations = Variation::isActive()->whereNotIn('id', [1, 2])->get();
+        $taxes = Tax::isActive()->get();
+        $tags = Tag::all();
+        return view('frontend.products.manage.add_new', compact('categories', 'brands', 'units', 'variations', 'taxes', 'tags'));
     }
 }

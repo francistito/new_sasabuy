@@ -39,7 +39,7 @@
 
                         <!-- Tab Content -->
                         <div class="tab-content" id="pills-tabContent">
-{{--                            @include('frontend.includes.home_section.tabs.tab1')--}}
+                            @include('frontend.includes.home_section.tabs.tab1')
                             {{--                            @include('frontend.includes.home_section.tabs.tab2')--}}
                             {{--                            @include('frontend.includes.home_section.tabs.tab3')--}}
                         </div>
