@@ -151,6 +151,7 @@ class ProductsController extends Controller
 
         $product                    = new Product;
         $product->shop_id           = auth()->user()->shop_id?auth()->user()->shop_id:1;
+        $product->user_id           = auth()->user()->id;
         $product->name              = $request->name;
         $product->slug              = Str::slug($request->name, '-') . '-' . strtolower(Str::random(5));
         $product->brand_id          = $request->brand_id;
