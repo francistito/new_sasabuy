@@ -29,8 +29,9 @@ class ProductsController extends Controller
         $product = Product::where('slug', $slug)->first();
 
         $product_user=User::find($product->user_id);
-        $product_ids =  ProductCategory::where('product_id', $product->id)->pluck('product_id');
-        $related_products = Product::whereIn('id', $product_ids)->get();
+        $category =  ProductCategory::where('product_id', $product->id)->first();
+        $related_product_ids = ProductCategory::where('category_id', $category->id)->get();
+        $related_products = Product::whereIn('id',$related_product_ids)->get();
         return view('frontend.products.product_details')
             ->with('related_products', $related_products)
             ->with('product_user', $product_user)
