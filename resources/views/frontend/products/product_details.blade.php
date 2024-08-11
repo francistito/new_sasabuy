@@ -13,22 +13,52 @@
                         <div class="sticky-top z-3 row gutters-10">
                             <!-- Gallery Images -->
                             <div class="col-12">
-                                <div class="aiz-carousel product-gallery arrow-inactive-transparent arrow-lg-none slick-initialized slick-slider" data-nav-for=".product-gallery-thumb" data-fade="true" data-auto-height="true" data-arrows="true"><button type="button" class="slick-prev slick-arrow slick-disabled" aria-disabled="true" style="display: inline-block;"><i class="las la-angle-left"></i></button><div class="slick-list draggable" style="height: 450.5px;"><div class="slick-track" style="opacity: 1; width: 890px;"><div class="slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false" style="width: 445px; position: relative; left: 0px; top: 0px; z-index: 999; opacity: 1;"><div><div class="carousel-box img-zoom rounded-0" style="width: 100%; display: inline-block; position: relative; overflow: hidden;">
-                                                        <img class="img-fluid h-auto mx-auto lazyloaded" src="{{url(product_image($product))}}" data-src="{{url(product_image($product))}}" onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder.jpg';">
-                                                        <img role="presentation" alt="" src="{{url(product_image($product))}}" class="zoomImg" style="position: absolute; top: 0px; left: 0px; opacity: 0; width: 900px; height: 900px; border: none; max-width: none; max-height: none;"></div></div></div><div class="slick-slide" data-slick-index="1" aria-hidden="true" style="width: 445px; position: relative; left: -445px; top: 0px; z-index: 998; opacity: 0;" tabindex="-1"><div><div class="carousel-box img-zoom rounded-0" style="width: 100%; display: inline-block; position: relative; overflow: hidden;">
-                                                        <img class="img-fluid h-auto mx-auto ls-is-cached lazyloaded" src="{{url(product_image($product))}}" data-src="{{url(product_image($product))}}" onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder.jpg';">
-                                                        <img role="presentation" alt="" src="{{url(product_image($product))}}" class="zoomImg" style="position: absolute; top: 0px; left: 0px; opacity: 0; width: 900px; height: 900px; border: none; max-width: none; max-height: none;"></div></div></div></div></div><button type="button" class="slick-next slick-arrow" style="display: inline-block;" aria-disabled="false"><i class="las la-angle-right"></i></button></div>
+                                <div class="aiz-carousel product-gallery arrow-inactive-transparent arrow-lg-none slick-initialized slick-slider"
+                                     data-nav-for=".product-gallery-thumb" data-fade="true" data-auto-height="true" data-arrows="true">
+                                    <button type="button" class="slick-prev slick-arrow slick-disabled" aria-disabled="true" style="display: inline-block;">
+                                        <i class="las la-angle-left"></i>
+                                    </button>
+                                    <div class="slick-list draggable" style="height: 450.5px;">
+                                        <div class="slick-track" style="opacity: 1; width: 890px;">
+                                            <div class="slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false" style="width: 445px; position: relative; left: 0px; top: 0px; z-index: 999; opacity: 1;">
+                                                <div>
+                                                    <div class="carousel-box img-zoom rounded-0" style="width: 100%; display: inline-block; position: relative; overflow: hidden;">
+                                                        <img class="img-fluid h-auto mx-auto lazyloaded" src="{{url(product_image($product))}}"
+                                                             data-src="{{url(product_image($product))}}"
+                                                             onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder.jpg';"
+                                                             loading="lazy">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Add more slides if needed -->
+                                        </div>
+                                    </div>
+                                    <button type="button" class="slick-next slick-arrow" style="display: inline-block;" aria-disabled="false">
+                                        <i class="las la-angle-right"></i>
+                                    </button>
+                                </div>
                             </div>
                             <!-- Thumbnail Images -->
                             <div class="col-12 mt-3 d-none d-lg-block">
-                                <div class="aiz-carousel half-outside-arrow product-gallery-thumb slick-initialized slick-slider" data-items="7" data-nav-for=".product-gallery" data-focus-select="true" data-arrows="true" data-vertical="false" data-auto-height="true"><div class="slick-list draggable"><div class="slick-track" style="opacity: 1; width: 128px; transform: translate3d(0px, 0px, 0px);"><div class="slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false" style="width: 64px;"><div><div class="carousel-box c-pointer rounded-0" style="width: 100%; display: inline-block;">
-                                                        <img class="mw-100 size-60px mx-auto border p-1 lazyloaded" src="{{url(product_image($product))}}" data-src="{{url(product_image($product))}}" onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder.jpg';">
-                                                    </div></div></div><div class="slick-slide slick-active" data-slick-index="1" aria-hidden="false" style="width: 64px;"><div><div class="carousel-box c-pointer rounded-0" style="width: 100%; display: inline-block;">
-                                                        <img class="mw-100 size-60px mx-auto border p-1 lazyloaded" src="{{url(product_image($product))}}" data-src="{{url(product_image($product))}}" onerror="this.onerror=null;this.src='{{url(product_image($product))}}';">
-                                                    </div></div></div></div></div></div>
+                                <div class="aiz-carousel half-outside-arrow product-gallery-thumb slick-initialized slick-slider"
+                                     data-items="7" data-nav-for=".product-gallery" data-focus-select="true" data-arrows="true" data-vertical="false" data-auto-height="true">
+                                    <div class="slick-list draggable">
+                                        <div class="slick-track" style="opacity: 1; width: 128px;">
+                                            <div class="slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false" style="width: 64px;">
+                                                <div>
+                                                    <div class="carousel-box c-pointer rounded-0" style="width: 100%; display: inline-block;">
+                                                        <img class="mw-100 size-60px mx-auto border p-1 lazyloaded" src="{{url(product_image($product))}}"
+                                                             data-src="{{url(product_image($product))}}"
+                                                             onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder.jpg';"
+                                                             loading="lazy">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Add more thumbnails if needed -->
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-
-
                         </div>
                     </div>
 
@@ -43,74 +73,52 @@
                             <!-- Brand Logo & Name -->
                             <div class="d-flex flex-wrap align-items-center mb-3">
                                 <span class="text-secondary fs-14 fw-400 mr-4 w-80px">Brand</span><br>
-                                <a href="#" class="text-reset hov-text-primary fs-14 fw-700">{{$product->brand->name??null}}</a>
+                                <a href="#" class="text-reset hov-text-primary fs-14 fw-700">{{$product->brand->name ?? null}}</a>
                             </div>
 
                             <!-- Seller Info -->
                             <div class="d-flex flex-wrap align-items-center">
-
-                                <!-- Messase to seller -->
+                                <!-- Message to seller -->
                                 <div class="">
-
-{{--                                    <div class="floating-whatsapp" @click="openWhatsApp">--}}
-{{--                                        <img src="@/assets/img/whatsapp.jpg" alt="WhatsApp" />--}}
-{{--                                    </div>--}}
                                     <button class="btn btn-sm btn-success btn-outline-secondary-base hov-svg-white hov-text-white rounded-4" onclick="openWhatsApp()">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" class="mr-2 has-transition">
-                                            <g id="Group_23918" data-name="Group 23918" transform="translate(1053.151 256.688)">
-                                                <path id="Path_3012" data-name="Path 3012" d="M134.849,88.312h-8a2,2,0,0,0-2,2v5a2,2,0,0,0,2,2v3l2.4-3h5.6a2,2,0,0,0,2-2v-5a2,2,0,0,0-2-2m1,7a1,1,0,0,1-1,1h-8a1,1,0,0,1-1-1v-5a1,1,0,0,1,1-1h8a1,1,0,0,1,1,1Z" transform="translate(-1178 -341)" fill="#FFBA00"></path>
-                                                <path id="Path_3013" data-name="Path 3013" d="M134.849,81.312h8a1,1,0,0,1,1,1v5a1,1,0,0,1-1,1h-.5a.5.5,0,0,0,0,1h.5a2,2,0,0,0,2-2v-5a2,2,0,0,0-2-2h-8a2,2,0,0,0-2,2v.5a.5.5,0,0,0,1,0v-.5a1,1,0,0,1,1-1" transform="translate(-1182 -337)" fill="#FFBA00"></path>
-                                                <path id="Path_3014" data-name="Path 3014" d="M131.349,93.312h5a.5.5,0,0,1,0,1h-5a.5.5,0,0,1,0-1" transform="translate(-1181 -343.5)" fill="#FFBA00"></path>
-                                                <path id="Path_3015" data-name="Path 3015" d="M131.349,99.312h5a.5.5,0,1,1,0,1h-5a.5.5,0,1,1,0-1" transform="translate(-1181 -346.5)" fill="#FFBA00"></path>
-                                            </g>
+                                            <!-- SVG Content -->
                                         </svg>
-
                                         Message Seller
                                     </button>
                                 </div>
-                                <!-- Size guide -->
                             </div>
-
-
 
                             <hr>
 
-                            <!-- For auction product -->
-                            <!-- Without auction product -->
-                            <!-- Without Wholesale -->
-
+                            <!-- Product Price -->
                             <div class="row no-gutters mb-3">
                                 <div class="col-sm-2">
                                     <div class="text-secondary fs-14 fw-400">Price</div>
                                 </div>
                                 <div class="col-sm-10">
                                     <div class="d-flex align-items-center">
-                                        <!-- Discount Price -->
                                         <strong class="fs-16 fw-700 text-primary">
                                             {{currency_code()}} {{formatPrice($product->max_price)}}
                                         </strong>
-
                                     </div>
                                 </div>
                             </div>
+
+                            <!-- Product Description -->
                             <div class="row no-gutters mb-3">
                                 <div class="col-sm-2">
                                     <div class="text-secondary fs-14 fw-400">Description</div>
                                 </div>
                                 <div class="col-sm-10">
                                     <div class="d-flex align-items-center">
-                                        <!-- Discount Price -->
                                         {!! $product->description !!}
-
                                     </div>
                                 </div>
                             </div>
-
-
                         </div>
                     </div>
                 </div>
-
 
 
             </div>
