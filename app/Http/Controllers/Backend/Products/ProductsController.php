@@ -150,7 +150,7 @@ class ProductsController extends Controller
         }
 
         $product                    = new Product;
-        $product->shop_id           = auth()->user()->shop_id;
+        $product->shop_id           = auth()->user()->shop_id?auth()->user()->shop_id:1;
         $product->name              = $request->name;
         $product->slug              = Str::slug($request->name, '-') . '-' . strtolower(Str::random(5));
         $product->brand_id          = $request->brand_id;
