@@ -13,7 +13,7 @@ use Spatie\Permission\Models\Role;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
-    use HasApiTokens, HasFactory, Notifiable, HasRoles;
+    use  Notifiable, HasRoles;
 
     # email verification notification
     public function sendVerificationNotification()
@@ -51,18 +51,18 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->belongsTo(Role::class);
     }
 
-    # address 
+    # address
     public function addresses()
     {
         return $this->hasMany(UserAddress::class);
     }
 
-    # order Group 
+    # order Group
     public function orderGroups()
     {
         return $this->hasMany(OrderGroup::class);
     }
-    # orders 
+    # orders
     public function orders()
     {
         return $this->hasMany(Order::class);

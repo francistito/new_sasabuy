@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\ProductCategory;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 
@@ -27,7 +28,12 @@ class ProductsController extends Controller
 
         $product = Product::where('slug', $slug)->first();
 
+        $product_user=User::find($product->user_id);
+        $product_ids =  ProductCategory::where('product_id', $product->id)->pluck('product_id');
+        $related_products = Product::whereIn('id', $product_ids)->get();
         return view('frontend.products.product_details')
+            ->with('related_products', $related_products)
+            ->with('product_user', $product_user)
             ->with('product', $product);
         #
     }

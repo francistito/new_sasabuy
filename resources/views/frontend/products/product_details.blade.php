@@ -51,7 +51,11 @@
 
                                 <!-- Messase to seller -->
                                 <div class="">
-                                    <button class="btn btn-sm btn-soft-secondary-base btn-outline-secondary-base hov-svg-white hov-text-white rounded-4" onclick="show_chat_modal()">
+
+{{--                                    <div class="floating-whatsapp" @click="openWhatsApp">--}}
+{{--                                        <img src="@/assets/img/whatsapp.jpg" alt="WhatsApp" />--}}
+{{--                                    </div>--}}
+                                    <button class="btn btn-sm btn-success btn-outline-secondary-base hov-svg-white hov-text-white rounded-4" onclick="openWhatsApp()">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" class="mr-2 has-transition">
                                             <g id="Group_23918" data-name="Group 23918" transform="translate(1053.151 256.688)">
                                                 <path id="Path_3012" data-name="Path 3012" d="M134.849,88.312h-8a2,2,0,0,0-2,2v5a2,2,0,0,0,2,2v3l2.4-3h5.6a2,2,0,0,0,2-2v-5a2,2,0,0,0-2-2m1,7a1,1,0,0,1-1,1h-8a1,1,0,0,1-1-1v-5a1,1,0,0,1,1-1h8a1,1,0,0,1,1,1Z" transform="translate(-1178 -341)" fill="#FFBA00"></path>
@@ -67,12 +71,14 @@
                                 <!-- Size guide -->
                             </div>
 
-                           {!! $product->description !!}
+
+
                             <hr>
 
                             <!-- For auction product -->
                             <!-- Without auction product -->
                             <!-- Without Wholesale -->
+
                             <div class="row no-gutters mb-3">
                                 <div class="col-sm-2">
                                     <div class="text-secondary fs-14 fw-400">Price</div>
@@ -87,25 +93,123 @@
                                     </div>
                                 </div>
                             </div>
-
-                            <!-- Seller Guarantees -->
-
-                            <!-- Share -->
-                            <div class="row no-gutters mt-4">
+                            <div class="row no-gutters mb-3">
                                 <div class="col-sm-2">
-                                    <div class="text-secondary fs-14 fw-400 mt-2">Share</div>
+                                    <div class="text-secondary fs-14 fw-400">Description</div>
                                 </div>
                                 <div class="col-sm-10">
-                                    <div class="aiz-share jssocials"><div class="jssocials-shares"><div class="jssocials-share jssocials-share-email"><a target="_self" href="mailto:?subject=Product%20details%0AMaterial%20TypePolyester%0ALengthKnee-Length%0AOccasion%20TypeParty%0ASleeve%20TypeLong%20Sleeve%0APatternSolid%0AStyleWestern%20Dress&amp;body=https%3A%2F%2Fdemo.activeitzone.com%2Fecommerce%2Fproduct%2Fwomens-plain-dress-one-piece-for-girls" class="jssocials-share-link"><i class="lar la-envelope jssocials-share-logo"></i></a></div><div class="jssocials-share jssocials-share-twitter"><a target="_blank" href="https://twitter.com/share?url=https%3A%2F%2Fdemo.activeitzone.com%2Fecommerce%2Fproduct%2Fwomens-plain-dress-one-piece-for-girls&amp;text=Product%20details%0AMaterial%20TypePolyester%0ALengthKnee-Length%0AOccasion%20TypeParty%0ASleeve%20TypeLong%20Sleeve%0APatternSolid%0AStyleWestern%20Dress" class="jssocials-share-link"><i class="lab la-twitter jssocials-share-logo"></i></a></div><div class="jssocials-share jssocials-share-facebook"><a target="_blank" href="https://facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdemo.activeitzone.com%2Fecommerce%2Fproduct%2Fwomens-plain-dress-one-piece-for-girls" class="jssocials-share-link"><i class="lab la-facebook-f jssocials-share-logo"></i></a></div><div class="jssocials-share jssocials-share-linkedin"><a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Fdemo.activeitzone.com%2Fecommerce%2Fproduct%2Fwomens-plain-dress-one-piece-for-girls" class="jssocials-share-link"><i class="lab la-linkedin-in jssocials-share-logo"></i></a></div><div class="jssocials-share jssocials-share-whatsapp"><a target="_self" href="whatsapp://send?text=https%3A%2F%2Fdemo.activeitzone.com%2Fecommerce%2Fproduct%2Fwomens-plain-dress-one-piece-for-girls Product%20details%0AMaterial%20TypePolyester%0ALengthKnee-Length%0AOccasion%20TypeParty%0ASleeve%20TypeLong%20Sleeve%0APatternSolid%0AStyleWestern%20Dress" class="jssocials-share-link"><i class="lab la-whatsapp jssocials-share-logo"></i></a></div></div></div>
+                                    <div class="d-flex align-items-center">
+                                        <!-- Discount Price -->
+                                        {!! $product->description !!}
+
+                                    </div>
                                 </div>
                             </div>
+
+
                         </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+
+            <div class="mb-6">
+                <div class="position-relative">
+                    <div class="border-bottom border-color-1 mb-2">
+                        <h3 class="section-title mb-0 pb-2 font-size-22">Related Products</h3>
+                    </div>
+                    <div class="js-slick-carousel u-slick position-static overflow-hidden u-slick-overflow-visble pb-7 pt-2 px-1"
+                         data-pagi-classes="text-center right-0 bottom-1 left-0 u-slick__pagination u-slick__pagination--long mb-0 z-index-n1 mt-3 mt-md-0"
+                         data-slides-show="7"
+                         data-slides-scroll="1"
+                         data-arrows-classes="position-absolute top-0 font-size-17 u-slick__arrow-normal top-10"
+                         data-arrow-left-classes="fa fa-angle-left right-1"
+                         data-arrow-right-classes="fa fa-angle-right right-0"
+                         data-responsive='[{
+                              "breakpoint": 1400,
+                              "settings": {
+                                "slidesToShow": 6
+                              }
+                            }, {
+                                "breakpoint": 1200,
+                                "settings": {
+                                  "slidesToShow": 4
+                                }
+                            }, {
+                              "breakpoint": 992,
+                              "settings": {
+                                "slidesToShow": 3
+                              }
+                            }, {
+                              "breakpoint": 768,
+                              "settings": {
+                                "slidesToShow": 2
+                              }
+                            }, {
+                              "breakpoint": 554,
+                              "settings": {
+                                "slidesToShow": 2
+                              }
+                            }]'>
+
+                        @foreach($related_products as $product)
+                            <div class="js-slide products-group">
+                                <div class="product-item">
+                                    <div class="product-item__outer h-100">
+                                        <div class="product-item__inner px-wd-4 p-2 p-md-3">
+                                            <div class="product-item__body pb-xl-2">
+                                                {{--                                    <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>--}}
+                                                <h5 class="mb-1 product-item__title"><a href="{{route('product.details',$product->slug)}}" class="text-blue font-weight-bold">{{$product->name}}</a></h5>
+                                                <div class="mb-2">
+                                                    <a href="{{route('product.details',$product->slug)}}" class="d-block text-center"><img class="img-fluid" src="{{url(product_image($product))}}" alt="Image Description"></a>
+                                                </div>
+                                                <div class="flex-center-between mb-1">
+                                                    <div class="prodcut-price">
+                                                        <div class="text-gray-100">{{currency_code()}} {{formatPrice($product->max_price)}}</div>
+                                                    </div>
+                                                    <div class="d-none d-xl-block prodcut-add-cart">
+                                                        <a href="{{route('product.details',$product->slug)}}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="product-item__footer">
+                                                <div class="border-top pt-2 flex-center-between flex-wrap">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+
+
                     </div>
                 </div>
             </div>
         </div>
+
+
+
     </section>
 
 @endsection
 
+@push('after-scripts')
+
+    <script>function openWhatsApp() {
+            const phoneNumber = '+255{{$product_user->phone_number}}'; // Replace with your WhatsApp number
+            const message = 'Hello, You need {{$product->name}}!'; // Optional
+            const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            window.open(url, '_blank');
+        }
+
+
+
+
+    </script>
+@endpush
 

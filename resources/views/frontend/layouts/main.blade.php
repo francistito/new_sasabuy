@@ -143,6 +143,12 @@
             });
         });
     });
+
+    $(function (){
+
+    })
+
+
 </script>
 <!-- JS Plugins Init. -->
 <script>
