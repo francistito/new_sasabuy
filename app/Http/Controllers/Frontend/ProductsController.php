@@ -50,6 +50,7 @@ class ProductsController extends Controller
 
             // Retrieve the related products, excluding the current product
             $related_products = Product::whereIn('id', $related_product_ids)
+                ->where('is_published', 1)
                 ->where('id', '!=', $product->id)
                 ->get();
         }

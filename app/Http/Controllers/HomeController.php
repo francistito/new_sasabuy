@@ -25,7 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
+        $products = Product::where('is_published',1)->orderBy('created_at','desc')->take(6)->get();
         $categories = Category::where('parent_id', 0)->get();
         return view('home')
             ->with('categories', $categories)
