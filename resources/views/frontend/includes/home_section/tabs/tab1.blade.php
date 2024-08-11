@@ -11,7 +11,7 @@
                         <h5 class="mb-1 product-item__title"><a href="{{route('product.details',$product->slug)}}" class="text-blue font-weight-bold">{{$product->name}}</a></h5>
                         <div class="mb-2">
                             <a href="{{route('product.details',$product->slug)}}" class="d-block text-center">
-                                <img class="img-fluid" src="{{url(product_image($product))}}" alt="Image Description" style="height: 150px"></a>
+                                <img class="img-fluid" src="{{url(product_image($product))}}" alt="Image Description" style="height: 180px"></a>
                         </div>
                         <div class="flex-center-between mb-1">
                             <div class="prodcut-price">
