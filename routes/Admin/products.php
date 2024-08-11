@@ -17,7 +17,7 @@ Route::group([
 
 
         # products
-        Route::get('/', [ProductsController::class, 'index'])->name('index');
+        Route::get('/index', [ProductsController::class, 'index'])->name('index');
         Route::get('/add-product', [ProductsController::class, 'create'])->name('create');
         Route::post('/product', [ProductsController::class, 'store'])->name('store');
         Route::get('/update-product/{id}', [ProductsController::class, 'edit'])->name('edit');

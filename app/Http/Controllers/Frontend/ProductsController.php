@@ -17,7 +17,7 @@ class ProductsController extends Controller
     public function products()
     {
 
-        $products = Product::all();
+        $products = Product::where('is_published',1)->latest()->get();
         return view('frontend.products.all_products')
             ->with('products', $products);
     }
