@@ -25,18 +25,40 @@ class ProductsController extends Controller
     # delete product
     public function details($slug)
     {
-
+        // Retrieve the product based on the slug
         $product = Product::where('slug', $slug)->first();
 
-        $product_user=User::find($product->user_id);
-        $category =  ProductCategory::where('product_id', $product->id)->first();
-        $related_product_ids = ProductCategory::where('category_id', $category->id)->get();
-        $related_products = Product::whereIn('id',$related_product_ids)->get();
+        if (!$product) {
+            // Handle the case where the product is not found
+            return redirect()->back()->with('error', 'Product not found');
+        }
+
+        // Get the user who created the product
+        $product_user = User::find($product->user_id);
+
+        // Retrieve the category associated with the product
+        $category = ProductCategory::where('product_id', $product->id)->first();
+
+        // Initialize related products collection
+        $related_products = collect();
+
+        if ($category) {
+            // Retrieve the IDs of all products that share the same category
+            $related_product_ids = ProductCategory::where('category_id', $category->category_id)
+                ->pluck('product_id')
+                ->toArray();
+
+            // Retrieve the related products, excluding the current product
+            $related_products = Product::whereIn('id', $related_product_ids)
+                ->where('id', '!=', $product->id)
+                ->get();
+        }
+
+        // Return the view with the product details, user, and related products
         return view('frontend.products.product_details')
             ->with('related_products', $related_products)
             ->with('product_user', $product_user)
             ->with('product', $product);
-        #
     }
 
     public function searchCategory(Request $request)
