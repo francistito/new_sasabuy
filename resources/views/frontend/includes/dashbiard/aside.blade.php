@@ -11,19 +11,28 @@
 
 <ul id="sidebarNav" class="list-unstyled mb-0 sidebar-navbar">
     <li>
-        <a class="dropdown-toggle dropdown-toggle-collapse dropdown-title" href="{{route('dashboard.profile')}}" >
-            Profile
+        <a class="dropdown-current" href="{{route('dashboard.profile')}}" >
+            <strong>Profile</strong>
         </a>
     </li>
     <li>
-        <a class="dropdown-current" href="{{route('dashboard.product')}}">Product items</a>
+        <a class="dropdown-current" href="{{route('dashboard.product')}}"><strong>Product items</strong></a>
     </li>
     <li>
-        <a class="dropdown-current" href="{{route('dashboard.product')}}">Settings</a>
+        <a class="dropdown-current" href="{{route('dashboard.product')}}"><strong>Settings</strong></a>
     </li>
 
     <li>
-        <a class="dropdown-current" href="{{route('dashboard.product')}}">Help</a>
+        <a class="dropdown-current" href="{{route('dashboard.product')}}"><strong>Help</strong></a>
+    </li>
+
+    <li>
+
+        {!! Form::open(['route' => 'logout', 'id' => 'logout-form']) !!}
+        {!! Form::close() !!}
+        <a class="nav-link border-bottom-0" tabindex="-1" href="{{ route("logout") }}"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fas fa-power-off"></i> Log Out </a>
+
+{{--        <a class="dropdown-current" href="{{url('/logout')}}"><strong>Logout</strong></a>--}}
     </li>
 </ul>
 

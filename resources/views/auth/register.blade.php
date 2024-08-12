@@ -6,9 +6,9 @@
             <div class="card mt-4">
                 <div class="card-body">
                     <!-- Site Icon -->
-                    <div class="size-48px mb-3 mx-auto mx-lg-0">
-                        <img src="https://demo.activeitzone.com/ecommerce/public/uploads/all/pOcEwsWKlrd8jMih6o68tn4YAjWbQEAwvZfeZVxJ.svg" alt="Site Icon" class="img-fit h-100">
-                    </div>
+{{--                    <div class="size-48px mb-3 mx-auto mx-lg-0">--}}
+{{--                        <img src="https://demo.activeitzone.com/ecommerce/public/uploads/all/pOcEwsWKlrd8jMih6o68tn4YAjWbQEAwvZfeZVxJ.svg" alt="Site Icon" class="img-fit h-100">--}}
+{{--                    </div>--}}
                     <!-- Titles -->
                     <div class="text-center text-lg-left">
                         <h1 class="fs-20 fs-md-24 fw-700 text-primary" style="text-transform: uppercase;">Welcome  !</h1>
@@ -32,10 +32,21 @@
                                     @enderror
                                 </div>
                                 <div class="form-group phone-form-group mb-1">
-                                    <label for="phone" class="fs-12 fw-700 text-soft-dark">Email</label>
-                                    <input id="email" type="text" class="form-control @error('name') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="name" autofocus>
+                                    <label for="email" class="fs-12 fw-700 text-soft-dark">Email</label>
+                                    <input id="email" type="text" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="name" autofocus>
 
-                                    @error('name')
+                                    @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+
+                                <div class="form-group phone-form-group mb-1">
+                                    <label for="phone" class="fs-12 fw-700 text-soft-dark">Phone number</label>
+                                    <input id="phone_number" type="text" class="form-control @error('phone_number') is-invalid @enderror" name="phone_number" value="{{ old('phone_number') }}" required autocomplete="name" autofocus>
+
+                                    @error('phone_number')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
