@@ -254,38 +254,21 @@
 
 
                                                     <td>
-                                                        @can('publish_products')
+{{--                                                        @can('publish_products')--}}
                                                             <div class="form-check form-switch">
                                                                 <input type="checkbox" onchange="updatePublishedStatus(this)"
                                                                        class="form-check-input"
                                                                        @if ($product->is_published) checked @endif
                                                                        value="{{ $product->id }}">
                                                             </div>
-                                                        @endcan
+{{--                                                        @endcan--}}
 
                                                     </td>
                                                     <td class="text-end">
-                                                        <div class="dropdown tt-tb-dropdown">
-                                                            <button type="button" class="btn p-0" data-bs-toggle="dropdown"
-                                                                    aria-expanded="false">
-                                                                <i data-feather="more-vertical"></i>
-                                                            </button>
-                                                            <div class="dropdown-menu dropdown-menu-end shadow">
-                                                                {{--                                                    @can('edit_products')--}}
-                                                                <a class="dropdown-item"
-                                                                   href="{{ route('product.edit', ['id' => $product->id, 'lang_key' => env('DEFAULT_LANGUAGE')]) }}&">
-                                                                    <i data-feather="edit-3" class="me-2"></i>{{ ('Edit') }}
-                                                                </a>
-                                                                {{--                                                    @endcan--}}
-
-                                                                <a class="dropdown-item"
-                                                                   href="{{ route('product.show', $product->slug) }}"
-                                                                   target="_blank">
-                                                                    <i data-feather="eye"
-                                                                       class="me-2"></i>{{ ('View Details') }}
-                                                                </a>
-                                                            </div>
-                                                        </div>
+                                                        <a class="btn btn-primary btn-xs"
+                                                           href="{{ route('product.edit', ['id' => $product->id, 'lang_key' => env('DEFAULT_LANGUAGE')]) }}&" style="color: white">
+                                                            <i data-feather="edit-3" class="me-2"></i>{{ ('Edit') }}
+                                                        </a>
                                                     </td>
                                                 </tr>
                                             @endforeach

@@ -141,14 +141,14 @@
                                             </div>
                                         </td>
                                         <td>
-                                            @can('publish_products')
+{{--                                            @can('publish_products')--}}
                                                 <div class="form-check form-switch">
                                                     <input type="checkbox" onchange="updatePublishedStatus(this)"
                                                         class="form-check-input"
                                                         @if ($product->is_published) checked @endif
                                                         value="{{ $product->id }}">
                                                 </div>
-                                            @endcan
+{{--                                            @endcan--}}
 
                                         </td>
                                         <td class="text-end">

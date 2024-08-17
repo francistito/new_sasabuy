@@ -65,25 +65,27 @@
                     <div class="my-4 my-md-4">
                         <ul class="list-inline mb-0 opacity-7">
                             <li class="list-inline-item mr-0">
-                                <a class="btn font-size-20 btn-icon btn-soft-dark btn-bg-transparent rounded-circle" href="#">
+                                <a class="btn font-size-20 btn-icon btn-soft-dark btn-bg-transparent rounded-circle" href="https://web.facebook.com/sasabuysell?mibextid=LQQJ4d&rdid=iYAzuXY9NbgfveTk&share_url=https%3A%2F%2Fweb.facebook.com%2Fshare%2Fru2kHpHFr7RQgy66%2F%3Fmibextid%3DLQQJ4d%26_rdc%3D1%26_rdr" target="_blank">
                                     <span class="fab fa-facebook-f btn-icon__inner"></span>
                                 </a>
                             </li>
+
                             <li class="list-inline-item mr-0">
-                                <a class="btn font-size-20 btn-icon btn-soft-dark btn-bg-transparent rounded-circle" href="#">
+                                <a class="btn font-size-20 btn-icon btn-soft-dark btn-bg-transparent rounded-circle" href="https://www.instagram.com/sasabuytz/" target="_blank">
+                                    <span class="fab fa-instagram btn-icon__inner"></span>
+                                </a>
+                            </li>
+                            <li class="list-inline-item mr-0">
+                                <a class="btn font-size-20 btn-icon btn-soft-dark btn-bg-transparent rounded-circle" href="#" target="_blank">
                                     <span class="fab fa-google btn-icon__inner"></span>
                                 </a>
                             </li>
                             <li class="list-inline-item mr-0">
-                                <a class="btn font-size-20 btn-icon btn-soft-dark btn-bg-transparent rounded-circle" href="#">
+                                <a class="btn font-size-20 btn-icon btn-soft-dark btn-bg-transparent rounded-circle" href="#" target="_blank">
                                     <span class="fab fa-twitter btn-icon__inner"></span>
                                 </a>
                             </li>
-                            <li class="list-inline-item mr-0">
-                                <a class="btn font-size-20 btn-icon btn-soft-dark btn-bg-transparent rounded-circle" href="#">
-                                    <span class="fab fa-github btn-icon__inner"></span>
-                                </a>
-                            </li>
+
                         </ul>
                     </div>
                 </div>

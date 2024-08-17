@@ -79,7 +79,7 @@
                                 </div>
                                 <div class="mb-4">
                                     <label for="description" class="form-label">{{  ('Description') }}</label>
-                                    <textarea id="description" class="editor" name="description">{{ $product->collectLocalization('description', $lang_key) }}</textarea>
+                                    <textarea id="short_description" class="editor" name="description" >{{ $product->collectLocalization('description', $lang_key) }}</textarea>
                                 </div>
 
                             </div>
@@ -246,11 +246,11 @@
                                     <div class="noVariation"
                                         @if ($product->has_variation) style="display:none;" @endif>
                                         @php
-                                            $first_variation = $product->variations->first();
-                                            $price = !$product->has_variation ? $first_variation->price : 0;
-                                            $stock_qty = !$product->has_variation ? ($first_variation->product_variation_stock ? $first_variation->product_variation_stock->stock_qty : 0) : 1;
-                                            $sku = !$product->has_variation ? $first_variation->sku : null;
-                                            $code = !$product->has_variation ? $first_variation->code : null;
+//                                            $first_variation = $product->variations->first();
+////                                            $price = !$product->has_variation ? $first_variation->price : 0;
+//                                            $stock_qty = !$product->has_variation ? ($first_variation->product_variation_stock ? $first_variation->product_variation_stock->stock_qty : 0) : 1;
+//                                            $sku = !$product->has_variation ? $first_variation->sku : null;
+//                                            $code = !$product->has_variation ? $first_variation->code : null;
                                         @endphp
 
                                         <div class="row g-3">
@@ -260,44 +260,44 @@
                                                         class="form-label">{{  ('Price') }}</label>
                                                     <input type="number" min="0" step="0.0001" id="price"
                                                         name="price" placeholder="{{  ('Product price') }}"
-                                                        class="form-control" value="{{ $price }}"
+                                                        class="form-control" value="{{ $product->max_price }}"
                                                         {{ !$product->has_variation ? 'required' : '' }}>
                                                 </div>
                                             </div>
-                                            <div class="col-lg-3">
-                                                <div class="mb-3">
-                                                    <label for="stock" class="form-label">{{  ('Stock') }}
-                                                        <small
-                                                            class="text-warning">({{  ("Default Location's Stock") }})</small>
-                                                    </label>
-                                                    <input type="number" id="stock"
-                                                        placeholder="{{  ('Stock qty') }}" name="stock"
-                                                        class="form-control" value="{{ $stock_qty }}"
-                                                        {{ !$product->has_variation ? 'required' : '' }}>
+{{--                                            <div class="col-lg-3">--}}
+{{--                                                <div class="mb-3">--}}
+{{--                                                    <label for="stock" class="form-label">{{  ('Stock') }}--}}
+{{--                                                        <small--}}
+{{--                                                            class="text-warning">({{  ("Default Location's Stock") }})</small>--}}
+{{--                                                    </label>--}}
+{{--                                                    <input type="number" id="stock"--}}
+{{--                                                        placeholder="{{  ('Stock qty') }}" name="stock"--}}
+{{--                                                        class="form-control" value="{{ $stock_qty }}"--}}
+{{--                                                        {{ !$product->has_variation ? 'required' : '' }}>--}}
 
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-3">
-                                                <div class="mb-3">
-                                                    <label for="sku"
-                                                        class="form-label">{{  ('SKU') }}</label>
-                                                    <input type="text" id="sku"
-                                                        placeholder="{{  ('Product sku') }}" name="sku"
-                                                        class="form-control" value="{{ $sku }}"
-                                                        {{ !$product->has_variation ? 'required' : '' }}>
-                                                </div>
-                                            </div>
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+{{--                                            <div class="col-lg-3">--}}
+{{--                                                <div class="mb-3">--}}
+{{--                                                    <label for="sku"--}}
+{{--                                                        class="form-label">{{  ('SKU') }}</label>--}}
+{{--                                                    <input type="text" id="sku"--}}
+{{--                                                        placeholder="{{  ('Product sku') }}" name="sku"--}}
+{{--                                                        class="form-control" value="{{ $sku }}"--}}
+{{--                                                        {{ !$product->has_variation ? 'required' : '' }}>--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
 
-                                            <div class="col-lg-3">
-                                                <div class="mb-3">
-                                                    <label for="code"
-                                                        class="form-label">{{  ('Code') }}</label>
-                                                    <input type="text" id="code"
-                                                        placeholder="{{  ('Product code') }}" name="code"
-                                                        value="{{ $code }}" class="form-control"
-                                                        {{ !$product->has_variation ? 'required' : '' }}>
-                                                </div>
-                                            </div>
+{{--                                            <div class="col-lg-3">--}}
+{{--                                                <div class="mb-3">--}}
+{{--                                                    <label for="code"--}}
+{{--                                                        class="form-label">{{  ('Code') }}</label>--}}
+{{--                                                    <input type="text" id="code"--}}
+{{--                                                        placeholder="{{  ('Product code') }}" name="code"--}}
+{{--                                                        value="{{ $code }}" class="form-control"--}}
+{{--                                                        {{ !$product->has_variation ? 'required' : '' }}>--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
                                         </div>
                                     </div>
                                     <!-- without variation start end-->
@@ -732,6 +732,12 @@
     </section>
 @endsection
 
+@push('after-scripts')
+
+    @include('backend.pages.products.products.include.product_scripts')
+
+
+@endpush
 @section('scripts')
     @include('backend.inc.product-scripts')
 @endsection

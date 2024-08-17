@@ -39,6 +39,8 @@ class ProductsController extends Controller
         // Retrieve the category associated with the product
         $category = ProductCategory::where('product_id', $product->id)->first();
 
+
+
         // Initialize related products collection
         $related_products = collect();
 
@@ -58,6 +60,7 @@ class ProductsController extends Controller
         // Return the view with the product details, user, and related products
         return view('frontend.products.product_details')
             ->with('related_products', $related_products)
+            ->with('category', Category::find($category->category_id))
             ->with('product_user', $product_user)
             ->with('product', $product);
     }

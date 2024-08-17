@@ -104,6 +104,8 @@
 <script src="{{url('assets/vendor/typed.js/lib/typed.min.js')}}"></script>
 <script src="{{url('assets/vendor/slick-carousel/slick/slick.js')}}"></script>
 <script src="{{url('assets/vendor/bootstrap-select/dist/js/bootstrap-select.min.js')}}"></script>
+<script src="{{ asset('backend/assets/js/vendors/select2.min.js') }}"></script>
+
 
 <!-- JS Electro -->
 <script src="{{url('assets/js/hs.core.js')}}"></script>
@@ -144,9 +146,7 @@
         });
     });
 
-    $(function (){
 
-    })
 
 
 </script>

@@ -11,7 +11,7 @@
                 <div class="card-body">
                     <!-- Site Icon -->
                     <div class="size-48px mb-3 mx-auto mx-lg-0">
-                        <img src="https://demo.activeitzone.com/ecommerce/public/uploads/all/pOcEwsWKlrd8jMih6o68tn4YAjWbQEAwvZfeZVxJ.svg" alt="Site Icon" class="img-fit h-100">
+{{--                        <img src="https://demo.activeitzone.com/ecommerce/public/uploads/all/pOcEwsWKlrd8jMih6o68tn4YAjWbQEAwvZfeZVxJ.svg" alt="Site Icon" class="img-fit h-100">--}}
                     </div>
                     <!-- Titles -->
                     <div class="text-center text-lg-left">

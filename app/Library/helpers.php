@@ -2591,6 +2591,24 @@ if (!function_exists('product_image')){
     }
 }
 
+if (!function_exists('other_images')){
+    function other_images($product){
+
+        $document= $product->documents()->where('document_id', 2)->first();
+//        dd($document);
+        if ($document)
+        {
+//            dd(2);
+            $url = documentUrl($document->pivot->id);
+
+//            dd($url);
+            return $url;
+        }else{
+            return 'backend/assets/img/placeholder-thumb.png';
+        }
+    }
+}
+
 if (!function_exists('formatPrice')) {
     //formats price - truncate price to 1M, 2K if activated by admin
     function formatPrice($price, $truncate = false, $forceTruncate = false)

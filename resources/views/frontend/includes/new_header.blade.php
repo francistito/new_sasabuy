@@ -130,19 +130,19 @@
                                             <div id="headerSidebarContent" class="u-sidebar__content u-header-sidebar__content">
                                                 <!-- Logo -->
                                                 <a class="d-flex ml-0 navbar-brand u-header__navbar-brand u-header__navbar-brand-vertical" href="{{url('/')}}" aria-label="Electro">
-
+                                                    <h4><strong>ALL CATEGORIES</strong></h4>
                                                 </a>
                                                 <!-- End Logo -->
-
+<hr>
                                                 <!-- List -->
                                                 <ul id="headerSidebarList" class="u-header-collapse__nav">
                                                     <!-- Home Section -->
-                                                    <li class="u-has-submenu u-header-collapse__submenu">
-                                                        <a class="u-header-collapse__nav-link u-header-collapse__nav-pointer" href="javascript:;" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="headerSidebarHomeCollapse" data-target="#headerSidebarHomeCollapse">
-                                                            Home & Static Pages
-                                                        </a>
 
-                                                    </li>
+                                                    @foreach(product_categories() as $category)
+                                                        <li><a class="dropdown-item" href="{{route('product.category',$category->id)}}"><strong>{{$category->name}}</strong></a></li>
+
+                                                    @endforeach
+
                                                     <!-- End Home Section -->
 
                                                 </ul>
@@ -261,41 +261,27 @@
                                     <a id="homeMegaMenu" class="nav-link u-header__nav-link " href="{{url('/')}}" aria-haspopup="true" aria-expanded="false">Home</a>
                                 </li>
 
-                                <li class="nav-item hs-has-mega-menu u-header__nav-item"
-                                    data-event="hover"
-                                    data-animation-in="slideInUp"
-                                    data-animation-out="fadeOut">
-                                    <a id="TVMegaMenu" class="nav-link u-header__nav-link " href="{{route('product.products')}}" aria-haspopup="true" aria-expanded="false">Products</a>
-
-                                    <!-- TV & Audio - Mega Menu -->
-                                    <div class="hs-mega-menu w-100 u-header__sub-menu" aria-labelledby="TVMegaMenu">
-                                        <div class="row u-header__mega-menu-wrapper">
-{{--                                            @foreach(\App\Models\Category::where('parent_id',$category->id)->get() as $sub_category)--}}
-{{--                                                <div class="col-md-3">--}}
-{{--                                                    <span class="u-header__sub-menu-title">{{$sub_category->title}}</span>--}}
-
-{{--                                                </div>--}}
-{{--                                            @endforeach--}}
-
-                                        </div>
-                                    </div>
-                                    <!-- End TV & Audio - Mega Menu -->
+                                <li class="nav-item hs-has-mega-menu u-header__nav-item" data-event="hover" data-animation-in="slideInUp" data-animation-out="fadeOut" data-position="left" style="border:0 ">
+                                    <a id="homeMegaMenu" class="nav-link u-header__nav-link " href="{{route('product.products')}}" aria-haspopup="true" aria-expanded="false">Products</a>
                                 </li>
+
+
                                 <!-- End Home -->
 
-                                @foreach(product_categories() as $category)
+{{--                                @foreach(product_categories() as $category)--}}
                                     <li class="nav-item hs-has-mega-menu u-header__nav-item"
                                         data-event="hover"
                                         data-animation-in="slideInUp"
                                         data-animation-out="fadeOut">
-                                        <a id="TVMegaMenu" class="nav-link u-header__nav-link u-header__nav-link-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false">{{$category->name}}</a>
+                                        <a id="TVMegaMenu" class="nav-link u-header__nav-link u-header__nav-link-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false">Product Categories</a>
 
                                         <!-- TV & Audio - Mega Menu -->
                                         <div class="hs-mega-menu w-100 u-header__sub-menu" aria-labelledby="TVMegaMenu">
                                             <div class="row u-header__mega-menu-wrapper">
-                                                @foreach(\App\Models\Category::where('parent_id',$category->id)->get() as $sub_category)
+                                                @foreach(product_categories() as $category)
                                                     <div class="col-md-3">
-                                                        <span class="u-header__sub-menu-title">{{$sub_category->title}}</span>
+                                                        <a class="u-header__sub-menu-title" href="{{route('product.category',$category->id)}}"><strong>{{$category->name}}</strong></a>
+{{--                                                        <span class="u-header__sub-menu-title">{{$category->name}}</span>--}}
                                                     </div>
                                                 @endforeach
 
@@ -304,11 +290,15 @@
                                         <!-- End TV & Audio - Mega Menu -->
                                     </li>
 
-                                @endforeach
+{{--                                @endforeach--}}
                                 <!-- TV & Audio -->
                                 <!-- End Pages -->
-
-
+                                <li class="nav-item hs-has-mega-menu u-header__nav-item" data-event="hover" data-animation-in="slideInUp" data-animation-out="fadeOut" data-position="left" style="border:0 ">
+                                    <a id="homeMegaMenu" class="nav-link u-header__nav-link " href="#" aria-haspopup="true" aria-expanded="false">About Us</a>
+                                </li>
+                                <li class="nav-item hs-has-mega-menu u-header__nav-item" data-event="hover" data-animation-in="slideInUp" data-animation-out="fadeOut" data-position="left" style="border:0 ">
+                                    <a id="homeMegaMenu" class="nav-link u-header__nav-link " href="{{route('dashboard.product')}}" aria-haspopup="true" aria-expanded="false">Sell</a>
+                                </li>
                             </ul>
                         </div>
                         <!-- End Navigation -->

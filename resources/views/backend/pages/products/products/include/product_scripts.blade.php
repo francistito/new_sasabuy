@@ -2,16 +2,16 @@
 <script>
     'use strict';
 
-    var TT = TT || {};
-    TT.  = {
-        no_data_found: '{{  ('No data found') }}',
-        selected_file: '{{  ('Selected File') }}',
-        selected_files: '{{  ('Selected Files') }}',
-        file_added: '{{  ('File added') }}',
-        files_added: '{{  ('Files added') }}',
-        no_file_chosen: '{{  ('No file chosen') }}',
-    };
-    TT.baseUrl = '{{ \Request::root() }}';
+    {{--var TT = TT || {};--}}
+    {{--TT.  = {--}}
+    {{--    no_data_found: '{{  ('No data found') }}',--}}
+    {{--    selected_file: '{{  ('Selected File') }}',--}}
+    {{--    selected_files: '{{  ('Selected Files') }}',--}}
+    {{--    file_added: '{{  ('File added') }}',--}}
+    {{--    files_added: '{{  ('Files added') }}',--}}
+    {{--    no_file_chosen: '{{  ('No file chosen') }}',--}}
+    {{--};--}}
+    {{--TT.baseUrl = '{{ \Request::root() }}';--}}
 
     // on click delete confirmation -- outside footable
     function confirmDelete(thisLink) {

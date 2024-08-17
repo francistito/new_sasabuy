@@ -1,8 +1,18 @@
+
+{!! Html::script(url('assets/vendor/ckeditor5/ckeditor.js')) !!}
+
 <script>
     "use strict";
 
+
+    $(function (){
+        ClassicEditor.create( document.querySelector('#description'));
+
+    })
     // runs when the document is ready --> for media files
     $(document).ready(function() {
+
+
         getChosenFilesCount();
         showSelectedFilePreviewOnLoad();
     });
@@ -24,7 +34,7 @@
         } else {
             $(".noVariation").show();
 
-            // add required field for non variations 
+            // add required field for non variations
             $("#price").attr('required', true);
             $("#stock").attr('required', true);
             $("#sku").attr('required', true);

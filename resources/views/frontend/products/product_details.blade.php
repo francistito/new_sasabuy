@@ -23,6 +23,22 @@
 
 @section('content')
 
+
+    <div class="bg-gray-13 bg-md-transparent">
+        <div class="container">
+            <!-- breadcrumb -->
+            <div class="my-md-3">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb mb-3 flex-nowrap flex-xl-wrap overflow-auto overflow-xl-visble">
+                        <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1"><a href="{{url('/')}}">Home</a></li>
+                        <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1"><a href="{{route('product.category',$category->id)}}">{{$category->name}}</a></li>
+                        <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1 active" aria-current="page">  {{$product->name}}</li>
+                    </ol>
+                </nav>
+            </div>
+            <!-- End breadcrumb -->
+        </div>
+    </div>
     <section class="mb-4 pt-3">
         <div class="container">
             <div class="bg-white py-3">
@@ -34,9 +50,7 @@
                             <div class="col-12">
                                 <div class="aiz-carousel product-gallery arrow-inactive-transparent arrow-lg-none slick-initialized slick-slider"
                                      data-nav-for=".product-gallery-thumb" data-fade="true" data-auto-height="true" data-arrows="true">
-                                    <button type="button" class="slick-prev slick-arrow slick-disabled" aria-disabled="true" style="display: inline-block;">
-                                        <i class="las la-angle-left"></i>
-                                    </button>
+
                                     <div class="slick-list draggable" style="height: 450.5px;">
                                         <div class="slick-track" style="opacity: 1; width: 890px;">
                                             <div class="slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false" style="width: 445px; position: relative; left: 0px; top: 0px; z-index: 999; opacity: 1;">
@@ -44,40 +58,37 @@
                                                     <div class="carousel-box img-zoom rounded-0" style="width: 100%; display: inline-block; position: relative; overflow: hidden;">
                                                         <img class="img-fluid h-auto mx-auto lazyloaded" src="{{url(product_image($product))}}"
                                                              data-src="{{url(product_image($product))}}"
-                                                             onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder.jpg';"
-                                                             loading="lazy">
+                                                             onerror="this.onerror=null;this.src='{{url(product_image($product))}}';"
+                                                             loading="lazy" style="width: 720px;height: 660px">
                                                     </div>
                                                 </div>
                                             </div>
                                             <!-- Add more slides if needed -->
                                         </div>
                                     </div>
-                                    <button type="button" class="slick-next slick-arrow" style="display: inline-block;" aria-disabled="false">
-                                        <i class="las la-angle-right"></i>
-                                    </button>
                                 </div>
                             </div>
                             <!-- Thumbnail Images -->
-                            <div class="col-12 mt-3 d-none d-lg-block">
-                                <div class="aiz-carousel half-outside-arrow product-gallery-thumb slick-initialized slick-slider"
-                                     data-items="7" data-nav-for=".product-gallery" data-focus-select="true" data-arrows="true" data-vertical="false" data-auto-height="true">
-                                    <div class="slick-list draggable">
-                                        <div class="slick-track" style="opacity: 1; width: 128px;">
-                                            <div class="slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false" style="width: 64px;">
-                                                <div>
-                                                    <div class="carousel-box c-pointer rounded-0" style="width: 100%; display: inline-block;">
-                                                        <img class="mw-100 size-60px mx-auto border p-1 lazyloaded" src="{{url(product_image($product))}}"
-                                                             data-src="{{url(product_image($product))}}"
-                                                             onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder.jpg';"
-                                                             loading="lazy">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- Add more thumbnails if needed -->
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+{{--                            <div class="col-12 mt-3 d-none d-lg-block">--}}
+{{--                                <div class="aiz-carousel half-outside-arrow product-gallery-thumb slick-initialized slick-slider"--}}
+{{--                                     data-items="7" data-nav-for=".product-gallery" data-focus-select="true" data-arrows="true" data-vertical="false" data-auto-height="true">--}}
+{{--                                    <div class="slick-list draggable">--}}
+{{--                                        <div class="slick-track" style="opacity: 1; width: 128px;">--}}
+{{--                                            <div class="slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false" style="width: 64px;">--}}
+{{--                                                <div>--}}
+{{--                                                    <div class="carousel-box c-pointer rounded-0" style="width: 100%; display: inline-block;">--}}
+{{--                                                        <img class="mw-100 size-60px mx-auto border p-1 lazyloaded" src="{{url(other_images($product))}}"--}}
+{{--                                                             data-src="{{url(other_images($product))}}"--}}
+{{--                                                             onerror="this.onerror=null;this.src='{{url(other_images($product))}}';"--}}
+{{--                                                             loading="lazy">--}}
+{{--                                                    </div>--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+{{--                                            <!-- Add more thumbnails if needed -->--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
                         </div>
                     </div>
 
@@ -225,11 +236,6 @@
             </div>
 
         </div>
-
-
-
-
-
     </section>
 
 @endsection

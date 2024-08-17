@@ -144,10 +144,11 @@ class ProductsController extends Controller
     public function store(Request $request)
     {
 
-        if ($request->has('is_variant') && !$request->has('variations')) {
-            flash( ('Invalid product variations, please check again'))->error();
-            return redirect()->back();
-        }
+
+//        if ($request->has('is_variant') && !$request->has('variations')) {
+//            flash( ('Invalid product variations, please check again'))->error();
+//            return redirect()->back();
+//        }
 
         $product                    = new Product;
         $product->shop_id           = auth()->user()->shop_id?auth()->user()->shop_id:1;
@@ -190,7 +191,7 @@ class ProductsController extends Controller
         }
 
         # stock qty based on all variations / no variation
-        $product->stock_qty   = ($request->has('is_variant') && $request->has('variations')) ? max(array_column($request->variations, 'stock')) : $request->stock;
+        $product->stock_qty   = 1;
 
         $product->is_published         = $request->is_published;
         $product->has_variation        = ($request->has('is_variant') && $request->has('variations')) ? 1 : 0;
@@ -236,51 +237,51 @@ class ProductsController extends Controller
 
         $location = Location::where('is_default', 1)->first();
 
-        if ($request->has('is_variant') && $request->has('variations')) {
-            foreach ($request->variations as $variation) {
-                $product_variation              = new ProductVariation;
-                $product_variation->product_id  = $product->id;
-                $product_variation->variation_key        = $variation['variation_key'];
-                $product_variation->price       = priceToUsd($variation['price']);
-                $product_variation->sku         = $variation['sku'];
-                $product_variation->code         = $variation['code'];
-                $product_variation->save();
-
-                $product_variation_stock                              = new ProductVariationStock;
-                $product_variation_stock->product_variation_id        = $product_variation->id;
-                $product_variation_stock->location_id                 = $location->id;
-                $product_variation_stock->stock_qty                   = $variation['stock'];
-                $product_variation_stock->save();
-
-                foreach (array_filter(explode("/", $variation['variation_key'])) as $combination) {
-                    $product_variation_combination                         = new ProductVariationCombination;
-                    $product_variation_combination->product_id             = $product->id;
-                    $product_variation_combination->product_variation_id   = $product_variation->id;
-                    $product_variation_combination->variation_id           = explode(":", $combination)[0];
-                    $product_variation_combination->variation_value_id     = explode(":", $combination)[1];
-                    $product_variation_combination->save();
-                }
-            }
-        } else {
-            $variation              = new ProductVariation;
-            $variation->product_id  = $product->id;
-            $variation->sku         = $request->sku;
-            $variation->code         = $request->code;
-            $variation->price       = priceToUsd($request->price);
-            $variation->save();
-            $product_variation_stock                          = new ProductVariationStock;
-            $product_variation_stock->product_variation_id    = $variation->id;
-            $product_variation_stock->location_id             = $location->id;
-            $product_variation_stock->stock_qty               = $request->stock;
-            $product_variation_stock->save();
-        }
+//        if ($request->has('is_variant') && $request->has('variations')) {
+//            foreach ($request->variations as $variation) {
+//                $product_variation              = new ProductVariation;
+//                $product_variation->product_id  = $product->id;
+//                $product_variation->variation_key        = $variation['variation_key'];
+//                $product_variation->price       = priceToUsd($variation['price']);
+//                $product_variation->sku         = $variation['sku'];
+//                $product_variation->code         = $variation['code'];
+//                $product_variation->save();
+//
+//                $product_variation_stock                              = new ProductVariationStock;
+//                $product_variation_stock->product_variation_id        = $product_variation->id;
+//                $product_variation_stock->location_id                 = $location->id;
+//                $product_variation_stock->stock_qty                   = $variation['stock'];
+//                $product_variation_stock->save();
+//
+//                foreach (array_filter(explode("/", $variation['variation_key'])) as $combination) {
+//                    $product_variation_combination                         = new ProductVariationCombination;
+//                    $product_variation_combination->product_id             = $product->id;
+//                    $product_variation_combination->product_variation_id   = $product_variation->id;
+//                    $product_variation_combination->variation_id           = explode(":", $combination)[0];
+//                    $product_variation_combination->variation_value_id     = explode(":", $combination)[1];
+//                    $product_variation_combination->save();
+//                }
+//            }
+//        } else {
+//            $variation              = new ProductVariation;
+//            $variation->product_id  = $product->id;
+//            $variation->sku         = $request->sku;
+//            $variation->code         = $request->code;
+//            $variation->price       = priceToUsd($request->price);
+//            $variation->save();
+//            $product_variation_stock                          = new ProductVariationStock;
+//            $product_variation_stock->product_variation_id    = $variation->id;
+//            $product_variation_stock->location_id             = $location->id;
+//            $product_variation_stock->stock_qty               = $request->stock;
+//            $product_variation_stock->save();
+//        }
 
 //        dd($request->all());
 
         (new DocumentResourceRepository())->saveDocument($product->id,1,'product_thumbnail', $request->all());
 
 
-//        (new DocumentResourceRepository())->saveDocument($product->id,2,'other_images', $request->all());
+        (new DocumentResourceRepository())->saveDocument($product->id,2,'other_images', $request->all());
 
 
 
@@ -349,7 +350,7 @@ class ProductsController extends Controller
             $product->discount_type     = $request->discount_type;
 
             # stock qty based on all variations / no variation
-            $product->stock_qty   = ($request->has('is_variant') && $request->has('variations')) ? max(array_column($request->variations, 'stock')) : $request->stock;
+            $product->stock_qty   = 1;
 
             $product->is_published         = $request->is_published;
             $product->has_variation        = ($request->has('is_variant') && $request->has('variations')) ? 1 : 0;

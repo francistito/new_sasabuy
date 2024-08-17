@@ -187,7 +187,7 @@
 
                                 <!--left sidebar-->
                                 <div class="col-xl-12 order-2 order-md-2 order-lg-2 order-xl-1">
-                                    @include('backend.pages.products.products.include.add_form')
+                                    @include('frontend.products.manage.includes.add_form')
                                 </div>
 
                             </div>
@@ -221,6 +221,8 @@
         @include('backend.pages.products.products.include.product_scripts')
 
         <script>
+
+
             document.addEventListener('DOMContentLoaded', function() {
                 const tabButtons = document.querySelectorAll('.tab-button');
                 const tabContents = document.querySelectorAll('.tab-content');
