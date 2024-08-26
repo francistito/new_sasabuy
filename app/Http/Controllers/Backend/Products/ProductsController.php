@@ -197,10 +197,10 @@ class ProductsController extends Controller
         $product->has_variation        = ($request->has('is_variant') && $request->has('variations')) ? 1 : 0;
 
         # shipping info
-        $product->standard_delivery_hours    = $request->standard_delivery_hours;
-        $product->express_delivery_hours     = $request->express_delivery_hours;
-        $product->min_purchase_qty     = $request->min_purchase_qty;
-        $product->max_purchase_qty     = $request->max_purchase_qty;
+        $product->standard_delivery_hours    = 1;
+        $product->express_delivery_hours     = 1;
+        $product->min_purchase_qty     = 1;
+        $product->max_purchase_qty     = 1;
 
 
         $product->meta_title = $request->meta_title;
@@ -281,12 +281,16 @@ class ProductsController extends Controller
         (new DocumentResourceRepository())->saveDocument($product->id,1,'product_thumbnail', $request->all());
 
 
-        (new DocumentResourceRepository())->saveDocument($product->id,2,'other_images', $request->all());
+//        (new DocumentResourceRepository())->saveDocument($product->id,2,'other_images', $request->all());
 
 
 
 //        flash( ('Product has been inserted successfully'))->success();
-        return redirect()->back();
+        if ($request->has('vendor')) {
+            return redirect()->route('dashboard.product');
+
+        }
+        return redirect()->route('product.index');
     }
 
     # return view of edit form
@@ -318,7 +322,6 @@ class ProductsController extends Controller
         }
 
         $product                    = Product::where('id', $request->id)->first();
-        $oldProduct                 = clone $product;
 
 //        if ($product->shop_id != auth()->user()->shop_id) {
 //            abort(403);
@@ -346,8 +349,8 @@ class ProductsController extends Controller
             }
 
             # discount
-            $product->discount_value    = $request->discount_value;
-            $product->discount_type     = $request->discount_type;
+            $product->discount_value    = 1;
+            $product->discount_type     = 1;
 
             # stock qty based on all variations / no variation
             $product->stock_qty   = 1;
@@ -356,10 +359,10 @@ class ProductsController extends Controller
             $product->has_variation        = ($request->has('is_variant') && $request->has('variations')) ? 1 : 0;
 
             # shipping info
-            $product->standard_delivery_hours    = $request->standard_delivery_hours;
-            $product->express_delivery_hours     = $request->express_delivery_hours;
-            $product->min_purchase_qty     = $request->min_purchase_qty;
-            $product->max_purchase_qty     = $request->max_purchase_qty;
+            $product->standard_delivery_hours    =1;
+            $product->express_delivery_hours     = 1;
+            $product->min_purchase_qty     = 1;
+            $product->max_purchase_qty     = 1;
 
 
             $product->meta_title = $request->meta_title;
@@ -375,6 +378,10 @@ class ProductsController extends Controller
             # category
             $product->categories()->sync($request->category_ids);
 
+            if ($request->has('vendor')) {
+                return redirect()->route('dashboard.product');
+
+            }
 
         return redirect()->route('product.index');
     }

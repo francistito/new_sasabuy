@@ -1,6 +1,9 @@
 <form action="{{ route('product.store') }}" method="POST" class="pb-650" id="product-form"  enctype="multipart/form-data">
     @csrf
     <!--basic information start-->
+
+    <input type="hidden" name="vendor" value="{{1 }}">
+
     <div class="card mb-4" id="section-1">
         <div class="card-body">
             <h5 class="mb-4">{{  ('Basic Information') }}</h5>
@@ -220,140 +223,6 @@
             <!-- without variation start end-->
 
 
-            <!--for variation row start-->
-            <div class="hasVariation" style="display: none">
-                @php
-                    $sizes = \App\Models\VariationValue::isActive()
-                        ->where('variation_id', 1)
-                        ->get();
-
-                    $colors = \App\Models\VariationValue::isActive()
-                        ->where('variation_id', 2)
-                        ->get();
-                @endphp
-
-                <div class="row g-3">
-                    <!-- size -->
-                    @if (count($sizes) > 0)
-                        <div class="col-lg-6">
-                            <div class="mb-0">
-                                <label for="product-thumb"
-                                       class="form-label">{{  ('Sizes') }}</label>
-                                <input type="hidden" name="chosen_variations[]" value="1">
-                                <select class="select2 form-control" multiple="multiple"
-                                        data-placeholder="{{  ('Select Sizes') }}"
-                                        onchange="generateVariationCombinations()"
-                                        name="option_1_choices[]">
-                                    @foreach ($sizes as $size)
-                                        <option value="{{ $size->id }}">
-                                            {{ $size->collectLocalization('name') }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
-                    @endif
-                    <!-- size end -->
-
-                    <!-- colors -->
-                    @if (count($colors) > 0)
-                        <div class="col-lg-6">
-                            <div class="mb-0">
-                                <label for="product-thumb"
-                                       class="form-label">{{  ('Colors') }}</label>
-                                <input type="hidden" name="chosen_variations[]" value="2">
-                                <select class="select2 form-control" multiple="multiple"
-                                        data-placeholder="{{  ('Select colors') }}"
-                                        onchange="generateVariationCombinations()"
-                                        name="option_2_choices[]">
-                                    @foreach ($colors as $color)
-                                        <option value="{{ $color->id }}">
-                                            {{ $color->collectLocalization('name') }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
-                    @endif
-                    <!-- colors end -->
-                </div>
-
-                @if (count($variations) > 0)
-                    <div class="row g-3 mt-1">
-                        <div class="col-lg-6">
-                            <div class="mb-0">
-                                <label class="form-label">{{  ('Select Variations') }}</label>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="mb-0">
-                                <label class="form-label">{{  ('Select Values') }}</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="chosen_variation_options">
-                        <div class="row g-3">
-                            <div class="col-lg-6">
-                                <div class="mb-0">
-                                    <select class="form-select select2"
-                                            onchange="getVariationValues(this)"
-                                            name="chosen_variations[]">
-                                        <option value="">{{  ('Select a Variation') }}
-                                        </option>
-                                        @foreach ($variations as $key => $variation)
-                                            <option value="{{ $variation->id }}">
-                                                {{ $variation->collectLocalization('name') }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="mb-0">
-                                    <div class="variationvalues">
-                                        <input type="text" class="form-control"
-                                               placeholder="{{  ('Select variation values') }}" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="mb-4">
-                                <button class="btn btn-link px-0 fw-medium fs-base" type="button"
-                                        onclick="addAnotherVariation()">
-                                    <i data-feather="plus" class="me-1"></i>
-                                    {{  ('Add Another Variation') }}
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                @endif
-
-                <div class="variation_combination" id="variation_combination">
-                    {{-- combinations will be added here via ajax response --}}
-                </div>
-
-                <!-- size guide -->
-                <div class="mt-3">
-                    <label class="form-label">{{  ('Product Size Guide') }}</label>
-                    <div class="tt-image-drop rounded">
-                        <span class="fw-semibold">{{  ('Choose Size Guide Image') }}</span>
-                        <!-- choose media -->
-                        <div class="tt-product-thumb show-selected-files mt-3">
-                            <div class="avatar avatar-xl cursor-pointer choose-media"
-                                 data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom"
-                                 onclick="showMediaManager(this)" data-selection="single">
-                                <input type="hidden" name="size_guide">
-                                <div class="no-avatar rounded-circle">
-                                    <span><i data-feather="plus"></i></span>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- choose media -->
-                    </div>
-                </div>
-                <!-- size guide end -->
-            </div>
         </div>
         <!--for variation row end-->
     </div>
@@ -399,59 +268,7 @@
 {{--    </div>--}}
     <!--product discount end-->
 
-    <!--shipping configuration start-->
-    <div class="card mb-4 d-none" id="section-7">
-        <div class="card-body">
-            <h5 class="mb-4">{{  ('Shipping Configuration') }}</h5>
 
-            <div class="row g-3">
-                <div class="col-lg-6">
-                    <div class="mb-0">
-                        <label for="min_purchase_qty"
-                               class="form-label">{{  ('Minimum Purchase Qty') }}</label>
-                        <input type="number" id="min_purchase_qty" name="min_purchase_qty"
-                               min="1" value="1" class="form-control">
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="mb-0">
-                        <label for="max_purchase_qty"
-                               class="form-label">{{  ('Maximum Purchase Qty') }}</label>
-                        <input type="number" id="max_purchase_qty" name="max_purchase_qty"
-                               min="1" value="1" class="form-control">
-                    </div>
-                </div>
-                <div class="col-lg-6 d-none">
-                    <div class="mb-0">
-                        <label for="standard_delivery_hours"
-                               class="form-label">{{  ('Standard Delivery Time') }}</label>
-                        <div class="input-group">
-                            <input type="number" step="0.01" class="form-control"
-                                   name="standard_delivery_hours" value="72" min="0" required
-                                   id="standard_delivery_hours">
-                            <div class="input-group-append"><span
-                                    class="input-group-text">hr(s)</span></div>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="col-lg-6 d-none">
-                    <div class="mb-0">
-                        <label for="express_delivery_hours"
-                               class="form-label">{{  ('Express Delivery Time') }}</label>
-                        <div class="input-group">
-                            <input type="number" step="0.01" class="form-control"
-                                   name="express_delivery_hours" value="24" min="0" required
-                                   id="express_delivery_hours">
-                            <div class="input-group-append"><span
-                                    class="input-group-text">hr(s)</span></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--shipping configuration end-->
 
     <!--product tax start-->
 {{--    <div class="card mb-4" id="section-8">--}}
@@ -563,7 +380,7 @@
     <div class="row">
         <div class="col-12">
             <div class="mb-4">
-                <button class="btn btn-primary" type="submit">
+                <button class="btn btn-primary" type="submit" style="color: white ">
                     <i data-feather="save" class="me-1"></i> {{  ('Save Product') }}
                 </button>
             </div>

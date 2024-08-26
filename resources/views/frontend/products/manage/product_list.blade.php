@@ -266,7 +266,7 @@
                                                     </td>
                                                     <td class="text-end">
                                                         <a class="btn btn-primary btn-xs"
-                                                           href="{{ route('product.edit', ['id' => $product->id, 'lang_key' => env('DEFAULT_LANGUAGE')]) }}&" style="color: white">
+                                                           href="{{ route('dashboard.edit_product', ['slug' => $product->slug, 'lang_key' => env('DEFAULT_LANGUAGE')]) }}&" style="color: white">
                                                             <i data-feather="edit-3" class="me-2"></i>{{ ('Edit') }}
                                                         </a>
                                                     </td>
@@ -276,7 +276,8 @@
                                         </table>
                                         <!--pagination start-->
                                         <div class="d-flex align-items-center justify-content-between px-4 pb-4">
-                            <span>{{ ('Showing') }}
+                            <span>
+                                {{ ('Showing') }}
 {{--                                {{ $products->firstItem() }}-{{ $products->lastItem() }} {{ ('of') }}--}}
 {{--                                {{ $products->total() }} {{ ('results') }}--}}
 
@@ -290,7 +291,8 @@
                                 </div>
                             </div>
                         </div>
-                    </section>                </main>
+                    </section>
+                </main>
 
             </div>
         </div>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Models\Brand;
 use App\Models\Category;
+use App\Models\Location;
 use App\Models\Product;
 use App\Models\Tag;
 use App\Models\Tax;
@@ -77,5 +78,23 @@ class DashboardController extends Controller
         $taxes = Tax::isActive()->get();
         $tags = Tag::all();
         return view('frontend.products.manage.add_new', compact('categories', 'brands', 'units', 'variations', 'taxes', 'tags'));
+    }
+
+
+    public function editProduct($slug){
+
+        $product = Product::where('slug', $slug)->firstOrFail();
+        $categories = Category::where('parent_id', 0)
+            ->orderBy('sorting_order_level', 'desc')
+            ->with('childrenCategories')
+            ->get();
+        $brands = Brand::isActive()->get();
+        $units = Unit::isActive()->get();
+        $variations = Variation::isActive()->whereNotIn('id', [1, 2])->get();
+        $taxes = Tax::isActive()->get();
+        $tags = Tag::all();
+
+        return view('frontend.products.manage.edit', compact('product','categories', 'brands', 'units', 'variations', 'taxes', 'tags'));
+
     }
 }
