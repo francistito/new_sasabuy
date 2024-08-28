@@ -199,7 +199,7 @@
                                             <div class="product-item__body pb-xl-2">
                                                 <h5 class="mb-1 product-item__title">
                                                     <a href="{{ route('product.details', $product->slug) }}" class="text-blue font-weight-bold">
-                                                        {{ truncateString($product->name) }}
+                                                        {{ ($product->name) }}
                                                     </a>
                                                 </h5>
                                                 <div class="mb-2">
