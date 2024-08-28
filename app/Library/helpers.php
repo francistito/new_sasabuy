@@ -189,9 +189,6 @@ if (! function_exists('sec_env')) {
 }
 
 
-/*
- * truncate to n characters of string
- */
 if(! function_exists('truncateString')) {
     function truncateString($string, $stringLimit = 50){
         return Str::limit($string, $stringLimit);

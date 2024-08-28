@@ -44,8 +44,8 @@
             <div class="bg-white py-3">
                 <div class="row">
                     <!-- Product Image Gallery -->
-                    <div class="col-xl-5 col-lg-6 mb-4">
-                        <div class="sticky-top z-3 row gutters-10">
+                    <div class="col-xl-5 col-lg-6 ">
+                        <div class=" row ">
                             <!-- Gallery Images -->
                             <div class="col-12">
                                 <div class="aiz-carousel product-gallery arrow-inactive-transparent arrow-lg-none slick-initialized slick-slider"
@@ -101,9 +101,17 @@
                             </h2>
 
                             <!-- Brand Logo & Name -->
-                            <div class="d-flex flex-wrap align-items-center mb-3">
-                                <span class="text-secondary fs-14 fw-400 mr-4 w-80px">Brand</span><br>
-                                <a href="#" class="text-reset hov-text-primary fs-14 fw-700">{{$product->brand->name ?? null}}</a>
+                            <div class="row no-gutters mb-3">
+{{--                                <div class="col-sm-2">--}}
+{{--                                    <div class="text-secondary fs-14 fw-400">Price</div>--}}
+{{--                                </div>--}}
+                                <div class="col-sm-12">
+                                    <div class="d-flex align-items-center">
+                                        <strong class="fs-16 fw-700 text-primary">
+                                            <div class="text-secondary fs-14 fw-400">Price :   <span style="color: #0a53be">{{currency_code()}} {{formatPrice($product->max_price)}}</span> </div>
+                                        </strong>
+                                    </div>
+                                </div>
                             </div>
 
                             <!-- Seller Info -->
@@ -122,18 +130,7 @@
                             <hr>
 
                             <!-- Product Price -->
-                            <div class="row no-gutters mb-3">
-                                <div class="col-sm-2">
-                                    <div class="text-secondary fs-14 fw-400">Price</div>
-                                </div>
-                                <div class="col-sm-10">
-                                    <div class="d-flex align-items-center">
-                                        <strong class="fs-16 fw-700 text-primary">
-                                            {{currency_code()}} {{formatPrice($product->max_price)}}
-                                        </strong>
-                                    </div>
-                                </div>
-                            </div>
+
 
                             <!-- Product Description -->
                             <div class="row no-gutters mb-3">
@@ -202,12 +199,14 @@
                                             <div class="product-item__body pb-xl-2">
                                                 <h5 class="mb-1 product-item__title">
                                                     <a href="{{ route('product.details', $product->slug) }}" class="text-blue font-weight-bold">
-                                                        {{ $product->name }}
+                                                        {{ truncateString($product->name) }}
                                                     </a>
                                                 </h5>
                                                 <div class="mb-2">
                                                     <a href="{{ route('product.details', $product->slug) }}" class="d-block text-center">
-                                                        <img class="img-fluid" src="{{ url(product_image($product)) }}" alt="{{ $product->name }} image" loading="lazy">
+                                                        <img class="img-fluid" src="{{url(product_image($product))}}" alt="Image Description" style="height: 100px" loading="lazy">
+
+{{--                                                    <img class="img-fluid" src="{{ url(product_image($product)) }}" alt="{{ $product->name }} image" loading="lazy">--}}
                                                     </a>
                                                 </div>
                                                 <div class="flex-center-between mb-1">
@@ -257,7 +256,7 @@
     </script>
     <script>function openWhatsApp() {
             const phoneNumber = '+255{{$product_user->phone_number}}'; // Replace with your WhatsApp number
-            const message = 'Hello, You need {{$product->name}}!'; // Optional
+            const message = 'Hello, I need {{$product_name}}!'; // Optional
             const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
             window.open(url, '_blank');
         }

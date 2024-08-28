@@ -57,11 +57,13 @@ class ProductsController extends Controller
                 ->get();
         }
 
+        $product_name = $product->name;
         // Return the view with the product details, user, and related products
         return view('frontend.products.product_details')
             ->with('related_products', $related_products)
             ->with('category', Category::find($category->category_id))
             ->with('product_user', $product_user)
+            ->with('product_name', $product_name)
             ->with('product', $product);
     }
 
